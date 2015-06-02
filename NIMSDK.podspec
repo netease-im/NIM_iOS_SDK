@@ -23,12 +23,9 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '6.0'
 
-  s.source_files = 'SDK/ExportHeaders/**/*.h'
-  s.vendored_libraries = '*/*.a'
+  s.source_files = "**/ExportHeaders/**/*.h"
+  s.vendored_libraries = "**/lib#{s.name}.a"
   s.frameworks = 'SystemConfiguration', 'AVFoundation', 'CoreTelephony'
   s.libraries = 'sqlite3.0', 'z', 'stdc++.6.0.9'
-  s.prepare_command = <<-CMD
-    unzip SDK.zip
-  CMD
 
 end
