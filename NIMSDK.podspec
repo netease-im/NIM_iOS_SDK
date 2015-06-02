@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "NIMSDK"
-  s.version          = “1.1.4”
+  s.version          = "1.1.4"
   s.summary          = "Netease IM SDK"
   s.description      = <<-DESC
                        Netease IM iOS SDK
