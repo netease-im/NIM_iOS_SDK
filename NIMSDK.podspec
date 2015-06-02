@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "NIMSDK"
-  s.version          = "1.1.3"
+  s.version          = “1.1.4”
   s.summary          = "Netease IM SDK"
   s.description      = <<-DESC
                        Netease IM iOS SDK
@@ -18,7 +18,8 @@ Pod::Spec.new do |s|
   s.license          = { :"type" => "Copyright",
                          :"text" => " Copyright 2015 Netease \n"}
   s.authors           = "Netease IM Team"
-  s.source           = { :git => "https://github.com/nimdevelopers/NIM_iOS_SDK.git"}
+  s.source           = { :git => "https://github.com/nimdevelopers/NIM_iOS_SDK.git",
+                         :tag => "#{s.version}"}
 
   s.platform     = :ios, '6.0'
 
