@@ -14,7 +14,7 @@
  */
 typedef NS_ENUM(NSInteger, NIMLoginClientType){
     /**
-     *  安卓
+     *  Android
      */
     NIMLoginClientTypeAOS         = 1,
     /**
@@ -25,6 +25,10 @@ typedef NS_ENUM(NSInteger, NIMLoginClientType){
      *  PC
      */
     NIMLoginClientTypePC          = 4,
+    /**
+     *  WEB
+     */
+    NIMLoginClientTypeWeb         = 16,
 };
 
 
@@ -43,5 +47,5 @@ typedef NS_ENUM(NSInteger, NIMLoginClientType){
 /**
  *  登录时间
  */
-@property (nonatomic,assign,readonly)   NSTimeInterval          timetag;
+@property (nonatomic,assign,readonly)   NSTimeInterval          timestamp;
 @end

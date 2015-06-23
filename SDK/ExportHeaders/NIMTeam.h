@@ -176,6 +176,13 @@ typedef NS_ENUM(NSInteger, NIMTeamApplyStatus) {
 @property (nonatomic,copy,readonly)     NSString *clientCustomInfo;
 
 
+/**
+ *  群消息是否需要通知
+ *  @discussion 这个设置影响群消息的APNS推送
+ */
+@property (nonatomic,assign,readonly)   BOOL notifyForNewMsg;
+
+
 
 @end
 

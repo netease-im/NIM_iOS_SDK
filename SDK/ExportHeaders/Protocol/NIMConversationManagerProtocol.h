@@ -32,6 +32,7 @@ typedef void(^NIMFetchMessageHistoryBlock)(NSError *error,NSArray *messages);
  *
  *  @param recentSession    最近会话
  *  @param totalUnreadCount 目前总未读数
+ *  @discussion 当新增一条消息，并且本地不存在该消息所属的会话时，会触发此回调。
  */
 - (void)didAddRecentSession:(NIMRecentSession *)recentSession
            totalUnreadCount:(NSInteger)totalUnreadCount;
@@ -41,6 +42,10 @@ typedef void(^NIMFetchMessageHistoryBlock)(NSError *error,NSArray *messages);
  *
  *  @param recentSession    最近会话
  *  @param totalUnreadCount 目前总未读数
+ *  @discussion 触发条件包括: 1.当新增一条消息，并且本地存在该消息所属的会话。
+ *                          2.所属会话的未读清零。
+ *                          3.所属会话的最后一条消息的内容发送变化。(例如成功发送后，修正发送时间为服务器时间)
+ *                          4.删除消息，并且删除的消息为当前会话的最后一条消息。
  */
 - (void)didUpdateRecentSession:(NIMRecentSession *)recentSession
               totalUnreadCount:(NSInteger)totalUnreadCount;
@@ -68,7 +73,7 @@ typedef void(^NIMFetchMessageHistoryBlock)(NSError *error,NSArray *messages);
  *  @param message 待删除的聊天消息
  *  @discussion 异步方法，消息会标记为已删除
  */
-- (void)delMessage:(NIMMessage *)message;
+- (void)deleteMessage:(NIMMessage *)message;
 
 /**
  *  删除某个会话的所有消息
@@ -111,15 +116,15 @@ typedef void(^NIMFetchMessageHistoryBlock)(NSError *error,NSArray *messages);
                         limit:(NSInteger)limit;
 
 /**
- *  获取所有未读数,在主线程调用
- *
+ *  获取所有未读数
+ *  @discussion 只能在主线程调用
  *  @return 未读数
  */
 - (NSInteger)allUnreadCount;
 
 /**
  *  获取所有最近会话
- *
+ *  @discussion 只能在主线程调用
  *  @return 最近会话列表
  */
 - (NSArray*)allRecentSession;

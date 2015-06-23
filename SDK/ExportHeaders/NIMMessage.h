@@ -15,6 +15,7 @@
 #import "NIMCustomObject.h"
 #import "NIMVideoObject.h"
 #import "NIMFileObject.h"
+#import "NIMNotificationObject.h"
 
 /**
  *  消息送达状态枚举
@@ -86,6 +87,7 @@ typedef NS_ENUM(NSInteger, NIMMessageAttachmentDownloadState){
 
 /**
  *  消息文本
+ *  @discussion 对于非文本消息，这个字段用于推送信息的显示
  */
 @property (nonatomic,copy,readwrite)         NSString *text;
 
@@ -116,12 +118,6 @@ typedef NS_ENUM(NSInteger, NIMMessageAttachmentDownloadState){
  *  @discussion 由于有漫游消息的概念,所以自己发出的消息漫游下来后仍旧是"收到的消息",这个字段用于判断出错或者文件不存在时需要重发还是重收
  */
 @property (nonatomic,assign,readonly)       BOOL isReceivedMsg;
-
-/**
- *  对方是否已读
- */
-@property (nonatomic,assign,readonly)       BOOL isReceipt;
-
 
 /**
  *  消息是否被播放过

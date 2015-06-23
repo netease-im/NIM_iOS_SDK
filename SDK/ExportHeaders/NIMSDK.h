@@ -45,6 +45,15 @@
 
 
 /**
+ *  获得SDK Log路径
+ *
+ *  @return SDK当天log路径
+ *  @discussion 这个接口会返回当前最新的一个log文件路径,SDK会每天生成一个log文件方便开发者定位和反馈问题
+ */
+- (NSString *)currentLogFilepath;
+
+
+/**
  *  登录管理类 负责登录,注销和相关操作的通知收发
  */
 @property (nonatomic,strong,readonly)   id<NIMLoginManager>   loginManager;
@@ -93,5 +102,6 @@
  *  网络通话管理类
  */
 @property (nonatomic,strong,readonly)   id<NIMNetCallManager> netCallManager;
+
 
 @end

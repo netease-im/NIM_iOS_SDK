@@ -137,15 +137,11 @@ typedef NS_ENUM(NSInteger, NIMRemoteErrorCode) {
      */
     NIMRemoteErrorCodeInvalidPass         = 302,
     /**
-     *  参数错误
-     */
-    NIMRemoteErrorCodeInvalidParam        = 401,
-    /**
-     *  CRC错误
+     *  CheckSum校验失败
      */
     NIMRemoteErrorCodeInvalidCRC          = 402,
     /**
-     *  用户被封禁
+     *  非法操作或没有权限
      */
     NIMRemoteErrorCodeForbidden           = 403,
     /**
@@ -153,13 +149,9 @@ typedef NS_ENUM(NSInteger, NIMRemoteErrorCode) {
      */
     NIMRemoteErrorCodeNotExist            = 404,
     /**
-     *  无权执行该操作
+     *  对象只读
      */
-    NIMRemoteErrorCodeAccessError         = 405,
-    /**
-     *  数据距上次更新无修改
-     */
-    NIMRemoteErrorCodeNoModify            = 406,
+    NIMRemoteErrorCodeReadOnly            = 406,
     /**
      *  请求过程超时
      */
@@ -181,14 +173,6 @@ typedef NS_ENUM(NSInteger, NIMRemoteErrorCode) {
      */
     NIMRemoteErrorCodeExist               = 417,
     /**
-     *  大小超过限制
-     */
-    NIMRemoteErrorCodeSizeLimit           = 419,
-    /**
-     *  操作出现异常
-     */
-    NIMRemoteErrorCodeOpException         = 420,
-    /**
      *  未知错误，或者不方便告诉你
      */
     NIMRemoteErrorCodeUnknownError        = 500,
@@ -205,9 +189,9 @@ typedef NS_ENUM(NSInteger, NIMRemoteErrorCode) {
      */
     NIMRemoteErrorCodeDomainExpireOld     = 508,
     /**
-     *  已失效
+     *  无效协议
      */
-    NIMRemoteErrorCodeInvalid             = 509,
+    NIMRemoteErrorCodeInvalidProtocol      = 509,
     /**
      *  用户不存在
      */

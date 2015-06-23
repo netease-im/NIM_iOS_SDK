@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class NIMLoginClient;
+
 /**
- *  登录Block
+ *  登录服务相关Block
  *
- *  @param error 登录结果,如果成功error为nil
+ *  @param error 执行结果,如果成功error为nil
  */
 typedef void(^NIMLoginHandler)(NSError *error);
-
 
 /**
  *  登录步骤枚举
@@ -66,13 +67,17 @@ typedef NS_ENUM(NSInteger, NIMLoginStep)
 typedef NS_ENUM(NSInteger, NIMKickReason)
 {
     /**
-     *  被另外一个客户端踢下线
+     *  被另外一个客户端踢下线 (互斥客户端一端登录挤掉上一个登录中的客户端)
      */
     NIMKickReasonByClient = 1,
     /**
      *  被服务器踢下线
      */
     NIMKickReasonByServer = 2,
+    /**
+     *  被另外一个客户端手动选择踢下线
+     */
+    NIMKickReasonByClientManually   = 3,
 };
 
 /**
@@ -125,12 +130,31 @@ typedef NS_ENUM(NSInteger, NIMKickReason)
         token:(NSString *)token
    completion:(NIMLoginHandler)completion;
 
+
+/**
+ *  自动登录
+ *
+ *  @param account    账号
+ *  @param token      令牌 (在后台绑定的登录token)
+ *  @discussion 启动APP如果已经保存了用户账号和令牌,建议使用这个登录方式,使用这种方式可以在无网络时直接打开会话窗口
+ */
+- (void)autoLogin:(NSString *)account
+            token:(NSString *)token;
 /**
  *  登出
  *
  *  @param completion 完成回调
  */
 - (void)logout:(NIMLoginHandler)completion;
+
+/**
+ *  踢人
+ *
+ *  @param client     当前登录的其他账号
+ *  @param completion 完成回调
+ */
+- (void)kickOtherClient:(NIMLoginClient *)client
+             completion:(NIMLoginHandler)completion;
 
 /**
  *  返回当前登录账号

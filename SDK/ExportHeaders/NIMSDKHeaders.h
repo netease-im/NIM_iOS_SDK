@@ -38,6 +38,11 @@
 #import "NIMPushNotificationSetting.h"
 
 /**
+ *  登录定义
+ */
+#import "NIMLoginClient.h"
+
+/**
  *  各个对外接口协议定义
  */
 #import "NIMLoginManagerProtocol.h"

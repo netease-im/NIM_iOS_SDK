@@ -101,11 +101,21 @@ typedef void(^NIMTeamApplyHandler)(NSError *error,NIMTeamApplyStatus applyStatus
 /**
  *  根据群组ID获取具体的群组信息
  *
- *  @param teamId 群主ID
+ *  @param teamId 群组ID
  *
  *  @return 群组信息
  */
 - (NIMTeam *)teamById:(NSString *)teamId;
+
+
+/**
+ *  根据群组ID判断是否是我所在的群
+ *
+ *  @param teamId 群组ID
+ *
+ *  @return 是否在此群组
+ */
+- (BOOL)isMyTeam:(NSString *)teamId;
 
 /**
  *  创建群组
@@ -333,10 +343,24 @@ typedef void(^NIMTeamApplyHandler)(NSError *error,NIMTeamApplyStatus applyStatus
 
 
 /**
+ *  修改群通知状态
+ *
+ *  @param notify       是否通知
+ *  @param teamId       群组ID
+ *  @param block        完成后的block回调
+ */
+- (void)updateNotifyState:(BOOL)notify
+                   inTeam:(NSString *)teamId
+               completion:(NIMTeamHandler)block;
+
+
+/**
  *  获取群组成员
  *
  *  @param teamId 群组ID
- *  @param block   完成后的block回调
+ *  @param block  完成后的block回调
+ *  @discussion   绝大多数情况这个请求都是从本地读取缓存并同步返回
+ *                但考虑到用户网络等问题SDK有可能没有即时缓存群成员信息,那么这个请求将是个网络请求(增量)
  */
 - (void)fetchTeamMembers:(NSString *)teamId
               completion:(NIMTeamMemberHandler)block;
@@ -357,11 +381,8 @@ typedef void(^NIMTeamApplyHandler)(NSError *error,NIMTeamApplyStatus applyStatus
  *
  *  @param userId 用户ID
  *  @param teamId 群组ID
- *  @return       返回所有群组
- *  @discussion   SDK并不保证群成员信息都能适时缓存在本地,几种情况下这个信息会返回nil
- *                1.群为普通群且APP并没有调用过fetchTeamMembers:completion接口
- *                2.群为高级群但本地同步群成员信息失败(较低概率)
- *                在发生返回nil的情况推荐调用fetchTeamMembers:completion去刷新一次群成员信息
+ *  @return       返回成员信息
+ *  @discussion   这个值永远不会返回nil,如果传入的userId和teamId是无效值或者本地还没有缓存信息,将返回只带有userId和teamId信息的NIMTeamMember
  */
 - (NIMTeamMember *)teamMember:(NSString *)userId
                        inTeam:(NSString *)teamId;
