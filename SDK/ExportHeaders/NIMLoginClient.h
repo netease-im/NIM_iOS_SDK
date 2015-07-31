@@ -29,6 +29,10 @@ typedef NS_ENUM(NSInteger, NIMLoginClientType){
      *  WEB
      */
     NIMLoginClientTypeWeb         = 16,
+    /**
+     *  REST API
+     */
+    NIMLoginClientTypeRest        = 32,
 };
 
 

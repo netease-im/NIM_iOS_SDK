@@ -55,14 +55,10 @@ typedef NS_ENUM(NSInteger, NIMSystemNotificationType){
 @property (nonatomic,copy,readonly)         NSString *targetID;
 
 /**
- *  被操作者
+ *  附言
  */
 @property (nonatomic,copy,readonly)         NSString *postscript;
 
-/**
- *  额外信息
- */
-@property (nonatomic,strong,readonly)       id extraData;
 /**
  *  是否已读
  *  @discussion 修改这个属性并不会修改db中的数据

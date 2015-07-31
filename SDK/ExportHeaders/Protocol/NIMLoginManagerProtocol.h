@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class NIMLoginClient;
+#import "NIMLoginClient.h"
 
 /**
  *  登录服务相关Block
@@ -89,9 +88,10 @@ typedef NS_ENUM(NSInteger, NIMKickReason)
 /**
  *  被踢(服务器/其他端)回调
  *
- *  @param code 被踢原因
+ *  @param code        被踢原因
+ *  @param clientType  发起踢出的客户端类型
  */
-- (void)onKick:(NIMKickReason)code;
+- (void)onKick:(NIMKickReason)code clientType:(NIMLoginClientType)clientType;
 
 /**
  *  登录回调

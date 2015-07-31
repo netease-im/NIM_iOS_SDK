@@ -22,6 +22,35 @@ typedef NS_ENUM(NSInteger, NIMAudioOutputDevice){
     NIMAudioOutputDeviceSpeaker
 };
 
+
+/**
+ *  语音转文字
+ *
+ *  @param error 执行结果,如果成功error为nil
+ *  @prarm text  转换后的文本
+ */
+typedef void(^NIMAudioToTextBlock)(NSError *error,NSString *text);
+
+
+/**
+ *  文字转语音选项
+ */
+@interface NIMAudioToTextOption : NSObject
+
+/**
+ *  音频URL
+ *  @discussion 目前只支持云信服务器的URL，不支持外链
+ */
+@property (nonatomic,copy)      NSString    *url;
+
+/**
+ *  音频本地地址
+ *  @discussion APP需要保证音频已经下载到本地
+ */
+@property (nonatomic,copy)      NSString    *filepath;
+@end
+
+
 /**
  *  多媒体委托
  */
@@ -182,5 +211,15 @@ typedef NS_ENUM(NSInteger, NIMAudioOutputDevice){
  *
  */
 - (float)recordAveragePower;
+
+
+/**
+ *  语音转文字
+ *
+ *  @param option  语音转文字选项
+ *  @param block  完成回调
+ */
+- (void)transAudioToText:(NIMAudioToTextOption *)option
+                  result:(NIMAudioToTextBlock)block;
 
 @end

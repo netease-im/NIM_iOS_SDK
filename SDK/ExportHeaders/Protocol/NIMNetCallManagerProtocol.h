@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NIMGlobalDefs.h"
 
 /**
  *  发起通话Block
@@ -25,19 +26,6 @@ typedef void(^NIMNetCallStartHandler)(NSError *error, UInt64 callID);
 typedef void(^NIMNetCallResponseHandler)(NSError *error, UInt64 callID);
 
 
-/**
- *  网络通话类型
- */
-typedef NS_ENUM(NSInteger, NIMNetCallType){
-    /**
-     *  音频通话
-     */
-    NIMNetCallTypeAudio = 1,
-    /**
-     *  视频通话
-     */
-    NIMNetCallTypeVideo = 2,
-};
 
 /**
  *  网络通话状态
@@ -236,7 +224,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
 @end
 
 /**
- *  登录协议
+ *  网络通话协议
  */
 @protocol NIMNetCallManager <NSObject>
 

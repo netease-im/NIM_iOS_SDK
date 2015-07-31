@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "NIMGlobalDefs.h"
 @class NIMMessage;
+
+
 /**
  *  消息体协议
  */
@@ -17,7 +19,14 @@
 /**
  *  消息体所在的消息对象
  */
-@property (nonatomic, weak) NIMMessage * message;
+@property (nonatomic, weak) NIMMessage *message;
+
+/**
+ *  消息内容类型
+ *
+ *  @return 消息内容类型
+ */
+- (NIMMessageType)type;
 
 
 @end

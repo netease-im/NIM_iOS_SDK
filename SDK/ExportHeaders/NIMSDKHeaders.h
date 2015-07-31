@@ -19,6 +19,7 @@
  */
 #import "NIMSession.h"
 #import "NIMRecentSession.h"
+#import "NIMMessageSearchOption.h"
 
 /**
  *  群相关定义
@@ -54,5 +55,4 @@
 #import "NIMApnsManagerProtocol.h"
 #import "NIMResourceManagerProtocol.h"
 #import "NIMNetCallManagerProtocol.h"
-
 #endif

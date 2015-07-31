@@ -122,7 +122,7 @@
  */
 - (BOOL)messageInTransport:(NIMMessage *)message;
 
-/**
+/**	
  *  传输消息的进度 (发送/接受附件)
  *
  *  @param message 消息

@@ -37,6 +37,13 @@
                   cerName:(NSString *)cerName;
 
 /**
+ *  获取AppKey
+ *
+ *  @return 返回当前注册的AppKey
+ */
+- (NSString *)appKey;
+
+/**
  *  更新APNS Token
  *
  *  @param token APNS Token
@@ -102,6 +109,5 @@
  *  网络通话管理类
  */
 @property (nonatomic,strong,readonly)   id<NIMNetCallManager> netCallManager;
-
 
 @end

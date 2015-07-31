@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
 
   s.source_files = "**/ExportHeaders/**/*.h"
   s.vendored_libraries = "**/lib#{s.name}.a"
-  s.frameworks = 'SystemConfiguration', 'AVFoundation', 'CoreTelephony'
+  s.frameworks = 'SystemConfiguration', 'AVFoundation', 'CoreTelephony', 'AudioToolbox', 'CoreMedia'
   s.libraries = 'sqlite3.0', 'z', 'stdc++.6.0.9'
 
 end

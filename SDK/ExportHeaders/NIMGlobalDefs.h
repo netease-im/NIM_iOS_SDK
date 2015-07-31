@@ -51,6 +51,22 @@ typedef NS_ENUM(NSInteger, NIMMessageType){
 
 
 /**
+ *  网络通话类型
+ */
+typedef NS_ENUM(NSInteger, NIMNetCallType){
+    /**
+     *  音频通话
+     */
+    NIMNetCallTypeAudio = 1,
+    /**
+     *  视频通话
+     */
+    NIMNetCallTypeVideo = 2,
+};
+
+
+
+/**
  *  NIM本地Error Domain
  */
 extern NSString *const NIMLocalErrorDomain;
@@ -118,6 +134,10 @@ typedef NS_ENUM(NSInteger, NIMLocalErrorCode) {
      *  这一通网络通话已经被其他端处理过了
      */
     NIMLocalErrorCodeNetCallOtherHandled          = 13,
+    /**
+     *  SQL语句执行失败
+     */
+    NIMLocalErrorCodeSQLFailed                    = 14,
 };
 
 

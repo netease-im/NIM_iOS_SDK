@@ -228,6 +228,19 @@ typedef void(^NIMTeamApplyHandler)(NSError *error,NIMTeamApplyStatus applyStatus
                   completion:(NIMTeamHandler)block;
 
 
+/**
+ *  更新群信息
+ *
+ *  @param values 需要更新的群信息键值对
+ *  @param teamId 群组ID
+ *  @param block  完成后的block回调
+ *  @discussion   这个接口可以一次性修改群的多个属性,如名称,公告等,传入的数据键值对是 {@(NIMTeamUpdateTag) : NSString},无效数据将被过滤
+ */
+- (void)updateTeamInfos:(NSDictionary *)values
+                 teamId:(NSString *)teamId
+             completion:(NIMTeamHandler)block;
+
+
 
 /**
  *  群申请

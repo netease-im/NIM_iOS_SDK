@@ -11,6 +11,7 @@
 @class NIMSession;
 @class NIMRecentSession;
 @class NIMHistoryMessageSearchOption;
+@class NIMMessageSearchOption;
 
 /**
  *  读取服务器消息记录block
@@ -19,6 +20,31 @@
  *  @param messages 读取的消息列表
  */
 typedef void(^NIMFetchMessageHistoryBlock)(NSError *error,NSArray *messages);
+
+/**
+ *  更新本地消息Block
+ *
+ *  @param error  错误,如果成功则error为nil
+ */
+typedef void(^NIMUpdateMessageBlock)(NSError *error);
+
+
+/**
+ *  标记远端会话Block
+ *
+ *  @param error  错误,如果成功则error为nil
+ */
+typedef void(^NIMRemoveRemoteSessionBlock)(NSError *error);
+
+
+/**
+ *  搜索本地消息记录block
+ *
+ *  @param error  错误,如果成功则error为nil
+ *  @param messages 读取的消息列表
+ *  @discussion 只有在传入参数错误时才会有error产生
+ */
+typedef void(^NIMSearchMessageBlock)(NSError *error,NSArray *messages);
 
 /**
  *  会话管理器回调
@@ -59,6 +85,19 @@ typedef void(^NIMFetchMessageHistoryBlock)(NSError *error,NSArray *messages);
 - (void)didRemoveRecentSession:(NIMRecentSession *)recentSession
               totalUnreadCount:(NSInteger)totalUnreadCount;
 
+/**
+ *  单个会话里所有消息被删除的回调
+ *
+ *  @param session 消息所属会话
+ */
+- (void)messagesDeletedInSession:(NIMSession *)session;
+
+/**
+ *  所有消息被删除的回调
+ *
+ */
+- (void)allMessagesDeleted;
+
 
 @end
 
@@ -71,7 +110,6 @@ typedef void(^NIMFetchMessageHistoryBlock)(NSError *error,NSArray *messages);
  *  删除某条消息
  *
  *  @param message 待删除的聊天消息
- *  @discussion 异步方法，消息会标记为已删除
  */
 - (void)deleteMessage:(NIMMessage *)message;
 
@@ -79,9 +117,18 @@ typedef void(^NIMFetchMessageHistoryBlock)(NSError *error,NSArray *messages);
  *  删除某个会话的所有消息
  *
  *  @param session 待删除会话
- *  @discussion 异步方法，最近会话仍然保留，会话内消息将会标记为已删除
+ *  @param removeRecentSession 是否移除对应的会话项  YES则移除,NO则不移除，但会将所有会话项设置成已删除状态
  */
-- (void)deleteAllmessagesInSession:(NIMSession *)session;
+- (void)deleteAllmessagesInSession:(NIMSession *)session
+               removeRecentSession:(BOOL)removeRecentSession;
+
+/**
+ *  删除所有会话消息
+ *
+ *  @param removeRecentSessions 是否移除会话项,YES则移除,NO则不移除，但会将所有会话项设置成已删除状态
+ *  @discussion 调用这个接口只会触发allMessagesDeleted这个回调，其他针对单个recentSession的回调都不会被调用
+ */
+- (void)deleteAllMessages:(BOOL)removeRecentSessions;
 
 
 /**
@@ -100,6 +147,34 @@ typedef void(^NIMFetchMessageHistoryBlock)(NSError *error,NSArray *messages);
  *  @discussion 异步方法，消息会标记为设置的状态
  */
 - (void)markAllMessageReadInSession:(NIMSession *)session;
+
+
+/**
+ *  更新本地已存的消息记录
+ *
+ *  @param message 需要更新的消息
+ *  @param session 需要更新的会话
+ *  @param completion 完成后的回调
+ *  @discussion 目前只支持自定义消息(NIMMessageTypeCustom)
+ */
+- (void)updateMessage:(NIMMessage *)message
+           forSession:(NIMSession *)session
+           completion:(NIMUpdateMessageBlock)completion;
+
+
+/**
+ *  写入消息
+ *
+ *  @param message 需要更新的消息
+ *  @param session 需要更新西消息
+ *  @param completion 完成后的回调
+ *  @discussion 目前只支持自定义消息(NIMMessageTypeCustom)
+ */
+- (void)saveMessage:(NIMMessage *)message
+         forSession:(NIMSession *)session
+         completion:(NIMUpdateMessageBlock)completion;
+
+
 
 
 /**
@@ -142,6 +217,32 @@ typedef void(^NIMFetchMessageHistoryBlock)(NSError *error,NSArray *messages);
                      option:(NIMHistoryMessageSearchOption *)option
                      result:(NIMFetchMessageHistoryBlock)block;
 
+
+
+/**
+ *  搜索本地消息
+ *
+ *  @param session 消息所属的会话
+ *  @param option  搜索选项
+ *  @param block   读取的消息列表结果
+ *
+ */
+- (void)searchMessages:(NIMSession *)session
+                option:(NIMMessageSearchOption *)option
+                result:(NIMSearchMessageBlock)block;
+
+
+
+/**
+ *  删除服务器端最近会话
+ *
+ *  @param sessions 需要删除的会话列表，内部只能是NIMSession
+ *  @param block   完成的回调
+ *  @discussion    调用这个接口成功后，当前会话之前的消息都不会漫游到其他端
+ */
+- (void)deleteRemoteSessions:(NSArray *)sessions
+                  completion:(NIMRemoveRemoteSessionBlock)block;
+
 /**
  *  添加通知对象
  *
@@ -158,47 +259,6 @@ typedef void(^NIMFetchMessageHistoryBlock)(NSError *error,NSArray *messages);
 
 @end
 
-/**
- *  检索服务器历史消息选项
- */
-@interface NIMHistoryMessageSearchOption : NSObject
 
-/**
- *  检索消息起始时间
- *  @discussion 需要检索的起始时间,没有则传入0
- */
-@property (nonatomic,assign)      NSTimeInterval  startTime;
-
-/**
- *  检索消息终止时间
- *  @discussion 当前最早的时间,没有则传入0
- */
-@property (nonatomic,assign)      NSTimeInterval  endTime;
-
-/**
- *  检索消息的当前参考消息,返回的消息结果集里不会包含这条消息
- *  @discussion 传入最早时间,没有则传入nil
- */
-@property (nonatomic,strong)      NIMMessage      *currentMessage;
-
-/**
- *  检索条数
- *  @discussion 最大限制100条
- */
-@property (nonatomic,assign)      NSUInteger       limit;
-
-/**
- *  检索顺序
- *  @discussion true是表示反向查询(按时间正序起查，正序排列)，默认false表示按时间逆序起查，逆序排列
- */
-@property (nonatomic,assign)      BOOL             reverse;
-
-/**
- *  是否需要同步到DB
- */
-@property (nonatomic,assign)      BOOL            sync;
-
-
-@end
 
 
