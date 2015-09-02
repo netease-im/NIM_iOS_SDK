@@ -22,6 +22,11 @@
 #import "NIMMessageSearchOption.h"
 
 /**
+ *  用户定义
+ */
+#import "NIMUser.h"
+
+/**
  *  群相关定义
  */
 #import "NIMTeam.h"
@@ -44,15 +49,22 @@
 #import "NIMLoginClient.h"
 
 /**
+ *  实时会话选项定义
+ */
+#import "NIMRTSOption.h"
+
+/**
  *  各个对外接口协议定义
  */
 #import "NIMLoginManagerProtocol.h"
 #import "NIMChatManagerProtocol.h"
 #import "NIMConversationManagerProtocol.h"
 #import "NIMMediaManagerProtocol.h"
+#import "NIMUserManagerProtocol.h"
 #import "NIMTeamManagerProtocol.h"
 #import "NIMSystemNotificationManagerProtocol.h"
 #import "NIMApnsManagerProtocol.h"
 #import "NIMResourceManagerProtocol.h"
 #import "NIMNetCallManagerProtocol.h"
+#import "NIMRTSManagerProtocol.h"
 #endif

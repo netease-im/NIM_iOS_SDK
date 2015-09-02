@@ -69,7 +69,7 @@ typedef enum : NSUInteger {
 @property (nonatomic,copy)      NSString *searchContent;
 
 /**
- *  消息发出者账号列表
+ *  消息发出者帐号列表
  */
 @property (nonatomic,strong)    NSArray *fromIds;
 

@@ -138,6 +138,15 @@ typedef NS_ENUM(NSInteger, NIMLocalErrorCode) {
      *  SQL语句执行失败
      */
     NIMLocalErrorCodeSQLFailed                    = 14,
+    /**
+     *  音频设备初始化失败
+     */
+    NIMLocalErrorCodeAudioDeviceInitFailed        = 15,
+    
+    /**
+     *  用户信息缺失 (未登录 或 未提供用户资料)
+     */
+    NIMLocalErrorCodeUserInfoNeeded               = 16,
 };
 
 
@@ -217,6 +226,10 @@ typedef NS_ENUM(NSInteger, NIMRemoteErrorCode) {
      */
     NIMRemoteErrorCodeUserNotExist        = 510,
     /**
+     *  服务不可用
+     */
+    NIMRemoteErrorCodeServiceUnavailable  = 514,
+    /**
      *  没有操作群的权限
      */
     NIMRemoteErrorCodeTeamAccessError     = 802,
@@ -249,13 +262,18 @@ typedef NS_ENUM(NSInteger, NIMRemoteErrorCode) {
      */
     NIMRemoteErrorCodeTeamBlackList       = 812,
     /**
+     *  解包错误
+     */
+    NIMRemoteErrorCodeEUnpacket           = 998,
+    /**
      *  打包错误
      */
     NIMRemoteErrorCodeEPacket             = 999,
+    
     /**
-     *  解包错误
+     *  被叫离线(无可送达的被叫方)
      */
-    NIMRemoteErrorCodeEUnpacket           = 998
+    NIMRemoteErrorCodeCalleeOffline       = 11001,
 };
 
 

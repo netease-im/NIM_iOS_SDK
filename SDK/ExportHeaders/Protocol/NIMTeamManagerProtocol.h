@@ -366,6 +366,15 @@ typedef void(^NIMTeamApplyHandler)(NSError *error,NIMTeamApplyStatus applyStatus
                    inTeam:(NSString *)teamId
                completion:(NIMTeamHandler)block;
 
+/**
+ *  是否需要消息通知
+ *
+ *  @param teamId 群Id
+ *
+ *  @return 是否需要消息通知
+ */
+- (BOOL)notifyForNewMsg:(NSString *)teamId;
+
 
 /**
  *  获取群组成员

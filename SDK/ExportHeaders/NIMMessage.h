@@ -115,9 +115,15 @@ typedef NS_ENUM(NSInteger, NIMMessageAttachmentDownloadState){
 
 /**
  *  是否是收到的消息
- *  @discussion 由于有漫游消息的概念,所以自己发出的消息漫游下来后仍旧是"收到的消息",这个字段用于判断出错或者文件不存在时需要重发还是重收
+ *  @discussion 由于有漫游消息的概念,所以自己发出的消息漫游下来后仍旧是"收到的消息",这个字段用于消息出错是时用于判断需要重发还是重收
  */
 @property (nonatomic,assign,readonly)       BOOL isReceivedMsg;
+
+/**
+ *  是否是往外发的消息
+ *  @discussion 是否是发出去的消息，由于"我的电脑"的存在，所以并不是所有from = 自己的消息都是outgoingMsg，这个字段用于判断头像排版位置。
+ */
+@property (nonatomic,assign,readonly)       BOOL isOutgoingMsg;
 
 /**
  *  消息是否被播放过

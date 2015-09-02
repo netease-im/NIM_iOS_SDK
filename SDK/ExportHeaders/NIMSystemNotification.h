@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NIMSession.h"
+#import "NIMUser.h"
 
 /**
  *  系统通知类型
@@ -29,6 +30,12 @@ typedef NS_ENUM(NSInteger, NIMSystemNotificationType){
      *  拒绝入群邀请
      */
     NIMSystemNotificationTypeTeamIviteReject        = 3,
+    
+    /**
+     *  添加好友
+     */
+    NIMSystemNotificationTypeFriendAdd              = 5,
+    
 };
 
 
@@ -70,6 +77,26 @@ typedef NS_ENUM(NSInteger, NIMSystemNotificationType){
  *  @discussion 修改这个属性,后台会自动更新db中对应的数据,SDK调用者可以使用这个值来持久化他们对消息的处理结果,默认为0
  */
 @property (nonatomic,assign)                NSInteger handleStatus;
+
+
+/**
+ *  附件
+ *  @discussion 额外信息,目前只有好友添加有额外信息,attachment为NIMUserAddAttachment
+ */
+@property (nonatomic,strong,readonly)       id attachment;
+
+@end
+
+
+/**
+ *  添加好友附件
+ */
+@interface NIMUserAddAttachment : NSObject
+
+/**
+ *  好友操作类型
+ */
+@property (nonatomic,assign,readonly)   NIMUserOperation    operationType;
 
 @end
 

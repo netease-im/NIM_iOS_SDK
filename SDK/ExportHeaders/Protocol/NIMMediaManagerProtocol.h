@@ -33,7 +33,7 @@ typedef void(^NIMAudioToTextBlock)(NSError *error,NSString *text);
 
 
 /**
- *  文字转语音选项
+ *  语音转文字选项
  */
 @interface NIMAudioToTextOption : NSObject
 
@@ -160,7 +160,8 @@ typedef void(^NIMAudioToTextBlock)(NSError *error,NSString *text);
  *  @param filePath 音频文件路径
  *  @param delegate NIMMediaManagerDelgate
  */
-- (void)playAudio:(NSString *)filePath withDelegate:(id<NIMMediaManagerDelgate>)delegate;
+- (void)playAudio:(NSString *)filePath
+     withDelegate:(id<NIMMediaManagerDelgate>)delegate;
 
 /**
  *  停止播放音频
@@ -184,7 +185,8 @@ typedef void(^NIMAudioToTextBlock)(NSError *error,NSString *text);
  *  @param duration 最长录音时间
  *  @param delegate NIMMediaManagerDelgate
  */
-- (void)recordAudioForDuration:(NSTimeInterval)duration withDelegate:(id<NIMMediaManagerDelgate>)delegate;
+- (void)recordAudioForDuration:(NSTimeInterval)duration
+                  withDelegate:(id<NIMMediaManagerDelgate>)delegate;
 
 /**
  *  停止录制音频

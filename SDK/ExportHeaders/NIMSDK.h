@@ -44,6 +44,13 @@
 - (NSString *)appKey;
 
 /**
+ *  是否正在使用Demo AppKey
+ *
+ *  @return 返回是否正在使用Demo AppKey
+ */
+- (BOOL)isUsingDemoAppKey;
+
+/**
  *  更新APNS Token
  *
  *  @param token APNS Token
@@ -59,6 +66,11 @@
  */
 - (NSString *)currentLogFilepath;
 
+/**
+ *  开启控制台Log
+ */
+- (void)enableConsoleLog;
+
 
 /**
  *  登录管理类 负责登录,注销和相关操作的通知收发
@@ -67,13 +79,11 @@
 
 /**
  *  聊天管理类,负责消息的收发
- *  @discussion 如果没有登录成功过,这个接口返回nil
  */
 @property (nonatomic,strong,readonly)   id<NIMChatManager>     chatManager;
 
 /**
  *  会话管理类,负责消息,最近会话的读写和管理
- *  @discussion 如果没有登录成功过,这个接口返回nil
  */
 @property (nonatomic,strong,readonly)   id<NIMConversationManager>  conversationManager;
 
@@ -84,19 +94,22 @@
 
 /**
  *  群组管理类,负责群组的操作:创建,拉人,踢人,同步等
- *  @discussion 如果没有登录成功过,这个接口返回nil
  */
 @property (nonatomic,strong,readonly)   id<NIMTeamManager>    teamManager;
 
+
+/**
+ *  好友管理类
+ */
+@property (nonatomic,strong,readonly)   id<NIMUserManager>      userManager;
+
 /**
  *  系统通知管理类
- *  @discussion 如果没有登录成功过,这个接口返回nil
  */
 @property (nonatomic,strong,readonly)   id<NIMSystemNotificationManager>    systemNotificationManager;
 
 /**
  *  APNS推送管理类
- *  @discussion 如果没有登录成功过,这个接口返回nil
  */
 @property (nonatomic,strong,readonly)   id<NIMApnsManager> apnsManager;
 
@@ -109,5 +122,11 @@
  *  网络通话管理类
  */
 @property (nonatomic,strong,readonly)   id<NIMNetCallManager> netCallManager;
+
+/**
+ *  实时会话管理类
+ */
+@property (nonatomic,strong,readonly)   id<NIMRTSManager> rtsManager;
+
 
 @end

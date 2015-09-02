@@ -17,10 +17,12 @@
  *
  *  @param latitude  纬度
  *  @param longitude 经度
- *  @param address   地址描述
+ *  @param title   地理位置描述
  *  @return 位置实例对象
  */
-- (instancetype)initWithLatitude:(double)latitude Longitude:(double)longitude address:(NSString*)address;
+- (instancetype)initWithLatitude:(double)latitude
+                       longitude:(double)longitude
+                           title:(NSString *)title;
 
 /**
  *  维度
@@ -33,9 +35,9 @@
 @property (nonatomic, assign, readonly) double longitude;
 
 /**
- *  地址信息
+ *  标题
  */
-@property (nonatomic, copy, readonly) NSString *address;
+@property (nonatomic, copy, readonly) NSString *title;
 
 
 @end

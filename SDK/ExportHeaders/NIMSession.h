@@ -32,7 +32,7 @@ typedef NS_ENUM(NSInteger, NIMSessionType){
 @interface NIMSession : NSObject<NSCopying>
 
 /**
- *  会话ID,如果当前session为team,则sessionId为teamId,如果是P2P则为对方账号
+ *  会话ID,如果当前session为team,则sessionId为teamId,如果是P2P则为对方帐号
  */
 @property (nonatomic,copy,readonly)         NSString *sessionId;
 

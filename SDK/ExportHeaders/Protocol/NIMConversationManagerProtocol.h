@@ -168,7 +168,7 @@ typedef void(^NIMSearchMessageBlock)(NSError *error,NSArray *messages);
  *  @param message 需要更新的消息
  *  @param session 需要更新西消息
  *  @param completion 完成后的回调
- *  @discussion 目前只支持自定义消息(NIMMessageTypeCustom)
+ *  @discussion 目前只支持自定义消息(NIMMessageTypeCustom)。当保存消息成功之后，会收到 NIMChatManagerDelegate 中的 onRecvMessages: 回调。
  */
 - (void)saveMessage:(NIMMessage *)message
          forSession:(NIMSession *)session
