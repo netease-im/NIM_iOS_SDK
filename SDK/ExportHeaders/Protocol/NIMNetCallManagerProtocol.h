@@ -214,12 +214,26 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
 - (void)onLocalPreviewReady:(CALayer *)layer;
 
 /**
- *  远程视频画面就绪，每帧画面都会回调
+ *  远程视频YUV数据就绪
+ *
+ *  @param yuvData  远程视频YUV数据, stride为0
+ *  @param width    远程视频画面宽度
+ *  @param height   远程视频画面长度
+ *
+ *  @discussion 将YUV数据直接渲染在OpenGL上比UIImageView贴图占用更少的cpu
+ */
+- (void)onRemoteYUVReady:(NSData *)yuvData
+                   width:(NSUInteger)width
+                  height:(NSUInteger)height;
+
+/**
+ *  远程视频画面就绪
  *
  *  @param image 远程视频画面
+ *
+ *  @discussion 如果你已经使用onRemoteYUVReady:width:height:得到的YUV数据渲染画面, 不要实现该委托以优化性能
  */
 - (void)onRemoteImageReady:(CGImageRef)image;
-
 
 @end
 

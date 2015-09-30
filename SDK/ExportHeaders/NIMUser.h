@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class NIMUserInfo;
 
 /**
  *  好友操作类型
@@ -31,7 +32,23 @@ typedef NS_ENUM(NSInteger, NIMUserOperation){
     NIMUserOperationReject  =   4,
 };
 
-
+/**
+ *  用户性别
+ */
+typedef NS_ENUM(NSInteger, NIMUserGender) {
+    /**
+     *  未知性别
+     */
+    NIMUserGenderUnknown,
+    /**
+     *  性别男
+     */
+    NIMUserGenderMale,
+    /**
+     *  性别女
+     */
+    NIMUserGenderFemale,
+};
 
 /**
  *  云信用户
@@ -41,7 +58,16 @@ typedef NS_ENUM(NSInteger, NIMUserOperation){
 /**
  *  用户Id
  */
-@property (nonatomic,copy,readonly)  NSString    *userId;
+@property (nonatomic,copy,readonly)   NSString    *userId;
+
+/**
+ *  用户资料，仅当用户选择托管信息到云信时有效
+ *  用户资料除自己之外，不保证其他用户资料实时更新
+ *  其他用户资料更新的时机为: 1.调用 - (void)fetchUserInfos:completion: 方法刷新用户
+ *                        2.收到此用户发来消息
+ *                        3.程序再次启动，此时会同步好友信息
+ */
+@property (nonatomic,strong,readonly) NIMUserInfo *userInfo;
 
 /**
  *  是否需要消息提醒
@@ -60,6 +86,59 @@ typedef NS_ENUM(NSInteger, NIMUserOperation){
 
 @end
 
+
+/**
+ *  用户资料，仅当用户选择托管信息到云信时有效
+ */
+@interface NIMUserInfo : NSObject
+
+/**
+ *  用户昵称
+ */
+@property (nonatomic,copy,readonly) NSString *nickName;
+
+/**
+ *  用户头像
+ */
+@property (nonatomic,copy,readonly) NSString *avatarUrl;
+
+/**
+ *  用户头像缩略图，仅适用于使用云信上传服务进行上传的资源。否则为和用户头像原图值一致。
+ */
+@property (nonatomic,copy,readonly) NSString *thumbAvatarUrl;
+
+/**
+ *  用户签名
+ */
+@property (nonatomic,copy,readonly) NSString *sign;
+
+/**
+ *  用户性别
+ */
+@property (nonatomic,assign,readonly) NIMUserGender gender;
+
+/**
+ *  邮箱
+ */
+@property (nonatomic,copy,readonly) NSString* email;
+
+/**
+ *  生日
+ */
+@property (nonatomic,copy,readonly) NSString* birth;
+
+/**
+ *  电话号码
+ */
+@property (nonatomic,copy,readonly) NSString* mobile;
+
+/**
+ *  用户自定义扩展字段
+ */
+@property (nonatomic,copy,readonly) NSString* ex;
+
+
+@end
 
 /**
  *  好友请求

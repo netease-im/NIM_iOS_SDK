@@ -76,6 +76,29 @@
  */
 - (void)updateAttachmentURL:(NSString *)urlString;
 
+#pragma mark - 下载相关接口
+/**
+ *  是否需要下载附件
+ *
+ *  @return 是否需要上传附件
+ */
+- (BOOL)attachmentNeedsDownload;
+
+/**
+ *  需要下载的附件url
+ *
+ *  @return 附件url
+ */
+- (NSString *)attachmentURLStringForDownload;
+
+
+/**
+ *  更新附件本地存储路径
+ *
+ *  @param path 下载的附件存储路径
+ */
+- (void)downloadAttachmentPath:(NSString *)path;
+
 #pragma mark - 服务器存储相关接口
 /**
  *  是否允许在消息历史中拉取

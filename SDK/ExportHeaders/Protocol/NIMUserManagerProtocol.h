@@ -11,11 +11,57 @@
 @class NIMUser;
 
 /**
- *  好友信息操作Block
+ *  好友操作Block
  *
  *  @param error 错误信息
  */
 typedef void(^NIMUserBlock)(NSError *error);
+
+/**
+ *  用户信息获取Block,返回NIMUser列表
+ *
+ *  @param error 错误信息
+ */
+typedef void(^NIMUserInfoBlock)(NSArray *users,NSError *error);
+
+
+/**
+ *  用户信息修改字段
+ */
+typedef NS_ENUM(NSInteger, NIMUserInfoUpdateTag) {
+    /**
+     *  用户昵称
+     */
+    NIMUserInfoUpdateTagNick   = 3,
+    /**
+     *  用户头像
+     */
+    NIMUserInfoUpdateTagAvatar = 4,
+    /**
+     *  用户签名
+     */
+    NIMUserInfoUpdateTagSign   = 5,
+    /**
+     *  用户性别。请使用指定枚举,如 {@(NIMUserInfoUpdateTagGender) : @(NIMUserGenderMale)}
+     */
+    NIMUserInfoUpdateTagGender = 6,
+    /**
+     *  用户邮箱。请使用合法邮箱
+     */
+    NIMUserInfoUpdateTagEmail  = 7,
+    /**
+     *  用户生日。具体格式为yyyy-MM-dd
+     */
+    NIMUserInfoUpdateTagBirth  = 8,
+    /**
+     *  用户手机号。请使用合法手机号
+     */
+    NIMUserInfoUpdateTagMobile = 9,
+    /**
+     *  扩展字段
+     */
+    NIMUserInfoUpdateTagEx = 10,
+};
 
 /**
  *  好友协议委托
@@ -27,7 +73,7 @@ typedef void(^NIMUserBlock)(NSError *error);
 /**
  *  好友状态发生变化
  *
- *  @param user 好友对象
+ *  @param user 用户对象
  */
 - (void)onFriendChanged:(NIMUser *)user;
 
@@ -35,6 +81,13 @@ typedef void(^NIMUserBlock)(NSError *error);
  *  黑名单状态发生变化
  */
 - (void)onBlackListChanged;
+
+/**
+ *  用户个人信息发生变化
+ *
+ *  @param user 用户对象
+ */
+- (void)onUserInfoChanged:(NIMUser *)user;
 
 @end
 
@@ -130,6 +183,45 @@ typedef void(^NIMUserBlock)(NSError *error);
  *  @return 返回被我设置为取消消息通知的NIMUser列表
  */
 - (NSArray *)myMuteUserList;
+
+
+/**
+ *  从云信服务器批量获取用户资料
+ *
+ *  @param users  用户id列表
+ *  @param block  用户信息回调
+ *
+ *  @discussion 需要将用户信息交给云信托管，此接口才有效。
+ */
+- (void)fetchUserInfos:(NSArray *)users completion:(NIMUserInfoBlock)block;
+
+
+/**
+ *  从本地获取用户资料
+ *
+ *  @param users 用户id
+ *
+ *  @return NIMUser
+ *
+ *  @discussion 需要将用户信息交给云信托管，此接口才有效。
+ *              用户资料除自己之外，不保证其他用户资料实时更新
+ *              其他用户资料更新的时机为: 1.调用 - (void)fetchUserInfos:completion: 方法刷新用户
+ *                                    2.收到此用户发来消息
+ *                                    3.程序再次启动，此时会同步好友信息
+ */
+- (NIMUser *)userInfo:(NSString *)userId;
+
+
+/**
+ *  修改自己的用户资料
+ *
+ *  @param values 需要更新的用户信息键值对
+ *  @param block  修改结果回调
+ *
+ *  @discussion   这个接口可以一次性修改多个属性,如昵称,头像等,传入的数据键值对是 {@(NIMUserInfoUpdateTag) : NSString},
+ *                无效数据将被过滤。一些字段有修改限制，具体请参看 NIMUserInfoUpdateTag 的相关说明
+ */
+- (void)updateMyUserInfo:(NSDictionary *)values completion:(NIMUserBlock)block;
 
 /**
  *  添加好友委托

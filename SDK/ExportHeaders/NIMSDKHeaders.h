@@ -15,6 +15,11 @@
 #import "NIMGlobalDefs.h"
 
 /**
+ *  配置项
+ */
+#import "NIMSDKConfig.h"
+
+/**
  *  会话相关定义
  */
 #import "NIMSession.h"

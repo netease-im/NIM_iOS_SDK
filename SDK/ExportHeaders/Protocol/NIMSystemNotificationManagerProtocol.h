@@ -93,12 +93,12 @@ typedef void(^NIMSystemNotificationHandler)(NSError *error);
  *
  *  @param notification 系统消息
  */
-- (void)markNotificationAsRead:(NIMSystemNotification *)notification;
+- (void)markNotificationsAsRead:(NIMSystemNotification *)notification;
 
 /**
  *  标记所有系统消息为已读
  */
-- (void)markAllNotificationAsRead;
+- (void)markAllNotificationsAsRead;
 
 
 /**
