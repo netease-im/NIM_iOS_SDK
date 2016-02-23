@@ -20,7 +20,11 @@ typedef NS_ENUM(NSInteger, NIMSessionType){
     /**
      *  群组
      */
-    NIMSessionTypeTeam = 1
+    NIMSessionTypeTeam = 1,
+    /**
+     *  聊天室
+     */
+    NIMSessionTypeChatroom = 2
 };
 
 
@@ -37,7 +41,7 @@ typedef NS_ENUM(NSInteger, NIMSessionType){
 @property (nonatomic,copy,readonly)         NSString *sessionId;
 
 /**
- *  会话类型,当前仅支持P2P和Team
+ *  会话类型,当前仅支持P2P,Team和Chatroom
  */
 @property (nonatomic,assign,readonly)       NIMSessionType sessionType;
 

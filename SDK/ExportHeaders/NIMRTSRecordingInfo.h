@@ -2,7 +2,7 @@
 //  NIMRTSRecordingInfo.h
 //  NIMLib
 //
-//  Created by Netease on 15/7/24.
+//  Created by Netease .
 //  Copyright (c) 2015年 Netease. All rights reserved.
 //
 

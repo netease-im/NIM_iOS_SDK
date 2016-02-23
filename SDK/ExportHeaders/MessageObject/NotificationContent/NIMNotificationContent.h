@@ -12,6 +12,12 @@
  *  通知类型
  */
 typedef NS_ENUM(NSInteger, NIMNotificationType){
+    
+    /**
+     *  未被支持的通知类型
+     *  @discussion 由于系统升级，旧版本的 SDK 可能无法解析新版本数据,所有无法解析的新通知显示为未被支持
+     */
+    NIMNotificationTypeUnsupport       = 0,
     /**
      *  群通知
      */
@@ -20,6 +26,10 @@ typedef NS_ENUM(NSInteger, NIMNotificationType){
      *  网络电话通知
      */
     NIMNotificationTypeNetCall         = 2,
+    /**
+     *  聊天室通知
+     */
+    NIMNotificationTypeChatroom        = 3,
 };
 
 

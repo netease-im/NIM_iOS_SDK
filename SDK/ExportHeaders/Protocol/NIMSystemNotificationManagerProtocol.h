@@ -146,7 +146,7 @@ typedef void(^NIMSystemNotificationHandler)(NSError *error);
  *  @param notification 系统通知
  *  @param session      接收方
  *  @param completion   发送结果回调
- *
+ *  @discussion 仅支持个人和群。聊天室不支持
  */
 - (void)sendCustomNotification:(NIMCustomSystemNotification *)notification
                      toSession:(NIMSession *)session

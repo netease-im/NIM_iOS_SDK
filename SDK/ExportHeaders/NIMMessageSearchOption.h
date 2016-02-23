@@ -83,21 +83,9 @@ typedef enum : NSUInteger {
 
 /**
  *  检索消息起始时间
- *  @discussion 需要检索的起始时间,没有则传入0
+ *  @discussion 需要检索的起始时间,没有则传入0。
  */
 @property (nonatomic,assign)      NSTimeInterval  startTime;
-
-/**
- *  检索消息终止时间
- *  @discussion 当前最早的时间,没有则传入0
- */
-@property (nonatomic,assign)      NSTimeInterval  endTime;
-
-/**
- *  检索消息的当前参考消息,返回的消息结果集里不会包含这条消息
- *  @discussion 传入最早时间,没有则传入nil
- */
-@property (nonatomic,strong)      NIMMessage      *currentMessage;
 
 /**
  *  检索条数
@@ -105,13 +93,28 @@ typedef enum : NSUInteger {
  */
 @property (nonatomic,assign)      NSUInteger       limit;
 
+
 /**
- *  检索顺序
+ *  检索消息终止时间,此参数对聊天室会话无效。
+ *  @discussion 当前最早的时间,没有则传入0。
+ */
+@property (nonatomic,assign)      NSTimeInterval  endTime;
+
+
+/**
+ *  检索消息的当前参考消息,返回的消息结果集里不会包含这条消息,此参数对聊天室会话无效。
+ *  @discussion 传入最早时间,没有则传入nil。
+ */
+@property (nonatomic,strong)      NIMMessage      *currentMessage;
+
+
+/**
+ *  检索顺序，此参数对聊天室会话无效。
  */
 @property (nonatomic,assign)      NIMMessageSearchOrder             order;
 
 /**
- *  是否需要同步到DB
+ *  是否需要同步到DB，此参数对聊天室会话无效。
  */
 @property (nonatomic,assign)      BOOL            sync;
 

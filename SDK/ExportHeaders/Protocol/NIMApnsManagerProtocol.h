@@ -18,6 +18,13 @@
 typedef void(^NIMApnsHandler)(NSError *error);
 
 /**
+ *  获取 badge 回调
+ *
+ *  @return badge 数量
+ */
+typedef NSUInteger(^NIMBadgeHandler)(void);
+
+/**
  *  推送协议
  */
 @protocol NIMApnsManager <NSObject>
@@ -36,4 +43,12 @@ typedef void(^NIMApnsHandler)(NSError *error);
  */
 - (void)updateApnsSetting:(NIMPushNotificationSetting *)setting
                completion:(NIMApnsHandler)completion;
+
+
+/**
+ *  注册获取 badge 数量的回调函数
+ *
+ *  @param handler 获取 badge 回调
+ */
+- (void)registerBadgeCountHandler:(NIMBadgeHandler)handler;
 @end

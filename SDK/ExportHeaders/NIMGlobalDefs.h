@@ -217,7 +217,11 @@ typedef NS_ENUM(NSInteger, NIMLocalErrorCode) {
      *  空间不足，录制即将结束
      */
     NIMLocalErrorCodeRecordWillStopForLackSpace  = 25,
-
+    
+    /**
+     *  聊天室不存在
+     */
+    NIMLocalErrorChatroomNotExists               = 26,
 };
 
 

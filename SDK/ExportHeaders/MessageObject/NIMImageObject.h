@@ -62,23 +62,23 @@ typedef enum : NSUInteger
  *  图片本地路径
  *  @discussion 目前SDK没有提供下载大图的方法,但推荐使用这个地址作为图片下载地址,APP可以使用自己的下载类或者SDWebImage做图片的下载和管理
  */
-@property (nonatomic, copy, readonly) NSString * path;
+@property (nonatomic, copy, readonly) NSString *path;
 
 /**
  *  缩略图本地路径
  */
-@property (nonatomic, copy, readonly) NSString * thumbPath;
+@property (nonatomic, copy, readonly) NSString *thumbPath;
 
 
 /**
  *  图片远程路径
  */
-@property (nonatomic, copy, readonly) NSString * url;
+@property (nonatomic, copy, readonly) NSString *url;
 
 /**
  *  缩略图远程路径
  */
-@property (nonatomic, copy, readonly) NSString * thumbUrl;
+@property (nonatomic, copy, readonly) NSString *thumbUrl;
 
 /**
  *  图片尺寸

@@ -36,6 +36,7 @@
 @property (nonatomic,assign)    BOOL    hostUserInfos;
 
 
+
 /**
  *  设置 SDK 根目录
  *

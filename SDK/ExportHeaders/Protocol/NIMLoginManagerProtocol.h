@@ -154,6 +154,8 @@ typedef NS_ENUM(NSInteger, NIMKickReason)
  *  登出
  *
  *  @param completion 完成回调
+ *  @discussion 用户在登出是需要调用这个接口进行 SDK 相关数据的清理,回调 Block 中的 error 只是指明和服务器的交互流程中可能出现的错误,但不影响后续的流程。
+ *              如用户登出时发生网络错误导致服务器没有收到登出请求，客户端仍可以登出(切换界面，清理数据等)，但会出现推送信息仍旧会发到当前手机的问题。
  */
 - (void)logout:(NIMLoginHandler)completion;
 
@@ -172,6 +174,13 @@ typedef NS_ENUM(NSInteger, NIMKickReason)
  *  @return 当前登录帐号,如果没有登录成功,这个地方会返回nil
  */
 - (NSString *)currentAccount;
+
+/**
+ *  当前登录状态
+ *
+ *  @return 当前登录状态
+ */
+- (BOOL)isLogined;
 
 /**
  *  返回当前登录的设备列表

@@ -46,7 +46,7 @@ typedef NS_ENUM(NSInteger, NIMTeamMemberType){
 @property (nonatomic,copy,readonly)         NSString *userId;
 
 /**
- *  邀请者
+ *  邀请者ID, 此字段仅当该成员为自己时有效。不允许查看其他群成员的邀请者；当自己为建群者时，邀请者ID为0。
  */
 @property (nonatomic,copy,readonly)         NSString *invitor;
 

@@ -13,6 +13,8 @@
 @class NIMHistoryMessageSearchOption;
 @class NIMMessageSearchOption;
 
+
+
 /**
  *  读取服务器消息记录block
  *
@@ -166,7 +168,7 @@ typedef void(^NIMSearchMessageBlock)(NSError *error,NSArray *messages);
  *  写入消息
  *
  *  @param message 需要更新的消息
- *  @param session 需要更新西消息
+ *  @param session 需要更新的消息
  *  @param completion 完成后的回调
  *  @discussion 当保存消息成功之后，会收到 NIMChatManagerDelegate 中的 onRecvMessages: 回调。目前支持消息类型:NIMMessageTypeText,NIMMessageTypeTip,NIMMessageTypeCustom
  */
@@ -224,6 +226,7 @@ typedef void(^NIMSearchMessageBlock)(NSError *error,NSArray *messages);
  *  @param session 消息所属的会话
  *  @param option  搜索选项
  *  @param block   读取的消息列表结果
+ *  @discussion    此接口不支持查询聊天室消息，聊天室请参考 NIMChatroomManagerProtocol 中的查询消息接口。
  *
  */
 - (void)fetchMessageHistory:(NIMSession *)session

@@ -19,6 +19,8 @@
 #import "NIMTipObject.h"
 #import "NIMMessageSetting.h"
 
+@class NIMMessageChatroomExtension;
+
 /**
  *  消息送达状态枚举
  */
@@ -121,15 +123,21 @@ typedef NS_ENUM(NSInteger, NIMMessageAttachmentDownloadState){
 
 /**
  *  服务器扩展
- *  @discussion 这个字段会发送到其他端,上层需要保证NSDictionary可以转换为JSON,转成JSON后长度限制为1K
+ *  @discussion 客户端可以设置这个字段,这个字段将在本地存储且发送至对端,上层需要保证NSDictionary可以转换为JSON
  */
 @property (nonatomic,strong)                NSDictionary    *remoteExt;
 
 /**
  *  客户端本地扩展
- *  @discussion 当前字段只在本地存储，不会发送至对端,上层需要保证NSDictionary可以转换为JSON
+ *  @discussion 客户端可以设置这个字段，这个字段只在本地存储,不会发送至对端,上层需要保证NSDictionary可以转换为JSON
  */
 @property (nonatomic,strong)                NSDictionary    *localExt;
+
+/**
+ *  消息拓展字段
+ *  @discussion 服务器下发的消息拓展字段，并不在本地做持久化，目前只有聊天室中的消息才有该字段(NIMMessageChatroomExtension)
+ */
+@property (nonatomic,strong)                id messageExt;
 
 /**
  *  消息发送时间

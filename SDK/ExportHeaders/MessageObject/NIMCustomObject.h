@@ -91,28 +91,6 @@
  */
 - (NSString *)attachmentPathForDownloading;
 
-
-#pragma mark - 服务器存储相关接口
-/**
- *  是否允许在消息历史中拉取
- *
- *  @return 是否允许在消息历史中拉取
- */
-- (BOOL)messageHistoryEnabled __deprecated_msg("Method deprecated. Use ‘historyEnabled’ in NIMMessageSetting");
-
-/**
- *  是否支持漫游
- *
- *  @return 是否支持漫游
- */
-- (BOOL)messageRoamingEnabled __deprecated_msg("Method deprecated. Use ‘roamingEnabled’ in NIMMessageSetting");
-
-/**
- *  是否支持多端同步
- *
- *  @return 是否支持多端同步
- */
-- (BOOL)messageSyncEnabled __deprecated_msg("Method deprecated. Use ‘syncEnabled’ in NIMMessageSetting");
 @end
 
 

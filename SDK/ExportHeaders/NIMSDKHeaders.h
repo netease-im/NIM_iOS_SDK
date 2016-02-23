@@ -38,6 +38,15 @@
 #import "NIMTeamMember.h"
 
 /**
+ *  聊天室相关定义
+ */
+#import "NIMChatroom.h"
+#import "NIMChatroomEnterRequest.h"
+#import "NIMMessageChatroomExtension.h"
+#import "NIMChatroomMember.h"
+#import "NIMChatroomMemberRequest.h"
+
+/**
  *  消息定义
  */
 #import "NIMMessage.h"
@@ -64,6 +73,7 @@
  */
 #import "NIMNetCallOption.h"
 
+
 /**
  *  各个对外接口协议定义
  */
@@ -78,4 +88,6 @@
 #import "NIMResourceManagerProtocol.h"
 #import "NIMNetCallManagerProtocol.h"
 #import "NIMRTSManagerProtocol.h"
+#import "NIMChatroomManagerProtocol.h"
+
 #endif

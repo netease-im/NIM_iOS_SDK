@@ -10,6 +10,8 @@
 #import "NIMNetCallManagerProtocol.h"
 #import "NIMTeamNotificationContent.h"
 #import "NIMNetCallNotificationContent.h"
+#import "NIMChatroomNotificationContent.h"
+#import "NIMUnsupportedNotificationContent.h"
 
 
 /**

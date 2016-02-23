@@ -96,7 +96,6 @@
  */
 @property (nonatomic,strong,readonly)   id<NIMTeamManager>    teamManager;
 
-
 /**
  *  好友管理类
  */
@@ -126,6 +125,11 @@
  *  实时会话管理类
  */
 @property (nonatomic,strong,readonly)   id<NIMRTSManager> rtsManager;
+
+/**
+ *  聊天室管理类
+ */
+@property (nonatomic,strong,readonly)   id<NIMChatroomManager> chatroomManager;
 
 
 @end

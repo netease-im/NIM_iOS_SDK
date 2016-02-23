@@ -130,22 +130,22 @@ typedef NS_ENUM(NSInteger, NIMUserGender) {
 /**
  *  邮箱
  */
-@property (nonatomic,copy,readonly) NSString* email;
+@property (nonatomic,copy,readonly) NSString *email;
 
 /**
  *  生日
  */
-@property (nonatomic,copy,readonly) NSString* birth;
+@property (nonatomic,copy,readonly) NSString *birth;
 
 /**
  *  电话号码
  */
-@property (nonatomic,copy,readonly) NSString* mobile;
+@property (nonatomic,copy,readonly) NSString *mobile;
 
 /**
  *  用户自定义扩展字段
  */
-@property (nonatomic,copy,readonly) NSString* ex;
+@property (nonatomic,copy,readonly) NSString *ex;
 
 
 @end
