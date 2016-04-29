@@ -62,14 +62,26 @@ typedef enum : NSUInteger
  */
 - (instancetype)initWithFilepath:(NSString *)filepath;
 
+
+/**
+ *  图片实例对象初始化方法
+ *
+ *  @param data 图片数据
+ *  @param extension 推荐使用的图片数据后缀名
+ *
+ *  @return 图片实例对象
+ */
+- (instancetype)initWithData:(NSData *)data
+                   extension:(NSString *)extension;
 /**
  *  文件展示名
  */
 @property (nonatomic, copy) NSString *displayName;
 
+
 /**
  *  图片本地路径
- *  @discussion 目前SDK没有提供下载大图的方法,但推荐使用这个地址作为图片下载地址,APP可以使用自己的下载类或者SDWebImage做图片的下载和管理
+ *  @discussion 目前 SDK 没有提供下载大图的方法,但推荐使用这个地址作为图片下载地址,APP 可以使用自己的下载类或者 SDWebImage 做图片的下载和管理
  */
 @property (nonatomic, copy, readonly) NSString *path;
 
@@ -86,6 +98,7 @@ typedef enum : NSUInteger
 
 /**
  *  缩略图远程路径
+ *  @discussion 仅适用于使用云信上传服务进行上传的资源，否则无效。
  */
 @property (nonatomic, copy, readonly) NSString *thumbUrl;
 

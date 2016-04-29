@@ -66,9 +66,9 @@ typedef NS_ENUM(NSInteger, NIMUserGender) {
 @property (nonatomic,copy)   NSString    *alias;
 
 /**
- *  扩展字段，上层需要保证NSDictionary可以转换为JSON,JSON长度限制为256个字符。
+ *  扩展字段
  */
-@property (nonatomic,copy)   NSDictionary  *ext;
+@property (nonatomic,copy)   NSString  *ext;
 
 /**
  *  用户资料，仅当用户选择托管信息到云信时有效
@@ -113,7 +113,8 @@ typedef NS_ENUM(NSInteger, NIMUserGender) {
 @property (nonatomic,copy,readonly) NSString *avatarUrl;
 
 /**
- *  用户头像缩略图，仅适用于使用云信上传服务进行上传的资源。否则为和用户头像原图值一致。
+ *  用户头像缩略图
+ *  @discussion 仅适用于使用云信上传服务进行上传的资源，否则无效。
  */
 @property (nonatomic,copy,readonly) NSString *thumbAvatarUrl;
 
@@ -145,7 +146,7 @@ typedef NS_ENUM(NSInteger, NIMUserGender) {
 /**
  *  用户自定义扩展字段
  */
-@property (nonatomic,copy,readonly) NSString *ex;
+@property (nonatomic,copy,readonly) NSString *ext;
 
 
 @end
@@ -166,7 +167,6 @@ typedef NS_ENUM(NSInteger, NIMUserGender) {
 
 /**
  *  附言
- *  @dicussion 
  */
 @property (nonatomic,copy)      NSString            *message;
 

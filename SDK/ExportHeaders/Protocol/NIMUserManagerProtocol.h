@@ -61,7 +61,7 @@ typedef NS_ENUM(NSInteger, NIMUserInfoUpdateTag) {
     /**
      *  扩展字段
      */
-    NIMUserInfoUpdateTagEx = 10,
+    NIMUserInfoUpdateTagExt = 10,
 };
 
 /**
@@ -193,7 +193,7 @@ typedef NS_ENUM(NSInteger, NIMUserInfoUpdateTag) {
  *  @param users  用户id列表
  *  @param block  用户信息回调
  *
- *  @discussion 需要将用户信息交给云信托管，此接口才有效。
+ *  @discussion 需要将用户信息交给云信托管，此接口才有效。调用此接口，不会触发 - (void)onUserInfoChanged: 回调。
  */
 - (void)fetchUserInfos:(NSArray *)users completion:(NIMUserInfoBlock)block;
 
@@ -205,7 +205,7 @@ typedef NS_ENUM(NSInteger, NIMUserInfoUpdateTag) {
  *
  *  @return NIMUser
  *
- *  @discussion 需要将用户信息交给云信托管，此接口才有效。
+ *  @discussion 需要将用户信息交给云信托管，且数据已经正常缓存到本地，此接口才有效。
  *              用户资料除自己之外，不保证其他用户资料实时更新
  *              其他用户资料更新的时机为: 1.调用 - (void)fetchUserInfos:completion: 方法刷新用户
  *                                    2.收到此用户发来消息

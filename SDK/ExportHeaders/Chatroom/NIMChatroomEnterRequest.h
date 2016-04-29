@@ -33,13 +33,12 @@
 
 /**
  *  聊天室拓展字段
- *  @discussion 上层可以自主设置在聊天室内的拓展字段,需要保证这个字段可以以 JSON 的形式序列化
  */
-@property (nonatomic,copy)  NSDictionary    *roomExt;
+@property (nonatomic,copy)  NSString    *roomExt;
 /**
  *  聊天室事件通知拓展字段
  */
-@property (nonatomic,copy)  NSDictionary    *roomNotifyExt;
+@property (nonatomic,copy)  NSString    *roomNotifyExt;
 
 @end
 

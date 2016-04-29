@@ -106,6 +106,6 @@ typedef NS_ENUM(NSInteger, NIMChatroomEventType){
 /**
  *  扩展信息
  */
-@property (nonatomic,copy,readonly) NSDictionary *notifyExt;
+@property (nonatomic,copy,readonly) NSString *notifyExt;
 
 @end

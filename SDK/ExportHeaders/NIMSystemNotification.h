@@ -109,7 +109,7 @@ typedef NS_ENUM(NSInteger, NIMSystemNotificationType){
 /**
  *  类型列表
  */
-@property (nonatomic,strong)    NSArray     *notificationTypes;
+@property (nonatomic,copy)    NSArray     *notificationTypes;
 @end
 
 

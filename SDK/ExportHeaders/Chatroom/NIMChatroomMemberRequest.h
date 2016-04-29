@@ -104,7 +104,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomFetchMemberType){
 /**
  *  操作通知事件扩展
  */
-@property (nonatomic,copy) NSDictionary *notifyExt;
+@property (nonatomic,copy) NSString *notifyExt;
 
 @end
 
@@ -126,6 +126,6 @@ typedef NS_ENUM(NSInteger, NIMChatroomFetchMemberType){
 /**
  *  被踢通知扩展字段
  */
-@property (nonatomic,copy) NSDictionary *notifyExt;
+@property (nonatomic,copy) NSString *notifyExt;
 
 @end

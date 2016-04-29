@@ -109,7 +109,7 @@ typedef NS_ENUM(NSInteger, NIMTeamUpdateTag){
 /**
  *  被操作者ID列表
  */
-@property (nonatomic,strong,readonly)   NSArray *targetIDs;
+@property (nonatomic,copy,readonly)   NSArray *targetIDs;
 
 /**
  *  额外信息
@@ -127,6 +127,6 @@ typedef NS_ENUM(NSInteger, NIMTeamUpdateTag){
 /**
  *  群内修改的信息键值对
  */
-@property (nonatomic,strong,readonly)   NSDictionary    *values;
+@property (nonatomic,copy,readonly)   NSDictionary    *values;
 @end
 

@@ -88,21 +88,12 @@ typedef NS_ENUM(NSInteger, NIMChatroomConnectionState) {
      *  和聊天室失去连接
      */
     NIMChatroomConnectionStateLoseConnection   = 3,
-    /**
-     *  发生严重错误,需要用户手动进行重连
-     *  @discussion 一般出现在自动重连时发生密码错误或者有其他端已登录的情况
-     */
-    NIMChatroomConnectionStateFatalError       = 4,
 };
 
 /**
  *  聊天室被踢原因
  */
 typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
-    /**
-     *  未知原因
-     */
-    NIMChatroomKickReasonUnknown         = -1,
     /**
      *  聊天室已经解散
      */
@@ -115,6 +106,11 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
      *  多端被踢
      */
     NIMChatroomKickReasonByConflictLogin = 3,
+    /**
+     *  被拉黑
+     */
+    NIMChatroomKickReasonBlacklist       = 5,
+    
 };
 
 
@@ -140,6 +136,14 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
  *  @param state  当前状态
  */
 - (void)chatroom:(NSString *)roomId connectionStateChanged:(NIMChatroomConnectionState)state;
+
+/**
+ *  聊天室自动登录出错
+ *
+ *  @param roomId 聊天室Id
+ *  @param error  自动登录出错原因
+ */
+- (void)chatroom:(NSString *)roomId autoLoginFailed:(NSError *)error;
 
 @end
 

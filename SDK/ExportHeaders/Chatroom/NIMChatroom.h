@@ -38,7 +38,7 @@
 /**
  *  第三方扩展字段，长度限制4K
  */
-@property (nonatomic,copy)     NSDictionary *ext;
+@property (nonatomic,copy)     NSString *ext;
 
 /**
  *  当前在线用户数量
@@ -48,7 +48,7 @@
 /**
  *  直播拉流地址
  */
-@property (nonatomic,copy)     NSString *broadcastUrl;
+@property (nonatomic,copy)   NSString *broadcastUrl;
 
 @end
 

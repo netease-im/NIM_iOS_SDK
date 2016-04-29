@@ -67,7 +67,6 @@ typedef NS_ENUM(NSInteger, NIMTeamApplyStatus) {
 @interface NIMCreateTeamOption : NSObject
 /**
  *  群名
- *  @discussion 这个参数不能省略
  */
 @property (nonatomic,copy)      NSString        *name;
 /**

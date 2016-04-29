@@ -22,9 +22,19 @@
 
 /**
  *  禁用视频裁剪
- *  @discussion 默认为YES。不禁用时，SDK可能会根据对端机型屏幕宽高比将本端画面裁剪后再发送，以节省运算量和网络带宽
+ *  @discussion 默认为NO。不禁用时，SDK可能会根据对端机型屏幕宽高比将本端画面裁剪后再发送，以节省运算量和网络带宽
  */
 @property (nonatomic,assign)    BOOL          disableVideoCropping;
+
+/**
+ *  服务器录制音频开关 (该开关仅在服务器开启录制功能时才有效)
+ */
+@property (nonatomic, assign)   BOOL           serverRecordAudio;
+
+/**
+ *  服务器录制视频开关 (该开关仅在服务器开启录制功能时才有效)
+ */
+@property (nonatomic, assign)   BOOL           serverRecordVideo;
 
 /**
  *  扩展消息

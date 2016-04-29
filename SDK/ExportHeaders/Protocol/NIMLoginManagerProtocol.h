@@ -105,6 +105,8 @@ typedef NS_ENUM(NSInteger, NIMKickReason)
  *  自动登录失败回调
  *
  *  @param error 失败原因
+ *  @discussion 自动重连不需要上层开发关心，但是如果发生一些需要上层开发处理的错误，SDK 会通过这个方法回调
+ *              用户需要处理的情况包括：AppKey 未被设置，参数错误，密码错误，多端登录冲突，账号被封禁，操作过于频繁等
  */
 - (void)onAutoLoginFailed:(NSError *)error;
 

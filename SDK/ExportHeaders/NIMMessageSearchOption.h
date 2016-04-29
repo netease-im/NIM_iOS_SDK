@@ -71,7 +71,7 @@ typedef enum : NSUInteger {
 /**
  *  消息发出者帐号列表
  */
-@property (nonatomic,strong)    NSArray *fromIds;
+@property (nonatomic,copy)      NSArray *fromIds;
 
 @end
 

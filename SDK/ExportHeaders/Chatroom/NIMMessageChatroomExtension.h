@@ -25,6 +25,7 @@
 
 /**
  *  用户在聊天室内的头像缩略图
+ *  @discussion 仅适用于使用云信上传服务进行上传的资源，否则无效。
  */
 
 @property (nonatomic,copy,readonly)  NSString    *roomAvatarThumbnail;
@@ -32,7 +33,7 @@
 /**
  *  用户在当前聊天室的拓展信息
  */
-@property (nonatomic,strong) NSDictionary *roomExt;
+@property (nonatomic,copy) NSString *roomExt;
 
 @end
 

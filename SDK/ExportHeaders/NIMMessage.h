@@ -118,21 +118,21 @@ typedef NS_ENUM(NSInteger, NIMMessageAttachmentDownloadState){
 
 /**
  *  消息推送Payload
- *  @discussion 可以通过这个字段定义消息推送Payload,支持字段参考苹果技术文档,转成JSON后长度限制为2K
+ *  @discussion 可以通过这个字段定义消息推送Payload,支持字段参考苹果技术文档,转成 JSON 后长度限制为 2K
  */
-@property (nonatomic,strong)                NSDictionary *apnsPayload;
+@property (nonatomic,copy)                NSDictionary *apnsPayload;
 
 /**
  *  服务器扩展
- *  @discussion 客户端可以设置这个字段,这个字段将在本地存储且发送至对端,上层需要保证NSDictionary可以转换为JSON
+ *  @discussion 客户端可以设置这个字段,这个字段将在本地存储且发送至对端,上层需要保证 NSDictionary 可以转换为 JSON
  */
-@property (nonatomic,strong)                NSDictionary    *remoteExt;
+@property (nonatomic,copy)                NSDictionary    *remoteExt;
 
 /**
  *  客户端本地扩展
- *  @discussion 客户端可以设置这个字段，这个字段只在本地存储,不会发送至对端,上层需要保证NSDictionary可以转换为JSON
+ *  @discussion 客户端可以设置这个字段，这个字段只在本地存储,不会发送至对端,,上层需要保证 NSDictionary 可以转换为 JSON
  */
-@property (nonatomic,strong)                NSDictionary    *localExt;
+@property (nonatomic,copy)                NSDictionary    *localExt;
 
 /**
  *  消息拓展字段

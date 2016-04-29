@@ -284,7 +284,7 @@ typedef void(^NIMTeamApplyHandler)(NSError *error,NIMTeamApplyStatus applyStatus
  *
  *  @param userId       群成员ID
  *  @param newNick      新的群成员昵称
- *  @param teamId       群主ID
+ *  @param teamId       群组ID
  *  @param block        完成后的block回调
  */
 - (void)updateUserNick:(NSString *)userId
@@ -381,8 +381,9 @@ typedef void(^NIMTeamApplyHandler)(NSError *error,NIMTeamApplyStatus applyStatus
  *
  *  @param teamId 群组ID
  *  @param block  完成后的block回调
- *  @discussion   绝大多数情况这个请求都是从本地读取缓存并同步返回
- *                但考虑到用户网络等问题, SDK 有可能没有即时缓存群成员信息,那么这个请求将是个带网络请求的异步操作(增量请求)
+ *  @discussion   绝大多数情况这个请求都是从本地读取缓存并同步返回，但是由于群成员信息量较大， SDK 采取的是登录后延迟拉取的策略
+ *                考虑到用户网络等问题, SDK 有可能没有及时缓存群成员信息,那么这个请求将是个带网络请求的异步操作(增量请求)。
+ *                同时这个接口会去请求本地没有缓存的群用户的资料信息，但不会触发 - (void)onUserInfoChanged: 回调。
  */
 - (void)fetchTeamMembers:(NSString *)teamId
               completion:(NIMTeamMemberHandler)block;
@@ -394,6 +395,7 @@ typedef void(^NIMTeamApplyHandler)(NSError *error,NIMTeamApplyStatus applyStatus
  *  @param teamId 群组ID
  *  @param block  完成后的block回调
  *  @discussion   通过网络请求获取群成员列表,不同于fetchTeamMembers:completion这个接口是个必然带网络请求的异步操作(增量请求)
+ *                同时这个接口会去请求本地没有缓存的群用户的资料信息，但不会触发 - (void)onUserInfoChanged: 回调。
  */
 - (void)fetchTeamMembersFromServer:(NSString *)teamId
                         completion:(NIMTeamMemberHandler)block;
@@ -415,7 +417,7 @@ typedef void(^NIMTeamApplyHandler)(NSError *error,NIMTeamApplyStatus applyStatus
  *  @param userId 用户ID
  *  @param teamId 群组ID
  *  @return       返回成员信息
- *  @discussion   这个值永远不会返回nil,如果传入的userId和teamId是无效值或者本地还没有缓存信息,将返回只带有userId和teamId信息的NIMTeamMember
+ *  @discussion   返回本地缓存的群成员信息，如果本地没有相应数据则返回 nil。
  */
 - (NIMTeamMember *)teamMember:(NSString *)userId
                        inTeam:(NSString *)teamId;
