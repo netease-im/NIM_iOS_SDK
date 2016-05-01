@@ -12,5 +12,5 @@
 
 举个🌰，在同时使用云信和支付宝 SDK 时，会发生符号文件冲突的问题，原因是它们都依赖了 openssl。解决方案是下载这个仓库文件后，移除 Libs 目录下的 libssl.a 和 libcrypto.a。
 
-为方便使用，推荐开发者使用 libtool 工具将 libNIMSDK.a 和其余的第三方库进行合并。
+为方便使用，推荐开发者使用 libtool 工具将 libNIMSDK.a 和其余的第三方库进行合并后再使用。
 
