@@ -61,18 +61,19 @@
  *  登录定义
  */
 #import "NIMLoginClient.h"
-
 /**
  *  实时会话选项定义
  */
+#import "NIMRTSManagerProtocol.h"
 #import "NIMRTSOption.h"
 #import "NIMRTSRecordingInfo.h"
 
 /**
- *  音视频网络通话选项定义
+ *  音视频网络通话定义
  */
+#import "NIMNetCallManagerProtocol.h"
 #import "NIMNetCallOption.h"
-
+#import "NIMNetCallMeeting.h"
 
 /**
  *  各个对外接口协议定义
@@ -86,8 +87,6 @@
 #import "NIMSystemNotificationManagerProtocol.h"
 #import "NIMApnsManagerProtocol.h"
 #import "NIMResourceManagerProtocol.h"
-#import "NIMNetCallManagerProtocol.h"
-#import "NIMRTSManagerProtocol.h"
 #import "NIMChatroomManagerProtocol.h"
 
 #endif

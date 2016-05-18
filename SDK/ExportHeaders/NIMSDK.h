@@ -115,7 +115,6 @@
  *  资源管理器,负责文件上传和下载
  */
 @property (nonatomic,strong,readonly)   id<NIMResourceManager> resourceManager;
-
 /**
  *  网络通话管理类
  */
