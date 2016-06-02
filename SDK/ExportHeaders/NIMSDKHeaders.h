@@ -34,9 +34,10 @@
 /**
  *  群相关定义
  */
+#import "NIMTeamDefs.h"
 #import "NIMTeam.h"
 #import "NIMTeamMember.h"
-
+#import "NIMCreateTeamOption.h"
 /**
  *  聊天室相关定义
  */
@@ -73,6 +74,7 @@
  */
 #import "NIMNetCallManagerProtocol.h"
 #import "NIMNetCallOption.h"
+#import "NIMNetCallRecordingInfo.h"
 #import "NIMNetCallMeeting.h"
 
 /**

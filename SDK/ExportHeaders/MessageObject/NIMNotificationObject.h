@@ -13,6 +13,7 @@
 #import "NIMChatroomNotificationContent.h"
 #import "NIMUnsupportedNotificationContent.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  通知对象
@@ -30,3 +31,4 @@
 
 @end
 
+NS_ASSUME_NONNULL_END

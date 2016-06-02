@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
+@class NIMMessage;
 @class NIMChatroom;
 @class NIMChatroomEnterRequest;
 @class NIMChatroomMember;
@@ -22,7 +25,7 @@
  *
  *  @param error 错误信息
  */
-typedef void(^NIMChatroomHandler)(NSError *error);
+typedef void(^NIMChatroomHandler)(NSError * __nullable error);
 
 /**
  *  聊天室成员请求回调
@@ -30,7 +33,7 @@ typedef void(^NIMChatroomHandler)(NSError *error);
  *  @param error  错误信息
  *  @param member 更新后的聊天室成员信息
  */
-typedef void(^NIMChatroomMemberHandler)(NSError *error,NIMChatroomMember *member);
+typedef void(^NIMChatroomMemberHandler)(NSError * __nullable error,NIMChatroomMember * __nullable member);
 
 /**
  *  进入聊天室请求回调
@@ -39,7 +42,7 @@ typedef void(^NIMChatroomMemberHandler)(NSError *error,NIMChatroomMember *member
  *  @param chatroom 聊天室信息
  *  @param me       自己在聊天室内的信息
  */
-typedef void(^NIMChatroomEnterHandler)(NSError *error,NIMChatroom *chatroom,NIMChatroomMember *me);
+typedef void(^NIMChatroomEnterHandler)(NSError * __nullable error,NIMChatroom * __nullable chatroom,NIMChatroomMember * __nullable me);
 
 
 /**
@@ -48,14 +51,14 @@ typedef void(^NIMChatroomEnterHandler)(NSError *error,NIMChatroom *chatroom,NIMC
  *  @param error    错误信息
  *  @param chatroom 聊天室信息
  */
-typedef void(^NIMChatroomInfoHandler)(NSError *error,NIMChatroom *chatroom);
+typedef void(^NIMChatroomInfoHandler)(NSError * __nullable error,NIMChatroom * __nullable chatroom);
 
 /**
  *  聊天室成员组网络数据回调
  *
  *  @param error 错误信息
  */
-typedef void(^NIMChatroomMembersHandler)(NSError *error, NSArray *members);
+typedef void(^NIMChatroomMembersHandler)(NSError * __nullable error, NSArray<NIMChatroomMember *> * __nullable members);
 
 
 /**
@@ -64,7 +67,7 @@ typedef void(^NIMChatroomMembersHandler)(NSError *error, NSArray *members);
  *  @param error  错误,如果成功则error为nil
  *  @param messages 读取的消息列表
  */
-typedef void(^NIMFetchChatroomHistoryBlock)(NSError *error,NSArray *messages);
+typedef void(^NIMFetchChatroomHistoryBlock)(NSError * __nullable error,NSArray<NIMMessage *> * __nullable messages);
 
 
 
@@ -159,7 +162,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
  *  @param completion 进入完成后的回调
  */
 - (void)enterChatroom:(NIMChatroomEnterRequest *)request
-           completion:(NIMChatroomEnterHandler)completion;
+           completion:(nullable NIMChatroomEnterHandler)completion;
 
 /**
  *  离开聊天室
@@ -168,7 +171,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
  *  @param completion 离开聊天室的回调
  */
 - (void)exitChatroom:(NSString *)roomId
-          completion:(NIMChatroomHandler)completion;
+          completion:(nullable NIMChatroomHandler)completion;
 
 
 /**
@@ -176,11 +179,11 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
  *
  *  @param roomId  聊天室ID
  *  @param option  查询选项
- *  @param completion   完成回调
+ *  @param result   完成回调
  */
 - (void)fetchMessageHistory:(NSString *)roomId
                      option:(NIMHistoryMessageSearchOption *)option
-                     result:(NIMFetchChatroomHistoryBlock)completion;
+                     result:(nullable NIMFetchChatroomHistoryBlock)result;
 
 
 /**
@@ -191,7 +194,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
  *  @discussion 只有已进入聊天室才能够获取对应的聊天室信息
  */
 - (void)fetchChatroomInfo:(NSString *)roomId
-               completion:(NIMChatroomInfoHandler)completion;
+               completion:(nullable NIMChatroomInfoHandler)completion;
 
 
 
@@ -202,7 +205,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
  *  @param completion 请求完成回调
  */
 - (void)fetchChatroomMembers:(NIMChatroomMemberRequest *)request
-                  completion:(NIMChatroomMembersHandler)completion;
+                  completion:(nullable NIMChatroomMembersHandler)completion;
 
 
 /**
@@ -212,7 +215,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
  *  @param completion 请求完成回调
  */
 - (void)fetchChatroomMembersByIds:(NIMChatroomMembersByIdsRequest *)request
-                       completion:(NIMChatroomMembersHandler)completion;
+                       completion:(nullable NIMChatroomMembersHandler)completion;
 
 
 /**
@@ -222,7 +225,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
  *  @param completion 请求回调
  */
 - (void)markMemberManager:(NIMChatroomMemberUpdateRequest *)request
-               completion:(NIMChatroomHandler)completion;
+               completion:(nullable NIMChatroomHandler)completion;
 
 /**
  *  标记为聊天室普通成员
@@ -231,7 +234,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
  *  @param completion 请求回调
  */
 - (void)markNormalMember:(NIMChatroomMemberUpdateRequest *)request
-              completion:(NIMChatroomHandler)completion;
+              completion:(nullable NIMChatroomHandler)completion;
 
 /**
  *  更新用户聊天室黑名单状态
@@ -240,7 +243,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
  *  @param completion 请求回调
  */
 - (void)updateMemberBlack:(NIMChatroomMemberUpdateRequest *)request
-               completion:(NIMChatroomHandler)completion;
+               completion:(nullable NIMChatroomHandler)completion;
 
 
 /**
@@ -250,7 +253,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
  *  @param completion 请求回调
  */
 - (void)updateMemberMute:(NIMChatroomMemberUpdateRequest *)request
-              completion:(NIMChatroomHandler)completion;
+              completion:(nullable NIMChatroomHandler)completion;
 
 
 /**
@@ -260,7 +263,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
  *  @param completion 请求回调
  */
 - (void)kickMember:(NIMChatroomMemberKickRequest *)request
-        completion:(NIMChatroomHandler)completion;
+        completion:(nullable NIMChatroomHandler)completion;
 
 /**
  *  添加通知对象
@@ -278,3 +281,5 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
 
 @end
 
+
+NS_ASSUME_NONNULL_END

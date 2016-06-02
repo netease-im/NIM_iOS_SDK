@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "NIMGlobalDefs.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  多人音视频会议
  */
@@ -31,7 +33,7 @@
  *  扩展信息
  *  @discussion 用于在会议的创建和加入之间传递额外信息, 仅在创建会议时设置有效
  */
-@property (nonatomic,copy)      NSString        *ext;
+@property (nullable,nonatomic,copy)      NSString        *ext;
 
 /**
  *  加入会议的音视频类型
@@ -69,3 +71,5 @@
 
 
 @end
+
+NS_ASSUME_NONNULL_END

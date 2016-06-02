@@ -8,6 +8,8 @@
 #import <Foundation/Foundation.h>
 #import "NIMSDKHeaders.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  NIMSDK
  */
@@ -33,14 +35,14 @@
  *  @param cerName 推送证书名
  */
 - (void)registerWithAppID:(NSString *)appKey
-                  cerName:(NSString *)cerName;
+                  cerName:(nullable NSString *)cerName;
 
 /**
  *  获取AppKey
  *
  *  @return 返回当前注册的AppKey
  */
-- (NSString *)appKey;
+- (nullable NSString *)appKey;
 
 /**
  *  是否正在使用Demo AppKey
@@ -132,3 +134,5 @@
 
 
 @end
+
+NS_ASSUME_NONNULL_END

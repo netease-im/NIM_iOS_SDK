@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "NIMGlobalDefs.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class NIMNetCallOption;
 @class NIMNetCallMeeting;
+@class NIMNetCallRecordingInfo;
 
 /**
  *  发起通话Block
@@ -18,7 +21,7 @@
  *  @param error 发起通话结果, 如果成功error为nil
  *  @param callID 发起通话的call id, 如果发起失败则为0
  */
-typedef void(^NIMNetCallStartHandler)(NSError *error, UInt64 callID);
+typedef void(^NIMNetCallStartHandler)(NSError * __nullable error, UInt64 callID);
 
 /**
  *  响应通话请求Block
@@ -26,7 +29,7 @@ typedef void(^NIMNetCallStartHandler)(NSError *error, UInt64 callID);
  *  @param error  响应通话请求结果, 如果成功error为nil
  *  @param callID 响应通话的call id
  */
-typedef void(^NIMNetCallResponseHandler)(NSError *error, UInt64 callID);
+typedef void(^NIMNetCallResponseHandler)(NSError * __nullable error, UInt64 callID);
 
 
 /**
@@ -170,7 +173,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
 - (void)onReceive:(UInt64)callID
              from:(NSString *)caller
              type:(NIMNetCallType)type
-          message:(NSString *)extendMessage;
+          message:(nullable NSString *)extendMessage;
 
 /**
  *  主叫收到被叫响应
@@ -287,6 +290,12 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
 - (void) onLocalRecordStopped:(UInt64)callID
                       fileURL:(NSURL *)fileURL;
 
+/**
+ *  网络通话服务器录制信息
+ *
+ *  @param info 录制信息
+ */
+- (void)onNetCallRecordingInfo:(NIMNetCallRecordingInfo *)info;
 
 /**
  *  用户加入了多人会议
@@ -321,10 +330,10 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *  @param option     开始通话附带的选项, 可以为空
  *  @param completion 发起通话结果回调
  */
-- (void)start:(NSArray *)callees
+- (void)start:(NSArray<NSString *> *)callees
          type:(NIMNetCallType)type
-       option:(NIMNetCallOption *)option
-   completion:(NIMNetCallStartHandler)completion;
+       option:(nullable NIMNetCallOption *)option
+   completion:(nullable NIMNetCallStartHandler)completion;
 
 /**
  *  被叫响应呼叫
@@ -338,8 +347,8 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  */
 - (void)response:(UInt64)callID
           accept:(BOOL)accept
-          option:(NIMNetCallOption *)option
-      completion:(NIMNetCallResponseHandler)completion;
+          option:(nullable NIMNetCallOption *)option
+      completion:(nullable NIMNetCallResponseHandler)completion;
 
 /**
  *  挂断通话
@@ -358,7 +367,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *  @param completion 预订会议结果
  */
 - (void)reserveMeeting:(NIMNetCallMeeting *)meeting
-            completion:(NIMNetCallMeetingHandler)completion;
+            completion:(nullable NIMNetCallMeetingHandler)completion;
 
 /**
  *  加入多人会议
@@ -367,7 +376,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *  @param completion 加入会议结果
  */
 - (void)joinMeeting:(NIMNetCallMeeting *)meeting
-         completion:(NIMNetCallMeetingHandler)completion;
+         completion:(nullable NIMNetCallMeetingHandler)completion;
 
 /**
  *  离开多人会议
@@ -476,7 +485,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *
  *  @return 预览层
  */
-- (CALayer *)localPreviewLayer;
+- (nullable CALayer *)localPreviewLayer;
 
 /**
  *  获取正在进行中的网络通话call id
@@ -504,7 +513,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *
  *  @discussion 只有通话连接建立以后才允许开始录制
  */
-- (BOOL)startLocalRecording:(NSURL *)filePath
+- (BOOL)startLocalRecording:(nullable NSURL *)filePath
                videoBitrate:(UInt32)videoBitrate;
 
 /**
@@ -528,3 +537,5 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  */
 - (void)removeDelegate:(id<NIMNetCallManagerDelegate>)delegate;
 @end
+
+NS_ASSUME_NONNULL_END

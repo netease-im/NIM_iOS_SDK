@@ -7,6 +7,8 @@
 //
 
 #import "NIMMessageObjectProtocol.h"
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  语音实例对象
  */
@@ -35,12 +37,12 @@
 /**
  *  语音的本地路径
  */
-@property (nonatomic, copy, readonly) NSString *path;
+@property (nullable, nonatomic, copy, readonly) NSString *path;
 
 /**
  *  语音的远程路径
  */
-@property (nonatomic, copy, readonly) NSString *url;
+@property (nullable, nonatomic, copy, readonly) NSString *url;
 
 /**
  *  语音时长，毫秒为单位
@@ -50,3 +52,5 @@
 
 
 @end
+
+NS_ASSUME_NONNULL_END
