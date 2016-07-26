@@ -53,7 +53,6 @@ typedef NS_ENUM(NSInteger, NIMMessageType){
     NIMMessageTypeCustom        = 100
 };
 
-
 /**
  *  网络通话类型
  */
@@ -67,30 +66,6 @@ typedef NS_ENUM(NSInteger, NIMNetCallType){
      */
     NIMNetCallTypeVideo = 2,
 };
-
-/**
- *  网络通话视频质量
- */
-typedef NS_ENUM(NSInteger, NIMNetCallVideoQuality) {
-    /**
-     *  默认视频质量
-     */
-    NIMNetCallVideoQualityDefault = 0,
-    /**
-     *  低视频质量
-     */
-    NIMNetCallVideoQualityLow     = 1,
-    /**
-     *  中等视频质量
-     */
-    NIMNetCallVideoQualityMedium  = 2,
-    /**
-     *  高视频质量
-     */
-    NIMNetCallVideoQualityHigh    = 3,
-};
-
-
 
 /**
  *  NIM本地Error Domain

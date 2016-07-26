@@ -2,7 +2,7 @@
 //  NIMRTSOption.h
 //  NIMLib
 //
-//  Created by Netease on 15/7/20.
+//  Created by Netease.
 //  Copyright (c) 2015年 Netease. All rights reserved.
 //
 
@@ -18,6 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  扩展消息, 仅在发起会话时有效, 用于开发者在主被叫之间沟通额外信息
  */
 @property (nullable,nonatomic, copy) NSString *extendMessage;
+
+/**
+ *  结束网络通话时自动停止AudioSession, 默认为 YES
+ */
+@property (nonatomic, assign) BOOL autoDeactivateAudioSession;
 
 /**
  *  禁用服务器录制

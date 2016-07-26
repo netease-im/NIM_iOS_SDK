@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NIMGlobalDefs.h"
+#import "NIMNetCallDefs.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -481,6 +482,40 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
 
 
 /**
+ *  设置视频最大编码码率
+ *
+ *  @param bitrate 最大编码码率
+ *
+ *  @return 是否设置成功
+ */
+- (BOOL)setVideoMaxEncodeBitrate:(NSUInteger)bitrate;
+
+
+/**
+ *  切换视频编码器
+ *
+ *  @param codec 视频编码器
+ *
+ *  @return 是否设置成功. 如果用户尚未加入, 则无法设置
+ *
+ *  @discussion 硬编码设置仅在iOS8及以上系统有效
+ *
+ */
+- (BOOL)switchVideoEncoder:(NIMNetCallVideoCodec)codec;
+
+/**
+ *  切换视频解码器
+ *
+ *  @param codec 视频解码器
+ *
+ *  @return 是否设置成功. 如果用户尚未加入, 则无法设置
+ *
+ *  @discussion 硬解码设置仅在iOS8及以上系统有效
+ *
+ */
+- (BOOL)switchVideoDecoder:(NIMNetCallVideoCodec)codec;
+
+/**
  *  获得当前视频通话的本地预览层
  *
  *  @return 预览层
@@ -522,6 +557,13 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *  @return 是否接受停止录制请求
  */
 - (BOOL)stopLocalRecording;
+
+/**
+ *  获得 SDK 网络通话网络层log 文件路径
+ *
+ *  @return SDK 网络通话 log
+ */
+- (NSString *)netCallLogFilepath;
 
 /**
  *  添加网络通话委托

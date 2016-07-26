@@ -207,6 +207,8 @@ typedef NS_ENUM(NSInteger, NIMRTSStatus){
  *  @param userID 发送数据目标用户名, nil表示广播给所有用户
  *  @param service 实时会话服务类型
  *
+ *  @return 是否允许发送
+ *
  *  @discussion 被叫在响应请求之前不要调用挂断接口
  */
 - (BOOL)sendRTSData:(NSData *)data

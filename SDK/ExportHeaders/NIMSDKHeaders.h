@@ -72,6 +72,7 @@
 /**
  *  音视频网络通话定义
  */
+#import "NIMNetCallDefs.h"
 #import "NIMNetCallManagerProtocol.h"
 #import "NIMNetCallOption.h"
 #import "NIMNetCallRecordingInfo.h"

@@ -2,12 +2,15 @@
 //  NIMNetCallMeeting.h
 //  NIMLib
 //
-//  Created by fenric on 16/4/19.
+//  Created by Netease.
 //  Copyright © 2016年 Netease. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "NIMGlobalDefs.h"
+#import "NIMNetCallDefs.h"
+
+@class NIMNetCallOption;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -47,33 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)   BOOL             actor;
 
 /**
- *  期望的发送视频质量
- *
- *  @discussion SDK 可能会根据具体机型运算性能和协商结果调整为更合适的清晰度, 导致该设置无效
+ *  网络通话可选配置
  */
-@property (nonatomic,assign)    NIMNetCallVideoQuality   preferredVideoQuality;
-
-/**
- *  禁用视频裁剪
- *  @discussion 不禁用时, SDK 可能会根据对端机型屏幕宽高比将本端画面裁剪后再发送, 以节省运算量和网络带宽
- */
-@property (nonatomic,assign)    BOOL                     disableVideoCropping;
-
-/**
- *  启用服务器录制音频 (该开关仅在服务器开启录制作功能时才有效), 预留字段, 暂不支持
- */
-@property (nonatomic, assign)   BOOL                     serverRecordAudio;
-
-/**
- *  启用服务器录制视频 (该开关仅在服务器开启录制作功能时才有效), 预留字段, 暂不支持
- */
-@property (nonatomic, assign)   BOOL                     serverRecordVideo;
-
-/**
- *  自动旋转远端画面, 默认为 YES
- *  @discussion 开启该选项, 以在远端设备旋转时在本端自动调整角度
- */
-@property (nonatomic, assign)   BOOL                     autoRotateRemoteVideo;
+@property (nullable, nonatomic, strong) NIMNetCallOption *option;
 
 @end
 
