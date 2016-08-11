@@ -201,6 +201,27 @@ typedef NS_ENUM(NSInteger, NIMLocalErrorCode) {
      *  AppKey 缺失，未注册 AppKey 就进行登录行为之类的接口
      */
     NIMLocalErrorCodeAppKeyNeed                  = 28,
+    /**
+     *  连接网络通话服务器超时
+     */
+    NIMLocalErrorCodeNetCallConnectTimeout       = 29,
+    /**
+     *  非互动直播用户无法加入开启互动直播的房间，互动直播用户指主播和连麦者
+     */
+    NIMLocalErrorCodeNetCallCannotJoinBypassChannel = 30,
+    /**
+     *  该频道超过了互动直播房间用户数限制: 每个房间只能有一个主播和一个连麦者
+     */
+    NIMLocalErrorCodeNetCallTooManyBypassStreamers = 31,
+    /**
+     *  该房间超过了互动直播主播数限制: 每个房间只能有一个主播和一个连麦者
+     */
+    NIMLocalErrorCodeNetCallTooManyBypassStreamingHosts = 32,
+    /**
+     *  主播尚未加入互动直播房间，连麦者无法在主播之前加入
+     */
+    NIMLocalErrorCodeNetCallHostNotJoined = 33,
+
 };
 
 
@@ -327,6 +348,11 @@ typedef NS_ENUM(NSInteger, NIMRemoteErrorCode) {
      *  打包错误
      */
     NIMRemoteErrorCodeEPacket             = 999,
+    
+    /**
+     *  在对方的黑名单中
+     */
+    NIMRemoteErrorCodeInBlackList         = 7101,
     
     /**
      *  被叫离线(无可送达的被叫方)

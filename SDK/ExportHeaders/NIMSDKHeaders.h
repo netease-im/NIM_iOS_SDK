@@ -46,6 +46,8 @@
 #import "NIMMessageChatroomExtension.h"
 #import "NIMChatroomMember.h"
 #import "NIMChatroomMemberRequest.h"
+#import "NIMChatroomUpdateRequest.h"
+#import "NIMChatroomQueueRequest.h"
 
 /**
  *  消息定义
@@ -62,21 +64,6 @@
  *  登录定义
  */
 #import "NIMLoginClient.h"
-/**
- *  实时会话选项定义
- */
-#import "NIMRTSManagerProtocol.h"
-#import "NIMRTSOption.h"
-#import "NIMRTSRecordingInfo.h"
-
-/**
- *  音视频网络通话定义
- */
-#import "NIMNetCallDefs.h"
-#import "NIMNetCallManagerProtocol.h"
-#import "NIMNetCallOption.h"
-#import "NIMNetCallRecordingInfo.h"
-#import "NIMNetCallMeeting.h"
 
 /**
  *  各个对外接口协议定义
