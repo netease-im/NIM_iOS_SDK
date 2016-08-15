@@ -1,5 +1,5 @@
 Pod::Spec.new do |s| 
- s.name = "NIMSDK" 
+ s.name = "NIMSDK_LITE" 
  s.version = "2.7.0" 
  s.summary = "Netease IM SDK" 
  s.homepage = "http://netease.im" 
