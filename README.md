@@ -4,7 +4,7 @@
 ## 使用方法
 * 通过  [release](https://github.com/netease-im/NIM_iOS_SDK/releases) 下载相应 SDK 包
 
-* 使用 'pod NIMSDK'（精简版，无音视频） 或 'pod NIMAVChat'（完整版，包含音视频） 进行集成。
+* 使用 'pod NIMSDK' 集成。
 
 ## 差异
 和官网版本提供完整的静态包不同，这仓库中的 NIM SDK 是以 “主静态库 + 依赖的第三方静态库” 的形式提供，形式不同，但是功能和官网版本完全一致。
