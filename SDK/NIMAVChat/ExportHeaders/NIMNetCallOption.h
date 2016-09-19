@@ -7,9 +7,29 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreMedia/CMSampleBuffer.h>
 #import "NIMNetCallDefs.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+/**
+ *  视频数据处理Block
+ *
+ *  @param sampleBuffer 摄像头采集到的视频原始数据，其中的 CVPixelBuffer 是 kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange 数据格式
+ */
+typedef void(^NIMNetCallVideoSampleBufferHandler)(CMSampleBufferRef sampleBuffer);
+
+/**
+ *  语音数据处理Block
+ *
+ *  @param audioSamples  麦克风采集到的语音原始 PCM 采样数据，处理完的数据通过该字段回填
+ *  @param samplesNumber 采样数据点数量
+ *  @param sampleRate 采样率
+ *
+ *  @return 回填数据采样点数，不允许超过samplesNumber
+ */
+
+typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInteger samplesNumber, Float64 sampleRate);
 
 /**
  *  网络通话选项
@@ -60,6 +80,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 
 @property (nonatomic, assign) BOOL autoDeactivateAudioSession;
+
+/**
+ *  本地采集的视频数据回调，供上层实现美颜等功能
+ */
+@property (nullable, nonatomic, copy) NIMNetCallVideoSampleBufferHandler  videoHandler;
+
+/**
+ *  本地采集的语音数据回调，供上层实现变音等功能
+ */
+@property (nullable, nonatomic, copy) NIMNetCallAudioSamplesHandler  audioHandler;
 
 /**
  *  视频发送帧率

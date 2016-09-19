@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreMedia/CMSampleBuffer.h>
 #import "NIMGlobalDefs.h"
 #import "NIMNetCallDefs.h"
 
@@ -239,6 +240,14 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *  @param layer 本地摄像头预览层
  */
 - (void)onLocalPreviewReady:(CALayer *)layer;
+
+
+/**
+ *  前后摄像头切换完成回调
+ *
+ *  @param camera 切换到了该摄像头
+ */
+- (void)onCameraSwitchedTo:(NIMNetCallCamera)camera;
 
 /**
  *  远程视频YUV数据就绪
@@ -534,6 +543,17 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  */
 - (BOOL)switchVideoQuality:(NIMNetCallVideoQuality)quality;
 
+
+/**
+ *  发送视频 SampleBuffer
+ *
+ *  @param buffer 只支持包含以下两种 CVPixelBuffer 数据格式的 sampleBuffer: kCVPixelFormatType_32BGRA、kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange
+ *
+ *  @discussion 发送的视频数据需要是从 videoHandler 获取到的数据，并且需要填入回调时该画面对应的时间戳，否则对端的视频播放时序会被破坏。不允许改变回调数据的尺寸
+ *
+ *  @return 发送结果
+ */
+- (nullable NSError *)sendVideoSampleBuffer:(CMSampleBufferRef)buffer;
 
 /**
  *  切换互动直播推流地址

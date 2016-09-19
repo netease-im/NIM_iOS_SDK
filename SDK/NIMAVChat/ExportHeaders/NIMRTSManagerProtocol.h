@@ -16,18 +16,20 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  发起实时会话请求Block
  *
- *  @param error 发起结果, 如果成功error为nil
- *  @param sessionID 发起的实时会话的ID
+ *  @param error 发起结果, 如果成功 error 为 nil
+ *  @param sessionID 发起的实时会话的 ID
+ *  @param channelID 实时会话内部使用的通道号, 对应服务器白板时长消息抄送里的 channelId. 仅在 error 为 nil 时有效
  */
-typedef void(^NIMRTSRequestHandler)(NSError * __nullable error,NSString * __nullable sessionID);
+typedef void(^NIMRTSRequestHandler)(NSError * __nullable error,NSString * __nullable sessionID,UInt64 channelID);
 
 /**
  *  响应实时会话请求Block
  *
- *  @param error  响应实时会话请求, 如果成功error为nil
- *  @param callID响应的实时会话的ID
+ *  @param error  响应实时会话请求, 如果成功 error 为 nil
+ *  @param sessionID 响应的实时会话的 ID
+ *  @param channelID 实时会话内部使用的通道号, 对应服务器白板时长消息抄送里的 channelId. 仅在 error 为 nil 时有效
  */
-typedef void(^NIMRTSResponseHandler)(NSError * __nullable error,NSString * __nullable sessionID);
+typedef void(^NIMRTSResponseHandler)(NSError * __nullable error,NSString * __nullable sessionID,UInt64 channelID);
 
 
 /**
