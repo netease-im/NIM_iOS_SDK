@@ -24,6 +24,7 @@
 #import "NIMNetCallOption.h"
 #import "NIMNetCallRecordingInfo.h"
 #import "NIMNetCallMeeting.h"
+#import "NIMNetCallUserInfo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
