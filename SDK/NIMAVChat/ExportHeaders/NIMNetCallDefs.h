@@ -99,4 +99,52 @@ typedef NS_ENUM(NSUInteger, NIMNetCallVideoFrameRate) {
 };
 
 
+/**
+ *  NIM 网络通话 Error Domain
+ */
+extern NSString *const NIMNetCallErrorDomain;
+
+/**
+ *  网络通话错误码
+ */
+typedef NS_ENUM(NSInteger, NIMNetCallErrorCode) {
+    /**
+     *  超过最大允许直播节点数量
+     */
+    NIMNetCallErrorCodeBypassSetExceedMax = 20202,
+    
+    /**
+     *  必须由主播第一个开启直播
+     */
+    NIMNetCallErrorCodeBypassSetHostNotJoined = 20203,
+    
+    /**
+     *  互动直播服务器错误
+     */
+    NIMNetCallErrorCodeBypassSetServerError = 20204,
+    
+    /**
+     *  互动直播其他错误
+     */
+    NIMNetCallErrorCodeBypassSetOtherError = 20205,
+    
+    /**
+     *  互动直播服务器没有响应
+     */
+    NIMNetCallErrorCodeBypassSetNoResponse = 20404,
+
+    /**
+     *  重连过程中无法进行相关操作，稍后再试
+     */
+    NIMNetCallErrorCodeBypassReconnecting = 20405,
+
+    /**
+     *  互动直播设置超时
+     */
+    NIMNetCallErrorCodeBypassSetTimeout = 20408,
+    
+};
+
+
+
 #endif

@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class NIMNetCallOption;
 @class NIMNetCallMeeting;
 @class NIMNetCallRecordingInfo;
+@class NIMNetCallUserInfo;
 
 /**
  *  发起通话Block
@@ -334,6 +335,30 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
 - (void)onMeetingError:(NSError *)error
                meeting:(NIMNetCallMeeting *)meeting;
 
+
+/**
+ *  自己当前音量
+ *
+ *  @param volume 音量
+ */
+-(void)onMyVolumeUpdate:(UInt16)volume;
+
+/**
+ *  正在说话的用户信息汇报
+ *
+ *  @param report 用户信息，包含音量，如果为空，表示没有说话的人
+ */
+- (void)onSpeakingUsersReport:(nullable NSArray<NIMNetCallUserInfo *> *)report;
+
+
+/**
+ *  设置互动直播开关结果回调
+ *
+ *  @param enabled 开关互动直播
+ *  @param result 结果. 如果没有错误, result 为 nil
+ */
+- (void)onSetBypassStreamingEnabled:(BOOL)enabled result:(nullable NSError *)result;
+
 @end
 
 /**
@@ -563,6 +588,16 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *  @return 是否设置成功
  */
 - (BOOL)switchBypassStreamingUrl:(NSString *)url;
+
+
+/**
+ *  开始或结束互动直播推流
+ *
+ *  @param enabled 是否开始
+ *
+ *  @return 是否允许设置
+ */
+- (BOOL)setBypassStreamingEnabled:(BOOL)enabled;
 
 /**
  *  获得当前视频通话的本地预览层
