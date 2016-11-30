@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreMedia/CMSampleBuffer.h>
 #import "NIMGlobalDefs.h"
-#import "NIMNetCallDefs.h"
+#import "NIMAVChatDefs.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -229,11 +229,11 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
 /**
  *  当前通话网络状态
  *
- *  @param callID 相关网络通话的call id
  *  @param status 网络状态
+ *  @param user   网络状态对应的用户；如果是自己，表示自己的发送网络状态
  */
-- (void)onCall:(UInt64)callID
-     netStatus:(NIMNetCallNetStatus)status;
+- (void)onNetStatus:(NIMNetCallNetStatus)status
+               user:(NSString *)user;
 
 /**
  *  本地摄像头预览就绪
@@ -614,11 +614,13 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
 - (UInt64)currentCallID;
 
 /**
- *  获取当前网络通话的网络状态
+ *  获取当前网络通话中某用户的网络状态
+ *
+ *  @param user 用户. 可以传入自己的 id 以获取自己的发送网络状况
  *
  *  @return 网络状态
  */
-- (NIMNetCallNetStatus)netStatus;
+- (NIMNetCallNetStatus)netStatus:(NSString *)user;
 
 
 /**

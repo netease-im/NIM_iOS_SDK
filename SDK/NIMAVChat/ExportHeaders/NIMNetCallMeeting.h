@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NIMGlobalDefs.h"
-#import "NIMNetCallDefs.h"
+#import "NIMAVChatDefs.h"
 
 @class NIMNetCallOption;
 

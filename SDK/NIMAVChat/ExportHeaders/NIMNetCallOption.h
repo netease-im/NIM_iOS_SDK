@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreMedia/CMSampleBuffer.h>
-#import "NIMNetCallDefs.h"
+#import "NIMAVChatDefs.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -82,6 +82,16 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
 @property (nonatomic, assign) BOOL autoDeactivateAudioSession;
 
 /**
+ *  语音降噪, 默认为 YES
+ */
+@property (nonatomic, assign) BOOL audioDenoise;
+
+/**
+ *  人声检测, 默认为 YES
+ */
+@property (nonatomic, assign) BOOL voiceDetect;
+
+/**
  *  本地采集的视频数据回调，供上层实现美颜等功能
  */
 @property (nullable, nonatomic, copy) NIMNetCallVideoSampleBufferHandler  videoHandler;
@@ -107,6 +117,11 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
  * @discussion 指定推流地址的客户端被认为是互动直播的主播端
  */
 @property (nullable,nonatomic, strong) NSString *bypassStreamingUrl;
+
+/**
+ *  互动直播视频画面混屏模式，在 NIMNetCallVideoMixMode 里面选择合适的模式，只有主播设置有效
+ */
+@property (nonatomic, assign) NSUInteger bypassStreamingVideoMixMode;
 
 /**
  *  服务器录制音频开关 (该开关仅在服务器开启录制功能时才有效)

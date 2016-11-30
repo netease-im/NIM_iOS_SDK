@@ -25,6 +25,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL autoDeactivateAudioSession;
 
 /**
+ *  语音降噪, 默认为 YES
+ */
+@property (nonatomic, assign) BOOL audioDenoise;
+
+/**
+ *  人声检测, 默认为 YES
+ */
+@property (nonatomic, assign) BOOL voiceDetect;
+
+/**
  *  禁用服务器录制
  */
 @property (nonatomic, assign) BOOL disableRecord;
