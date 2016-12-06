@@ -6,6 +6,8 @@
 
 * 使用 'pod NIMSDK' 集成。
 
+* 若工程中已经包含了 OpenSSL（如集成了微信、支付宝支付）时，需要移除重复的 libcrypto.a 与 libssl.a， 使用 'pod NIMSDK/WithoutSSL' 集成。
+
 ## 结构
 * SDK
   * NIMSDK （IM 模块)
