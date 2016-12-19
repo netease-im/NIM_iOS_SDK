@@ -116,7 +116,7 @@ typedef void(^NIMAudioToTextBlock)(NSError * __nullable error,NSString * __nulla
  *  @param filePath 录制完成的音频文件路径
  *  @param error    错误信息
  */
-- (void)recordAudio:(NSString *)filePath didCompletedWithError:(nullable NSError *)error;
+- (void)recordAudio:(nullable NSString *)filePath didCompletedWithError:(nullable NSError *)error;
 
 /**
  *  录音被取消的回调

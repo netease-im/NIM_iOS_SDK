@@ -77,6 +77,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,assign)    BOOL    shouldSyncUnreadCount;
 
+
+/**
+ *  针对用户信息开启 https 支持
+ *  @discusssion 默认为 YES。在默认情况下，我们认为用户头像，群头像，聊天室类用户头像等信息都是默认托管在云信上，所以 SDK 会针对他们自动开启 https 支持。
+ *                          但如果你需要将这些信息都托管在自己的服务器上，需要设置这个接口为 NO，避免 SDK 自动将你的 http url 自动转换为 https url。
+ */
+@property (nonatomic,assign)    BOOL    enabledHttpsForInfo;
+
 /**
  *  配置项委托
  */

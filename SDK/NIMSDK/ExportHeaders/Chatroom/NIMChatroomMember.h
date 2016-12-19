@@ -57,6 +57,13 @@ typedef NS_ENUM(NSInteger, NIMChatroomMemberType) {
 @property (nullable,nonatomic,copy)   NSString *roomAvatar;
 
 /**
+ *  用户在聊天室内的头像缩略图
+ *  @discussion 仅适用于使用云信上传服务进行上传的资源，否则无效。
+ */
+
+@property (nullable,nonatomic,copy,readonly)  NSString    *roomAvatarThumbnail;
+
+/**
  *  聊天室内预留给开发者的扩展字段，由用户进聊天室时提交。
  */
 @property (nullable,nonatomic,copy)   NSString *roomExt;
