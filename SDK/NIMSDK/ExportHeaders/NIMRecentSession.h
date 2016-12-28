@@ -33,6 +33,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,readonly,assign)   NSInteger   unreadCount;
 
+/**
+ *  本地扩展
+ */
+@property (nullable,nonatomic,readonly,copy) NSDictionary *localExt;
+
 @end
 
 

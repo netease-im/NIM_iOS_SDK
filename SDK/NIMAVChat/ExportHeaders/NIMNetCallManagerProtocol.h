@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class NIMNetCallMeeting;
 @class NIMNetCallRecordingInfo;
 @class NIMNetCallUserInfo;
+@class NIMNetCallAudioFileMixTask;
 
 /**
  *  发起通话Block
@@ -350,7 +351,6 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  */
 - (void)onSpeakingUsersReport:(nullable NSArray<NIMNetCallUserInfo *> *)report;
 
-
 /**
  *  设置互动直播开关结果回调
  *
@@ -358,6 +358,11 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *  @param result 结果. 如果没有错误, result 为 nil
  */
 - (void)onSetBypassStreamingEnabled:(BOOL)enabled result:(nullable NSError *)result;
+
+/**
+ 当前语音文件混音任务完成回调
+ */
+- (void)onAudioMixTaskCompleted;
 
 @end
 
@@ -598,6 +603,57 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *  @return 是否允许设置
  */
 - (BOOL)setBypassStreamingEnabled:(BOOL)enabled;
+
+/**
+ 开始混音任务
+ 
+ @param task 文件混音任务
+ 
+ @return 结果, 如果成功开始了, 返回 nil
+ 
+ @discussion 开始新的任务会结束正在进行中的任务
+ */
+- (nullable NSError *)startAudioMix:(NIMNetCallAudioFileMixTask *)task;
+
+/**
+ 更新混音任务
+ 
+ @param task 文件混音任务
+ 
+ @return 结果, 如果成功开始了, 返回 nil
+ 
+ @discussion 可以更新循环播放次数和音量等
+ */
+- (nullable NSError *)updateAudioMix:(NIMNetCallAudioFileMixTask *)task;
+
+/**
+ 暂停混音
+ 
+ @return 是否成功
+ */
+- (BOOL)pauseAudioMix;
+
+/**
+ 恢复混音
+ 
+ @return 是否成功
+ */
+- (BOOL)resumeAudioMix;
+
+/**
+ 结束混音
+ 
+ @return 是否成功
+ */
+- (BOOL)stopAudioMix;
+
+
+/**
+ 获取当前进行中的混音任务
+
+ @return 混音任务. 如果没有当前任务则返回 nil
+ */
+- (nullable NIMNetCallAudioFileMixTask *)currentAudioMixTask;
 
 /**
  *  获得当前视频通话的本地预览层

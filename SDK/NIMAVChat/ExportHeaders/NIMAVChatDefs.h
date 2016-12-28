@@ -132,6 +132,14 @@ extern NSString *const NIMNetCallErrorDomain;
  */
 typedef NS_ENUM(NSInteger, NIMNetCallErrorCode) {
     /**
+     *  网络通话没有启动
+     */
+    NIMNetCallErrorCodeNotStarted         = 20001,
+    /**
+     *  操作失败
+     */
+    NIMNetCallErrorCodeOperationFailed    = 20002,
+    /**
      *  超过最大允许直播节点数量
      */
     NIMNetCallErrorCodeBypassSetExceedMax = 20202,

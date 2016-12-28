@@ -135,10 +135,31 @@ typedef NS_ENUM(NSInteger, NIMChatroomEventType){
 
 /**
  *  拓展信息
- *  @discusssion 目前只有NIMChatroomEventTypeAddMuteTemp才有拓展信息,拓展信息为NSNumber，表示临时禁言时长
+ *  @discusssion 不同的聊天室通知有不同的扩展信息
+ *               NIMChatroomEventTypeAddMuteTemporarily/NIMChatroomEventTypeRemoveMuteTemporarily 类型: 拓展信息为NSNumber，表示临时禁言时长
+ *
+ *               NIMChatroomEventTypeEnter 类型: 扩展信息为 NSDictionary , KEY 值为 NIMChatroomEventInfoMutedKey ，NIMChatroomEventInfoTempMutedKey, NIMChatroomEventInfoTempMutedDurationKey
+ *
  */
 @property (nullable,nonatomic,copy,readonly) id ext;
 
 @end
+
+/**
+ *  是否是禁言状态
+ */
+extern NSString *const NIMChatroomEventInfoMutedKey;
+
+/**
+ *  是否为临时禁言状态
+ */
+extern NSString *const NIMChatroomEventInfoTempMutedKey;
+
+/**
+ *  临时禁言时长
+ */
+extern NSString *const NIMChatroomEventInfoTempMutedDurationKey;
+
+
 
 NS_ASSUME_NONNULL_END

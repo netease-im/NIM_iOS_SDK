@@ -41,6 +41,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nullable,nonatomic,copy)  NSString    *roomNotifyExt;
 
+/**
+ *  聊天室重连次数,默认为三次
+ */
+@property (nonatomic,assign) NSInteger retryCount;
+
 @end
 
 

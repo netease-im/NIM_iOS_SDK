@@ -35,6 +35,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL voiceDetect;
 
 /**
+ 期望发送高清语音, 只有在通话的所有的参与者都设置为高清语音时才生效
+ */
+@property (nonatomic, assign) BOOL preferHDAudio;
+
+/**
  *  禁用服务器录制
  */
 @property (nonatomic, assign) BOOL disableRecord;

@@ -67,6 +67,11 @@
 #import "NIMLoginClient.h"
 
 /**
+ *  文档转码信息
+ */
+#import "NIMDocTranscodingInfo.h"
+
+/**
  *  各个对外接口协议定义
  */
 #import "NIMLoginManagerProtocol.h"
@@ -79,5 +84,6 @@
 #import "NIMApnsManagerProtocol.h"
 #import "NIMResourceManagerProtocol.h"
 #import "NIMChatroomManagerProtocol.h"
+#import "NIMDocTranscodingManagerProtocol.h"
 
 #endif

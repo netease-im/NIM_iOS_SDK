@@ -123,6 +123,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,strong,readonly)   id<NIMChatroomManager> chatroomManager;
 
+/**
+ *  文档转码管理类
+ */
+@property (nonatomic,strong,readonly)   id<NIMDocTranscodingManager> docTranscodingManager;
 
 @end
 

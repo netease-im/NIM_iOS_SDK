@@ -34,6 +34,14 @@
 #import "NIMNetCallRecordingInfo.h"
 #import "NIMNetCallMeeting.h"
 #import "NIMNetCallUserInfo.h"
+#import "NIMNetCallAudioFileMixTask.h"
+
+
+/**
+ *  音视频实时会话网络探测定义
+ */
+#import "NIMAVChatNetDetectManagerProtocol.h"
+#import "NIMAVChatNetDetectResult.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -56,6 +64,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  多方实时会话管理类
  */
 @property (nonatomic,strong,readonly)   id<NIMRTSConferenceManager> rtsConferenceManager;
+
+/**
+ 音视频实时会话网络探测管理类
+ */
+@property (nonatomic,strong,readonly)   id<NIMAVChatNetDetectManager> avchatNetDetectManager;
 
 
 @end

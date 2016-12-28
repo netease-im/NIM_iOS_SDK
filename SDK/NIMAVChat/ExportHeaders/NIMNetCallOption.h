@@ -92,6 +92,11 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
 @property (nonatomic, assign) BOOL voiceDetect;
 
 /**
+ 期望发送高清语音, 只有在通话的所有的参与者都设置为高清语音时才完全生效。3.3.0 之前的版本无法加入已经开启高清语音的多人会议
+ */
+@property (nonatomic, assign) BOOL preferHDAudio;
+
+/**
  *  本地采集的视频数据回调，供上层实现美颜等功能
  */
 @property (nullable, nonatomic, copy) NIMNetCallVideoSampleBufferHandler  videoHandler;

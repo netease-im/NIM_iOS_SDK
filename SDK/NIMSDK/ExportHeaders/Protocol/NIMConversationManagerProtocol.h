@@ -279,6 +279,17 @@ typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictiona
 - (void)deleteRemoteSessions:(NSArray<NIMSession *> *)sessions
                   completion:(nullable NIMRemoveRemoteSessionBlock)completion;
 
+
+/**
+ *  更新最近会话的本地扩展
+ *
+ *  @param ext           扩展信息
+ *  @param recentSession 要更新的最近会话
+ *  @discussion          此扩展不会漫游到其他端,上层需要保证 NSDictionary 可以转换为 JSON。
+ */
+- (void)updateRecentLocalExt:(nullable NSDictionary *)ext
+               recentSession:(NIMRecentSession *)recentSession;
+
 /**
  *  添加通知对象
  *
