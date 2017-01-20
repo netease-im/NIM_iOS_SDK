@@ -71,7 +71,7 @@ typedef void(^NIMAudioToTextBlock)(NSError * __nullable error,NSString * __nulla
 /**
  *  多媒体委托
  */
-@protocol NIMMediaManagerDelgate <NSObject>
+@protocol NIMMediaManagerDelegate <NSObject>
 
 @optional
 
@@ -183,7 +183,7 @@ typedef void(^NIMAudioToTextBlock)(NSError * __nullable error,NSString * __nulla
 /**
  *  播放音频文件
  *
- *  @discussion 开始播放，NIMMediaManagerDelgate中的playAudio:didBeganWithError:回调会被触发，播放完成后, NIMMediaManagerDelgate中的playAudio:didCompletedWithError:回调会被触发
+ *  @discussion 开始播放，NIMMediaManagerDelegate中的playAudio:didBeganWithError:回调会被触发，播放完成后, NIMMediaManagerDelegate中的playAudio:didCompletedWithError:回调会被触发
  *  @param filepath 音频文件路径
  */
 - (void)play:(NSString *)filepath;
@@ -191,7 +191,7 @@ typedef void(^NIMAudioToTextBlock)(NSError * __nullable error,NSString * __nulla
 /**
  *  停止播放音频
  *
- *  @discussion 音频播放完成后NIMMediaManagerDelgate中的playAudio:didCompletedWithError:回调会被触发
+ *  @discussion 音频播放完成后NIMMediaManagerDelegate中的playAudio:didCompletedWithError:回调会被触发
  */
 - (void)stopPlay;
 
@@ -207,7 +207,7 @@ typedef void(^NIMAudioToTextBlock)(NSError * __nullable error,NSString * __nulla
  *  开始录制音频
  *
  *  @param duration 最长录音时间
- *  @discussion 开始录音，NIMMediaManagerDelgate中的recordAudio:didBeganWithError:回调会被触发，录音完成后, NIMMediaManagerDelgate中的recordAudio:didCompletedWithError:回调会被触发
+ *  @discussion 开始录音，NIMMediaManagerDelegate中的recordAudio:didBeganWithError:回调会被触发，录音完成后, NIMMediaManagerDelgate中的recordAudio:didCompletedWithError:回调会被触发
  *              默认使用 aac 编码格式
  */
 - (void)recordForDuration:(NSTimeInterval)duration;
@@ -216,7 +216,7 @@ typedef void(^NIMAudioToTextBlock)(NSError * __nullable error,NSString * __nulla
  *
  *  @param type     音频类型
  *  @param duration 最大时长
- *  @discussion 开始录音，NIMMediaManagerDelgate中的recordAudio:didBeganWithError:回调会被触发，录音完成后, NIMMediaManagerDelgate中的recordAudio:didCompletedWithError:回调会被触发
+ *  @discussion 开始录音，NIMMediaManagerDelegate中的recordAudio:didBeganWithError:回调会被触发，录音完成后, NIMMediaManagerDelegate中的recordAudio:didCompletedWithError:回调会被触发
  */
 - (void)record:(NIMAudioType)type
       duration:(NSTimeInterval)duration;
@@ -224,14 +224,14 @@ typedef void(^NIMAudioToTextBlock)(NSError * __nullable error,NSString * __nulla
 /**
  *  停止录制音频
  *
- *  @discussion 停止录音后NIMMediaManagerDelgate中的recordAudio:didCompletedWithError:回调会被触发
+ *  @discussion 停止录音后NIMMediaManagerDelegate中的recordAudio:didCompletedWithError:回调会被触发
  */
 - (void)stopRecord;
 
 /**
  *  取消录制音频
  *
- *  @discussion 录音取消后，NIMMediaManagerDelgate中的recordAudioDidCancelled回调会被触发
+ *  @discussion 录音取消后，NIMMediaManagerDelegate中的recordAudioDidCancelled回调会被触发
  */
 - (void)cancelRecord;
 
@@ -274,15 +274,22 @@ typedef void(^NIMAudioToTextBlock)(NSError * __nullable error,NSString * __nulla
  *
  *  @param delegate 多媒体委托
  */
-- (void)addDelegate:(id<NIMMediaManagerDelgate>)delegate;
+- (void)addDelegate:(id<NIMMediaManagerDelegate>)delegate;
 
 /**
  *  移除多媒体委托
  *
  *  @param delegate 多媒体委托
  */
-- (void)removeDelegate:(id<NIMMediaManagerDelgate>)delegate;
+- (void)removeDelegate:(id<NIMMediaManagerDelegate>)delegate;
 
+
+@end
+
+/**
+ * 此协议已被废弃，请使用 NIMMediaManagerDelegate
+ */
+@protocol NIMMediaManagerDelgate <NIMMediaManagerDelegate>
 
 @end
 

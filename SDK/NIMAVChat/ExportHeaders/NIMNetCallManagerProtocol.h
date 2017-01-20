@@ -209,6 +209,22 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
                   accepted:(BOOL)accepted;
 
 /**
+ 点对点通话建立成功
+
+ @param callID call id
+ */
+- (void)onCallEstablished:(UInt64)callID;
+
+/**
+ 通话异常断开
+
+ @param callID call id
+ @param error 断开的原因，如果是 nil 表示正常退出
+ */
+- (void)onCallDisconnected:(UInt64)callID
+                 withError:(NSError *)error;
+
+/**
  *  收到对方网络通话控制信息，用于方便通话双方沟通信息
  *
  *  @param callID  相关网络通话的call id
@@ -219,14 +235,6 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
              from:(NSString *)user
              type:(NIMNetCallControlType)control;
 
-/**
- *  当前通话状态
- *
- *  @param callID 相关网络通话的call id
- *  @param status 通话状态, 收到NIMNetCallStatusDisconnect时无需调用hangup:挂断该通话
- */
-- (void)onCall:(UInt64)callID
-        status:(NIMNetCallStatus)status;
 /**
  *  当前通话网络状态
  *

@@ -92,7 +92,7 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
 @property (nonatomic, assign) BOOL voiceDetect;
 
 /**
- 期望发送高清语音, 只有在通话的所有的参与者都设置为高清语音时才完全生效。3.3.0 之前的版本无法加入已经开启高清语音的多人会议
+ 期望发送高清语音, 只有在通话的所有的参与者都设置为高清语音时才完全生效。3.3.0 之前的版本无法加入已经开启高清语音的多人会议。开启该选项后蓝牙耳机将不能使用
  */
 @property (nonatomic, assign) BOOL preferHDAudio;
 
@@ -127,6 +127,11 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
  *  互动直播视频画面混屏模式，在 NIMNetCallVideoMixMode 里面选择合适的模式，只有主播设置有效
  */
 @property (nonatomic, assign) NSUInteger bypassStreamingVideoMixMode;
+
+/**
+ 互动直播服务器录制，只有主播设置生效（互动直播服务器录制功能需要开通才能使用）
+ */
+@property (nonatomic, assign) BOOL bypassStreamingServerRecording;
 
 /**
  *  服务器录制音频开关 (该开关仅在服务器开启录制功能时才有效)

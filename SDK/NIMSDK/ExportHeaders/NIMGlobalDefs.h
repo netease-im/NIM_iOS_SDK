@@ -374,6 +374,10 @@ typedef NS_ENUM(NSInteger, NIMRemoteErrorCode) {
      *  在禁言列表中,不允许发言
      */
     NIMRemoteErrorCodeInChatroomMuteList  = 13004,
+    /**
+     *  聊天室处于整体禁言状态,只有管理员能发言
+     */
+    NIMRemoteErrorCodeInChatroomAllMute   = 13006,
 };
 
 

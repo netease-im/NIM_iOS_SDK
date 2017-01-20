@@ -32,7 +32,7 @@ typedef NS_ENUM(NSInteger, NIMImageFormat)
 /**
 *  压缩参数默认为0,可传入0.0-1.0的值,如果值为0或者不合法参数时按照0.5进行压缩
 */
-@property (nonatomic,assign)    CGFloat compressQuality;
+@property (nonatomic,assign)    float compressQuality;
 
 /**
  *  图片压缩格式,默认为JPEG

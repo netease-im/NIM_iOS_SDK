@@ -21,8 +21,9 @@ typedef void(^NIMUploadCompleteBlock)(NSString * __nullable urlString,NSError * 
  *  上传/下载进度Block
  *
  *  @param progress 进度 0%-100%
+ *  @discussion 如果下载的文件是以 Tranfer-Encoding 为 chunked 的形式传输，那么 progress 为已下载文件大小的负数
  */
-typedef void(^NIMHttpProgressBlock)(CGFloat progress);
+typedef void(^NIMHttpProgressBlock)(float progress);
 
 
 /**

@@ -172,8 +172,29 @@ typedef NS_ENUM(NSInteger, NIMNetCallErrorCode) {
     /**
      *  互动直播设置超时
      */
-    NIMNetCallErrorCodeBypassSetTimeout = 20408,
+    NIMNetCallErrorCodeBypassSetTimeout   = 20408,
     
+    /**
+     *  与音视频服务器连接断开
+     */
+    NIMNetCallErrorCodeServerDisconnected = 20409,
+    
+    /**
+     *  对方超时离开了房间
+     */
+    NIMNetCallErrorCodePeerLeftForTimeout = 20410,
+    
+    /**
+     *  音频设备异常
+     */
+    NIMNetCallErrorCodeAudioDeviceError   = 20411,
+    
+    /**
+     *  被踢出了音视频
+     */
+    NIMNetCallErrorCodeBeKicked           = 20412,
+
+
 };
 
 
