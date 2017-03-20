@@ -9,13 +9,11 @@
 ## 结构
 * SDK
   * NIMSDK （IM 模块)
-    * ExportedHeaders  (头文件
-    * Libs (依赖第三方库
-    * libNIMSDK.a (静态库文件
+    * Libs (依赖第三方库)
+    * NIMSDK.framework (静态库文件)
   * NIMAVChat （音视频模块）
-    * ExportedHeaders (头文件
-    * Libs (依赖第三方库
-    * libNIMAVChat.a (静态库文件
+    * Libs (依赖第三方库)
+    * NIMAVChat.framework (静态库文件)
   
 ## 特殊说明
 
