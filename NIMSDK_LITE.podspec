@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
  s.homepage = "http://netease.im" 
  s.license = { :"type" => "Copyright", :"text" => " Copyright 2017 Netease "} 
  s.authors = "Netease IM Team" 
- s.source = { :git => "https://github.com/netease-im/NIM_iOS_SDK_Lite.git", :tag => "#{s.version}"} 
+ s.source = { :git => "https://github.com/netease-im/NIM_iOS_SDK.git", :tag => "#{s.version}"} 
  s.platform = :ios, '7.0'
  s.vendored_libraries  = 'NIMSDK/Libs/*.a'
  s.vendored_frameworks = 'NIMSDK/NIMSDK.framework'

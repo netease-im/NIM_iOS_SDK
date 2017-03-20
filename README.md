@@ -4,7 +4,11 @@
 ## 使用方法
 * 通过  [release](https://github.com/netease-im/NIM_iOS_SDK/releases) 下载相应 SDK 包
 
-* 使用 'pod NIMSDK' 集成。
+* 使用 CocoaPods 集成
+  
+  * 完整版 : 使用 'pod NIMSDK' 集成。
+
+  * 轻量版(无实时音视频库) : 使用 'pod NIMSDK_LITE' 集成
 
 ## 结构
 * SDK
