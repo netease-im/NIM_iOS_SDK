@@ -99,6 +99,32 @@ typedef NS_ENUM(NSUInteger, NIMNetCallVideoFrameRate) {
 };
 
 /**
+ 视频方向
+ */
+typedef NS_ENUM(NSInteger, NIMVideoOrientation) {
+    /**
+     *  默认方向
+     */
+    NIMVideoOrientationDefault             = 0,
+    /**
+     *  垂直方向, home 键朝下
+     */
+    NIMVideoOrientationPortrait            = 1,
+    /**
+     *  垂直方向, home 键朝上
+     */
+    NIMVideoOrientationPortraitUpsideDown  = 2,
+    /**
+     *  水平方向, home 键在右边
+     */
+    NIMVideoOrientationLandscapeRight      = 3,
+    /**
+     *  水平方向, home 键在左边
+     */
+    NIMVideoOrientationLandscapeLeft       = 4,
+};
+
+/**
  *  网络通话类型
  */
 typedef NS_ENUM(NSInteger, NIMNetCallMediaType){

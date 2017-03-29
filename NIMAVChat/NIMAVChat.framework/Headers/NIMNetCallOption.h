@@ -113,6 +113,13 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
 @property (nonatomic, assign) NIMNetCallVideoFrameRate videoFrameRate;
 
 /**
+ 视频采集方向. 该设置会改变采集到的视频画面的角度, 主要用于支持互动直播时的横屏直播: 主播以各种角度手持设备直播, 并设置为该角度的 '视频采集方向', 拉流播放器就可以以正常的角度观看直播.
+ 
+ @discussion 在视频通话场景中, 如果播放端关闭 '自动旋转远端画面', 画面将以采集到的角度展现; 如果播放端开启 '自动旋转远端画面', 无论 '视频采集方向' 如何设置, 播放的画面都是正常的角度
+ */
+@property (nonatomic, assign) NIMVideoOrientation videoCaptureOrientation;
+
+/**
  *  启用互动直播，只在加入会议时设置有效
  */
 @property (nonatomic, assign) BOOL enableBypassStreaming;

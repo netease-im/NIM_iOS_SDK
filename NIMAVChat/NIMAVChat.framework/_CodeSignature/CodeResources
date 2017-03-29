@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/NIMAVChatDefs.h</key>
 		<data>
-		ybQfH1fu5aB9hgRGDGMJocIXzkg=
+		jTTktgvQLdF6C+evXckr819d2z0=
 		</data>
 		<key>Headers/NIMAVChatHeader.h</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Headers/NIMNetCallOption.h</key>
 		<data>
-		Qrgl8l8s0QixnjJxPjRRQfLQd2U=
+		7LV6FCow4yN71WG5XIuJplo79p0=
 		</data>
 		<key>Headers/NIMNetCallRecordingInfo.h</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		wTMPQOJ92budjV8vbBXWgcyj46M=
+		WHBjUQVS1ylftfD+pisGiTDahyU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -98,11 +98,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ybQfH1fu5aB9hgRGDGMJocIXzkg=
+			jTTktgvQLdF6C+evXckr819d2z0=
 			</data>
 			<key>hash2</key>
 			<data>
-			XkkEXptxon1CLr3kr7kJmKoxTg2Tv3LW0Hwvgc/iqJs=
+			GvSWN2bMKMes9ir2OTggEmWXYFmIgos5/65Sv8H6wwc=
 			</data>
 		</dict>
 		<key>Headers/NIMAVChatHeader.h</key>
@@ -175,11 +175,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Qrgl8l8s0QixnjJxPjRRQfLQd2U=
+			7LV6FCow4yN71WG5XIuJplo79p0=
 			</data>
 			<key>hash2</key>
 			<data>
-			02gfVuDMo5xQyLtH5YOYW/d+sg979TyxrJvygRTbYPQ=
+			UbyeZZZi+8H98wBuhWsMyDVhqreky4oyAL6eJSbgEa4=
 			</data>
 		</dict>
 		<key>Headers/NIMNetCallRecordingInfo.h</key>
@@ -300,11 +300,6 @@
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
-		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
@@ -349,11 +344,6 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
-		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>
