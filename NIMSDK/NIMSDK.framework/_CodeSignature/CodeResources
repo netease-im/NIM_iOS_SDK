@@ -76,6 +76,10 @@
 		<data>
 		cIXOlKLKVgJJyXjCDWMZ53Ga6+k=
 		</data>
+		<key>Headers/NIMEventSubscribeManagerProtocol.h</key>
+		<data>
+		aAIflwV5Jq8LQnv2WPFn/qTJSus=
+		</data>
 		<key>Headers/NIMFileObject.h</key>
 		<data>
 		CVY64VcUqi085V/qPn4nRSeY1G8=
@@ -162,19 +166,35 @@
 		</data>
 		<key>Headers/NIMSDK.h</key>
 		<data>
-		A/hUJz/G17XtMYa6MtxCTY94isw=
+		LyoDkD/WdXttlkWUb1t9gBnXNW4=
 		</data>
 		<key>Headers/NIMSDKConfig.h</key>
 		<data>
-		7MOZ8L8wl42wwpxYpJYH36dsyo0=
+		df3K5sNYYVH2Uio1iTW7uxgUxBg=
 		</data>
 		<key>Headers/NIMSDKHeader.h</key>
 		<data>
-		Gztr+AuLAefvpfE6MRXGmbSBSII=
+		zTsSCA6LzFyM7NviMKqpu9UiuDY=
 		</data>
 		<key>Headers/NIMSession.h</key>
 		<data>
 		/yYelpFNCi6MqmZZPSHbPSw+b/o=
+		</data>
+		<key>Headers/NIMSubscribeEvent.h</key>
+		<data>
+		Oh8fKdWd6xjJBOCzhRfaBdfQQQ4=
+		</data>
+		<key>Headers/NIMSubscribeOnlineInfo.h</key>
+		<data>
+		d6Yt4Xpy0mPYrhWUoCVJ4vlBgsU=
+		</data>
+		<key>Headers/NIMSubscribeRequest.h</key>
+		<data>
+		9RmBF9PW8YxrG4ch1VB7wRabMIc=
+		</data>
+		<key>Headers/NIMSubscribeResult.h</key>
+		<data>
+		XmVQ5l/VhOonXhVH+hcKEXuUlO4=
 		</data>
 		<key>Headers/NIMSystemNotification.h</key>
 		<data>
@@ -226,7 +246,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		F5SXK0tpmIKwV0UAE5+1/VqDwKk=
+		irqsGDwgwgIMPc/w/y36GRzlXXA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -431,6 +451,17 @@
 			<key>hash2</key>
 			<data>
 			gYFGXz2CplQvUfrdPkUrWWQISNwjSCGggLFfgQ4kbB0=
+			</data>
+		</dict>
+		<key>Headers/NIMEventSubscribeManagerProtocol.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			aAIflwV5Jq8LQnv2WPFn/qTJSus=
+			</data>
+			<key>hash2</key>
+			<data>
+			LJhI+qHAIGrhS+ZuAMr7whmpZZhLDill1eKpPhBZFoU=
 			</data>
 		</dict>
 		<key>Headers/NIMFileObject.h</key>
@@ -668,33 +699,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			A/hUJz/G17XtMYa6MtxCTY94isw=
+			LyoDkD/WdXttlkWUb1t9gBnXNW4=
 			</data>
 			<key>hash2</key>
 			<data>
-			dMsuc7JIP/bXQl0UN7W8wzjvX+2EQeUmvX6YNPwB/u4=
+			YSsxNHYtcn7ekSVwB6wULQT9tSXmf3quiP5vgetfRFs=
 			</data>
 		</dict>
 		<key>Headers/NIMSDKConfig.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			7MOZ8L8wl42wwpxYpJYH36dsyo0=
+			df3K5sNYYVH2Uio1iTW7uxgUxBg=
 			</data>
 			<key>hash2</key>
 			<data>
-			c0od7wLuHQBC4Fz0Q5me8ob+wn96oSiCag/4AQmAfxg=
+			1GhLNQcbIig+UilwUU2RzV2ikL5BIkHOjycKPl9DnYA=
 			</data>
 		</dict>
 		<key>Headers/NIMSDKHeader.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Gztr+AuLAefvpfE6MRXGmbSBSII=
+			zTsSCA6LzFyM7NviMKqpu9UiuDY=
 			</data>
 			<key>hash2</key>
 			<data>
-			DW8c/I97D0ivf/7wFTYk2RHp59A3pLqC0wdp4K2j9Xk=
+			7HwdtP+d8De9Lko7PmF9bCvrHFYiw7CKgczpquyrqlo=
 			</data>
 		</dict>
 		<key>Headers/NIMSession.h</key>
@@ -706,6 +737,50 @@
 			<key>hash2</key>
 			<data>
 			rhp9+G1zS6e7gJa3xbbpofxovWYuUM93inEiWUeaejM=
+			</data>
+		</dict>
+		<key>Headers/NIMSubscribeEvent.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Oh8fKdWd6xjJBOCzhRfaBdfQQQ4=
+			</data>
+			<key>hash2</key>
+			<data>
+			SxfW8NIlCmqk+z5qTW26fi0VpBzDtHvReaCxoI17dzg=
+			</data>
+		</dict>
+		<key>Headers/NIMSubscribeOnlineInfo.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			d6Yt4Xpy0mPYrhWUoCVJ4vlBgsU=
+			</data>
+			<key>hash2</key>
+			<data>
+			5o+Guvo8/D6Bkpru4IdknLl27UwEvlIReU1EKCgkKv8=
+			</data>
+		</dict>
+		<key>Headers/NIMSubscribeRequest.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9RmBF9PW8YxrG4ch1VB7wRabMIc=
+			</data>
+			<key>hash2</key>
+			<data>
+			mvb4DQUz3wIph6tVxPO1pQtrMAqPOV7QizRjsXXe2oQ=
+			</data>
+		</dict>
+		<key>Headers/NIMSubscribeResult.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XmVQ5l/VhOonXhVH+hcKEXuUlO4=
+			</data>
+			<key>hash2</key>
+			<data>
+			psd+pBFNPfAmxJGUbB7uR3hbnjuwo0l3e0hRlm4lFsM=
 			</data>
 		</dict>
 		<key>Headers/NIMSystemNotification.h</key>
@@ -870,6 +945,11 @@
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
+		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
@@ -914,6 +994,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>
