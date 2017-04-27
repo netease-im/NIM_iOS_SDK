@@ -76,13 +76,17 @@
 		<data>
 		cIXOlKLKVgJJyXjCDWMZ53Ga6+k=
 		</data>
+		<key>Headers/NIMEventSubscribeManagerProtocol.h</key>
+		<data>
+		2vCcP1fMF5wjLOpdjT/y8/aEBq8=
+		</data>
 		<key>Headers/NIMFileObject.h</key>
 		<data>
 		CVY64VcUqi085V/qPn4nRSeY1G8=
 		</data>
 		<key>Headers/NIMGlobalDefs.h</key>
 		<data>
-		5M0swfSP/hlwDsxzj0nHFuDZJhY=
+		aGLpjoROVifLaZY7k/mb0RH+xq4=
 		</data>
 		<key>Headers/NIMImageObject.h</key>
 		<data>
@@ -162,19 +166,35 @@
 		</data>
 		<key>Headers/NIMSDK.h</key>
 		<data>
-		A/hUJz/G17XtMYa6MtxCTY94isw=
+		LyoDkD/WdXttlkWUb1t9gBnXNW4=
 		</data>
 		<key>Headers/NIMSDKConfig.h</key>
 		<data>
-		7MOZ8L8wl42wwpxYpJYH36dsyo0=
+		6NrhButmoK1juhQY6STN67QZdK0=
 		</data>
 		<key>Headers/NIMSDKHeader.h</key>
 		<data>
-		Gztr+AuLAefvpfE6MRXGmbSBSII=
+		zTsSCA6LzFyM7NviMKqpu9UiuDY=
 		</data>
 		<key>Headers/NIMSession.h</key>
 		<data>
 		/yYelpFNCi6MqmZZPSHbPSw+b/o=
+		</data>
+		<key>Headers/NIMSubscribeEvent.h</key>
+		<data>
+		SJlG5fbYOIEfC7QhbxAcc0FV6oc=
+		</data>
+		<key>Headers/NIMSubscribeOnlineInfo.h</key>
+		<data>
+		d6Yt4Xpy0mPYrhWUoCVJ4vlBgsU=
+		</data>
+		<key>Headers/NIMSubscribeRequest.h</key>
+		<data>
+		9RmBF9PW8YxrG4ch1VB7wRabMIc=
+		</data>
+		<key>Headers/NIMSubscribeResult.h</key>
+		<data>
+		4K70cE5Fl0SycMaKvVQKvznkK0Y=
 		</data>
 		<key>Headers/NIMSystemNotification.h</key>
 		<data>
@@ -226,7 +246,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		F5SXK0tpmIKwV0UAE5+1/VqDwKk=
+		0wi4LOCDDRrMP9urf1DMQSA3EaQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -433,6 +453,17 @@
 			gYFGXz2CplQvUfrdPkUrWWQISNwjSCGggLFfgQ4kbB0=
 			</data>
 		</dict>
+		<key>Headers/NIMEventSubscribeManagerProtocol.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2vCcP1fMF5wjLOpdjT/y8/aEBq8=
+			</data>
+			<key>hash2</key>
+			<data>
+			8Pa9dHEsd8wE5Pzfk3x5KebuFiKqNGglvjnJd+rOfmA=
+			</data>
+		</dict>
 		<key>Headers/NIMFileObject.h</key>
 		<dict>
 			<key>hash</key>
@@ -448,11 +479,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5M0swfSP/hlwDsxzj0nHFuDZJhY=
+			aGLpjoROVifLaZY7k/mb0RH+xq4=
 			</data>
 			<key>hash2</key>
 			<data>
-			zxUUcbPNH4YOCDzkCKN/K/dtg5tndwazbmL7pdtzT1w=
+			phYvkNXAuD35BZSLDot5Ip/lijh7M5lgeddBAvEWoKw=
 			</data>
 		</dict>
 		<key>Headers/NIMImageObject.h</key>
@@ -668,33 +699,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			A/hUJz/G17XtMYa6MtxCTY94isw=
+			LyoDkD/WdXttlkWUb1t9gBnXNW4=
 			</data>
 			<key>hash2</key>
 			<data>
-			dMsuc7JIP/bXQl0UN7W8wzjvX+2EQeUmvX6YNPwB/u4=
+			YSsxNHYtcn7ekSVwB6wULQT9tSXmf3quiP5vgetfRFs=
 			</data>
 		</dict>
 		<key>Headers/NIMSDKConfig.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			7MOZ8L8wl42wwpxYpJYH36dsyo0=
+			6NrhButmoK1juhQY6STN67QZdK0=
 			</data>
 			<key>hash2</key>
 			<data>
-			c0od7wLuHQBC4Fz0Q5me8ob+wn96oSiCag/4AQmAfxg=
+			k/CYNEhfiGM6DKbgJLqW6043lxCjjx8vr4CC6JE4HJM=
 			</data>
 		</dict>
 		<key>Headers/NIMSDKHeader.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Gztr+AuLAefvpfE6MRXGmbSBSII=
+			zTsSCA6LzFyM7NviMKqpu9UiuDY=
 			</data>
 			<key>hash2</key>
 			<data>
-			DW8c/I97D0ivf/7wFTYk2RHp59A3pLqC0wdp4K2j9Xk=
+			7HwdtP+d8De9Lko7PmF9bCvrHFYiw7CKgczpquyrqlo=
 			</data>
 		</dict>
 		<key>Headers/NIMSession.h</key>
@@ -706,6 +737,50 @@
 			<key>hash2</key>
 			<data>
 			rhp9+G1zS6e7gJa3xbbpofxovWYuUM93inEiWUeaejM=
+			</data>
+		</dict>
+		<key>Headers/NIMSubscribeEvent.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			SJlG5fbYOIEfC7QhbxAcc0FV6oc=
+			</data>
+			<key>hash2</key>
+			<data>
+			OvSSZ0pVvtdfBA/aY+HDoE4bNV1AgYzsEs0D3ppJVec=
+			</data>
+		</dict>
+		<key>Headers/NIMSubscribeOnlineInfo.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			d6Yt4Xpy0mPYrhWUoCVJ4vlBgsU=
+			</data>
+			<key>hash2</key>
+			<data>
+			5o+Guvo8/D6Bkpru4IdknLl27UwEvlIReU1EKCgkKv8=
+			</data>
+		</dict>
+		<key>Headers/NIMSubscribeRequest.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9RmBF9PW8YxrG4ch1VB7wRabMIc=
+			</data>
+			<key>hash2</key>
+			<data>
+			mvb4DQUz3wIph6tVxPO1pQtrMAqPOV7QizRjsXXe2oQ=
+			</data>
+		</dict>
+		<key>Headers/NIMSubscribeResult.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			4K70cE5Fl0SycMaKvVQKvznkK0Y=
+			</data>
+			<key>hash2</key>
+			<data>
+			PthumV3L28a4onZfYQshTS8seOgXIw3NaT5AP0gETHk=
 			</data>
 		</dict>
 		<key>Headers/NIMSystemNotification.h</key>
