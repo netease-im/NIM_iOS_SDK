@@ -90,15 +90,15 @@ typedef NS_ENUM(NSInteger, NIMNetCallVideoQuality) {
  */
 typedef NS_ENUM(NSInteger, NIMNetCallVideoCrop) {
     /**
-     *  16:9裁剪
+     *  16:9 裁剪
      */
     NIMNetCallVideoCrop16x9             = 0,
     /**
-     *  4:3裁剪
+     *  4:3 裁剪
      */
     NIMNetCallVideoCrop4x3              = 1,
     /**
-     *  16:9裁剪
+     *  1:1 裁剪
      */
     NIMNetCallVideoCrop1x1              = 2,
     /**
@@ -379,6 +379,27 @@ typedef NS_ENUM(NSInteger, NIMAVRemoteErrorCode) {
 };
 
 
+/**
+ *  网络通话的网络状态
+ */
+typedef NS_ENUM(NSInteger, NIMNetCallNetStatus){
+    /**
+     *  网络非常好
+     */
+    NIMNetCallNetStatusVeryGood = 0,
+    /**
+     *  网络好
+     */
+    NIMNetCallNetStatusGood     = 1,
+    /**
+     *  网络差
+     */
+    NIMNetCallNetStatusBad      = 2,
+    /**
+     *  网络非常差
+     */
+    NIMNetCallNetStatusVeryBad  = 3,
+};
 
 
 /**

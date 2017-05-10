@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/NIMAVChatDefs.h</key>
 		<data>
-		4FOP36STucGOg9jBlgS/pSyAHz0=
+		b31vZ7j7UyLpjJuMYkFdRTPcQ+U=
 		</data>
 		<key>Headers/NIMAVChatHeader.h</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/NIMNetCallManagerProtocol.h</key>
 		<data>
-		kroJYUxEjRXbEY/o9NbkXfAz+Q4=
+		1baeZ0jckaVgQaLdzqrNaPlggG4=
 		</data>
 		<key>Headers/NIMNetCallMeeting.h</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Headers/NIMRTSManagerProtocol.h</key>
 		<data>
-		p7ndpex4u0GTrhlLqBLsExuzuHE=
+		op5Z29456hNcusTdYmOrgVDzAW8=
 		</data>
 		<key>Headers/NIMRTSOption.h</key>
 		<data>
@@ -78,7 +78,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		e09dcnQZyMtg5Ody5iQryVdU7WU=
+		84qvq5Wff5iDtTx0/GS9qxgc8kc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -102,11 +102,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4FOP36STucGOg9jBlgS/pSyAHz0=
+			b31vZ7j7UyLpjJuMYkFdRTPcQ+U=
 			</data>
 			<key>hash2</key>
 			<data>
-			SPI/ZwSF/vvX7/SdZomZ4jH08ccGb0fHtsF9czLFCpI=
+			X+SplKgcoDKKT1pNlTtaLRc5leF9BWZABjw+scvgvMY=
 			</data>
 		</dict>
 		<key>Headers/NIMAVChatHeader.h</key>
@@ -157,11 +157,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kroJYUxEjRXbEY/o9NbkXfAz+Q4=
+			1baeZ0jckaVgQaLdzqrNaPlggG4=
 			</data>
 			<key>hash2</key>
 			<data>
-			Xvl3+RceMN28LASe2sde5FGuqap8HMc4W1POcHEY4tE=
+			PxOGBBCTY7ibmFler+cKommn6HkKcQCOnskJOfkRX84=
 			</data>
 		</dict>
 		<key>Headers/NIMNetCallMeeting.h</key>
@@ -256,11 +256,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			p7ndpex4u0GTrhlLqBLsExuzuHE=
+			op5Z29456hNcusTdYmOrgVDzAW8=
 			</data>
 			<key>hash2</key>
 			<data>
-			TFzZF34WVTE8IINpV9nY6LjseDXCEYn2/ND51aJYYsA=
+			6S3n65likDmTVJEI2c2ZkS7Dm+qXHUWnatnUYFpuQlc=
 			</data>
 		</dict>
 		<key>Headers/NIMRTSOption.h</key>

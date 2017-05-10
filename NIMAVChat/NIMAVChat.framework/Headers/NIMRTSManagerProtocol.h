@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NIMAVChatDefs.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -155,6 +156,16 @@ typedef NS_ENUM(NSInteger, NIMRTSStatus){
  */
 - (void)onRTSRecordingInfo:(NIMRTSRecordingInfo *)info
                 forSession:(NSString *)sessionID;
+
+
+/**
+ *  语音网络状态
+ *
+ *  @param status 网络状态
+ *  @param user   网络状态对应的用户；如果是自己，表示自己的发送网络状态
+ */
+- (void)onRTSAudioNetStatus:(NIMNetCallNetStatus)status
+                       user:(NSString *)user;
 
 @end
 

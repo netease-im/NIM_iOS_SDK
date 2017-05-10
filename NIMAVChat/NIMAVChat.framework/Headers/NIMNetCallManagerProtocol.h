@@ -58,27 +58,6 @@ typedef NS_ENUM(NSInteger, NIMNetCallStatus){
     NIMNetCallStatusDisconnect,
 };
 
-/**
- *  网络通话的网络状态
- */
-typedef NS_ENUM(NSInteger, NIMNetCallNetStatus){
-    /**
-     *  网络非常好
-     */
-    NIMNetCallNetStatusVeryGood = 0,
-    /**
-     *  网络好
-     */
-    NIMNetCallNetStatusGood     = 1,
-    /**
-     *  网络差
-     */
-    NIMNetCallNetStatusBad      = 2,
-    /**
-     *  网络非常差
-     */
-    NIMNetCallNetStatusVeryBad  = 3,
-};
 
 /**
  *  网络通话控制类型
