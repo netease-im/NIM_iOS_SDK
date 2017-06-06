@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/NIMChatroomEnterRequest.h</key>
 		<data>
-		b1l4hSjXbMfSDuSvCV19EkVqypg=
+		uTWu7SaB1S7DALmGdvbt8mmCses=
 		</data>
 		<key>Headers/NIMChatroomManagerProtocol.h</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Headers/NIMChatroomMemberRequest.h</key>
 		<data>
-		zxIUfekESuzBgdZijpTGjdtDSCk=
+		cFv2vcpIN6pKr/DoQAczn/3Ncd4=
 		</data>
 		<key>Headers/NIMChatroomNotificationContent.h</key>
 		<data>
@@ -106,7 +106,7 @@
 		</data>
 		<key>Headers/NIMMediaManagerProtocol.h</key>
 		<data>
-		OqfaoEOY/+vKjYi+NHO8Jv0BGhk=
+		nggyI88TgW0uPcK/SI+KJc4ix7U=
 		</data>
 		<key>Headers/NIMMessage.h</key>
 		<data>
@@ -162,11 +162,11 @@
 		</data>
 		<key>Headers/NIMRevokeMessageNotification.h</key>
 		<data>
-		jdHFho1tU710zyUOGWa8mvJbROI=
+		kp3LLRHf0LDDu5cnUpYA4mtQSwc=
 		</data>
 		<key>Headers/NIMSDK.h</key>
 		<data>
-		LyoDkD/WdXttlkWUb1t9gBnXNW4=
+		lw8fVI4VnuLoD1hbXfEFBjasdIw=
 		</data>
 		<key>Headers/NIMSDKConfig.h</key>
 		<data>
@@ -174,7 +174,11 @@
 		</data>
 		<key>Headers/NIMSDKHeader.h</key>
 		<data>
-		zTsSCA6LzFyM7NviMKqpu9UiuDY=
+		ypqrQY3SU7CFxwkhsPht2kJz25w=
+		</data>
+		<key>Headers/NIMSDKOption.h</key>
+		<data>
+		mH5kL8DRNBuyM3A2SEWqyN0aikA=
 		</data>
 		<key>Headers/NIMSession.h</key>
 		<data>
@@ -214,7 +218,7 @@
 		</data>
 		<key>Headers/NIMTeamManagerProtocol.h</key>
 		<data>
-		65bn84BYBP4s8/IjDCmg1ez48Es=
+		jvq0LbYUB64phdeRG60AtaiKd7g=
 		</data>
 		<key>Headers/NIMTeamMember.h</key>
 		<data>
@@ -246,7 +250,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		cKDkfM2sSQFLiKL+QXZ1OatkSg4=
+		lXduXxRCJ9yuhdaq7O3/tkVkCTE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -314,11 +318,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			b1l4hSjXbMfSDuSvCV19EkVqypg=
+			uTWu7SaB1S7DALmGdvbt8mmCses=
 			</data>
 			<key>hash2</key>
 			<data>
-			dZ9h/5aDRGbWSDx/4UslaeQPvGxWoHXSMwm3NsCo88M=
+			kPIbwKVv8t515gr7UtTTclcZczyg8IghQkTmv8292Ng=
 			</data>
 		</dict>
 		<key>Headers/NIMChatroomManagerProtocol.h</key>
@@ -347,11 +351,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zxIUfekESuzBgdZijpTGjdtDSCk=
+			cFv2vcpIN6pKr/DoQAczn/3Ncd4=
 			</data>
 			<key>hash2</key>
 			<data>
-			3MSLQcZj60XO3D66GAqPrhMr1vT3PLIZe1C6Ei1+RN4=
+			ZSwYCefCmDrdUsl2CBmOIfozMiQ3M205zvGnrGksGm0=
 			</data>
 		</dict>
 		<key>Headers/NIMChatroomNotificationContent.h</key>
@@ -534,11 +538,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OqfaoEOY/+vKjYi+NHO8Jv0BGhk=
+			nggyI88TgW0uPcK/SI+KJc4ix7U=
 			</data>
 			<key>hash2</key>
 			<data>
-			Vl996vt6n2yNwHZPehwDG5P6WYotqGGt4tY06JGbQIE=
+			MOUSw7v0+dkP1VS0JngaaVb8F5hwmGlyHTB6fOu81BE=
 			</data>
 		</dict>
 		<key>Headers/NIMMessage.h</key>
@@ -688,22 +692,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jdHFho1tU710zyUOGWa8mvJbROI=
+			kp3LLRHf0LDDu5cnUpYA4mtQSwc=
 			</data>
 			<key>hash2</key>
 			<data>
-			oTIe8n+Nzh5oZdKp2WP12dN9rDJhUXQ5yXu0+8e/g3Y=
+			G0hpG95vdEznvZHkQ692R8EgefD/6V/mPjWcmTPNt3E=
 			</data>
 		</dict>
 		<key>Headers/NIMSDK.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LyoDkD/WdXttlkWUb1t9gBnXNW4=
+			lw8fVI4VnuLoD1hbXfEFBjasdIw=
 			</data>
 			<key>hash2</key>
 			<data>
-			YSsxNHYtcn7ekSVwB6wULQT9tSXmf3quiP5vgetfRFs=
+			DBm8TLhv1KQrbTQOqkA0sMrliNRwny8zuKEFRJESaGs=
 			</data>
 		</dict>
 		<key>Headers/NIMSDKConfig.h</key>
@@ -721,11 +725,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zTsSCA6LzFyM7NviMKqpu9UiuDY=
+			ypqrQY3SU7CFxwkhsPht2kJz25w=
 			</data>
 			<key>hash2</key>
 			<data>
-			7HwdtP+d8De9Lko7PmF9bCvrHFYiw7CKgczpquyrqlo=
+			fog85lP+7pWQdv1NvGsWz+gVLsIBSCE1Za7CnMyRvFA=
+			</data>
+		</dict>
+		<key>Headers/NIMSDKOption.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mH5kL8DRNBuyM3A2SEWqyN0aikA=
+			</data>
+			<key>hash2</key>
+			<data>
+			OHv78NfKRLhPGinvqbop9vRhr07mmVq4g8qP6CiWGkQ=
 			</data>
 		</dict>
 		<key>Headers/NIMSession.h</key>
@@ -831,11 +846,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			65bn84BYBP4s8/IjDCmg1ez48Es=
+			jvq0LbYUB64phdeRG60AtaiKd7g=
 			</data>
 			<key>hash2</key>
 			<data>
-			8zBnoR/Xz96vbJBLm6+wpoLVTQ2+8kqNgxEs0tC0C7s=
+			8Ks8WFEDMJZY7XV1BNj33JKomL9OWavaMcj18B0cXS4=
 			</data>
 		</dict>
 		<key>Headers/NIMTeamMember.h</key>

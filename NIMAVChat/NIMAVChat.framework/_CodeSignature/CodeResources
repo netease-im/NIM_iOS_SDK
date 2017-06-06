@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/NIMAVChatDefs.h</key>
 		<data>
-		b31vZ7j7UyLpjJuMYkFdRTPcQ+U=
+		QpjIx34aWd4rO+xYzBcazK6SA9A=
 		</data>
 		<key>Headers/NIMAVChatHeader.h</key>
 		<data>
@@ -78,7 +78,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		84qvq5Wff5iDtTx0/GS9qxgc8kc=
+		7bd6KvsLiy9+PnRQAuMMVyok/XM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -102,11 +102,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			b31vZ7j7UyLpjJuMYkFdRTPcQ+U=
+			QpjIx34aWd4rO+xYzBcazK6SA9A=
 			</data>
 			<key>hash2</key>
 			<data>
-			X+SplKgcoDKKT1pNlTtaLRc5leF9BWZABjw+scvgvMY=
+			D2gKbWSXbUAaakuzQhOCvRzMXZp1ynxEv67B/+AuTUs=
 			</data>
 		</dict>
 		<key>Headers/NIMAVChatHeader.h</key>

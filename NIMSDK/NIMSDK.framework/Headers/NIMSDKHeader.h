@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class NIMSDKOption;
+
 /**
  *  NIMSDK
  */
@@ -32,10 +34,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  初始化SDK
  *
  *  @param appKey  申请的appKey
- *  @param cerName 推送证书名
+ *  @discussion 如果需要更多注册选项，推荐使用 registerWithOption:
  */
 - (void)registerWithAppID:(NSString *)appKey
                   cerName:(nullable NSString *)cerName;
+
+
+/**
+ *  初始化SDK
+ *
+ *  @param option  注册选项
+ */
+- (void)registerWithOption:(NIMSDKOption *)option;
 
 /**
  *  获取AppKey
@@ -57,6 +67,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param token APNS Token
  */
 - (void)updateApnsToken:(NSData *)token;
+
+
+/**
+ *  更新 PushKit Token
+ *
+ *  @param token PushKit token
+ *  @discussion token = [credentials token]，且目前仅支持 PKPushTypeVoIP
+ */
+- (void)updatePushKitToken:(NSData *)token;
 
 
 /**

@@ -430,33 +430,14 @@ typedef NS_ENUM(NSInteger, NIMRTSConferenceErrorCode) {
     /**
      *  与服务器连接已断开
      */
-    NIMRTSConferenceErrorCodeServerDisconnected = 21001,
+    NIMRTSConferenceErrorCodeServerDisconnected  = 21001,
+    
+    /**
+     *  TCP 连接关闭
+     */
+    NIMRTSConferenceErrorCodeTcpConnectionClosed = 21002,
 
 };
-
-
-/***********                            老版本写法错误码兼容                              **************/
-
-#define NIMLocalErrorCodeRecordInvalidFilePath                  NIMAVLocalErrorCodeRecordInvalidFilePath
-#define NIMLocalErrorCodeRecordStartFailed                      NIMAVLocalErrorCodeRecordStartFailed
-#define NIMLocalErrorCodeRecordCreateFileFailed                 NIMAVLocalErrorCodeRecordCreateFileFailed
-#define NIMLocalErrorCodeRecordInitAudioFailed                  NIMAVLocalErrorCodeRecordCreateFileFailed
-#define NIMLocalErrorCodeRecordInitVideoFailed                  NIMAVLocalErrorCodeRecordInitVideoFailed
-#define NIMLocalErrorCodeRecordStartWritingFailed               NIMAVLocalErrorCodeRecordStartWritingFailed
-#define NIMLocalErrorCodeRecordStopFailed                       NIMAVLocalErrorCodeRecordStopFailed
-#define NIMLocalErrorCodeRecordWritingFileFailed                NIMAVLocalErrorCodeRecordWritingFileFailed
-#define NIMLocalErrorCodeRecordWillStopForLackSpace             NIMAVLocalErrorCodeRecordWillStopForLackSpace
-#define NIMLocalErrorCodeOperationIncomplete                    NIMAVLocalErrorCodeOperationIncomplete
-#define NIMLocalErrorCodeNetCallConnectTimeout                  NIMAVLocalErrorCodeNetCallConnectTimeout
-#define NIMLocalErrorCodeNetCallCannotJoinBypassChannel         NIMAVLocalErrorCodeNetCallCannotJoinBypassChannel
-#define NIMLocalErrorCodeNetCallTooManyBypassStreamers          NIMAVLocalErrorCodeNetCallTooManyBypassStreamers
-#define NIMLocalErrorCodeNetCallTooManyBypassStreamingHosts     NIMAVLocalErrorCodeNetCallTooManyBypassStreamingHosts
-#define NIMLocalErrorCodeNetCallHostNotJoined                   NIMAVLocalErrorCodeNetCallHostNotJoined
-#define NIMNetCallLocalErrorCodeUserInfoNeeded                  (16)
-
-
-#define NIMRemoteErrorCodeCalleeOffline                         NIMAVRemoteErrorCodeCalleeOffline
-
 
 
 #endif /* NIMAVChatDefs_h */

@@ -2,7 +2,7 @@
 //  NIMSDK.h
 //  NIMSDK
 //
-//  Created by chris on 2017/2/7.
+//  Created by Netease.
 //  Copyright © 2017年 Netease. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 /**
  *  配置项
  */
+#import "NIMSDKOption.h"
 #import "NIMSDKConfig.h"
 
 /**

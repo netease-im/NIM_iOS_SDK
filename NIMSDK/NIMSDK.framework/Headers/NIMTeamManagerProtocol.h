@@ -364,7 +364,6 @@ typedef void(^NIMTeamApplyHandler)(NSError * __nullable error,NIMTeamApplyStatus
  *  @param newInfo      新的自定义属性
  *  @param teamId       群组ID
  *  @param completion   完成后的回调
- *  @discussion
  */
 - (void)updateMyCustomInfo:(NSString *)newInfo
                     inTeam:(NSString *)teamId

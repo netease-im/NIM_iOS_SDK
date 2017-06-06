@@ -286,11 +286,5 @@ typedef void(^NIMAudioToTextBlock)(NSError * __nullable error,NSString * __nulla
 
 @end
 
-/**
- * 此协议已被废弃，请使用 NIMMediaManagerDelegate
- */
-@protocol NIMMediaManagerDelgate <NIMMediaManagerDelegate>
-
-@end
 
 NS_ASSUME_NONNULL_END

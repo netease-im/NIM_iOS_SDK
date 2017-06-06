@@ -43,6 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  聊天室重连次数,默认为三次
+ *  @discussion 设置成 0 后一旦一次连接失败后，SDK 将不在重试。 APP 可以根据自己的需求进行设置
  */
 @property (nonatomic,assign) NSInteger retryCount;
 

@@ -2,7 +2,7 @@
 //  NIMRevokeMessageNotification.h
 //  NIMLib
 //
-//  Created by amao on 2016/10/27.
+//  Created by Netease.
 //  Copyright © 2016年 Netease. All rights reserved.
 //
 
