@@ -78,9 +78,13 @@ typedef NS_ENUM(NSInteger, NIMNetCallVideoQuality) {
      */
     NIMNetCallVideoQuality480pLevel  = 4,
     /**
+     *  540P等级视频质量
+     */
+    NIMNetCallVideoQuality540pLevel  = 5,
+    /**
      *  720P等级视频质量
      */
-    NIMNetCallVideoQuality720pLevel  = 5,
+    NIMNetCallVideoQuality720pLevel  = 6,
     
 };
 
@@ -179,6 +183,21 @@ typedef NS_ENUM(NSInteger, NIMNetCallMediaType){
     NIMNetCallMediaTypeVideo = 2,
 };
 
+/**
+ *  场景
+ */
+typedef NS_ENUM(NSUInteger, NIMAVChatScene) {
+    /**
+     *  默认场景
+     */
+    NIMAVChatSceneDefault,
+    
+    /**
+     *  高清音乐场景. 只在 preferHDAudio 开启时生效. 生效后 audioDenoise 和 voiceDetect 的设置无效 (自动关闭)
+     */
+    NIMAVChatSceneHighQualityMusic,
+};
+
 
 /**
  *  视频混频模式, 用于互动直播连麦时的视频混频参数设置
@@ -200,6 +219,12 @@ typedef NS_ENUM(NSUInteger, NIMNetCallVideoMixMode) {
      *  分格平铺, 填满区域, 可能裁剪
      */
     NIMNetCallVideoMixModeLatticeAspectFill      = 3,
+    
+    /**
+     *  自定义布局
+     */
+    NIMNetCallVideoMixModeCustomLayout           = 4,
+
 };
 
 /**
@@ -364,6 +389,10 @@ typedef NS_ENUM(NSInteger, NIMAVLocalErrorCode) {
      *  主播尚未加入互动直播房间，连麦者无法在主播之前加入
      */
     NIMAVLocalErrorCodeNetCallHostNotJoined = 10033,
+    /**
+     *  主播设置定制布局参数错误
+     */
+    NIMAVLocalErrorCodeBypassStreamingCustomLayoutError  = 10034,
     
 };
 
@@ -416,6 +445,128 @@ typedef NS_ENUM(NSUInteger, NIMRTSConferenceUserLeaveReason) {
     NIMRTSConferenceUserLeaveReasonTimeout,
 };
 
+
+/**
+ *  互动直播状态码
+ */
+typedef NS_ENUM(NSUInteger, NIMBypassStreamingStatus) {
+    
+    /**
+     *  初始状态
+     */
+    NIMBypassStreamingStatusInitial          = 500,
+    
+    /**
+     *  主播设置定制布局参数错误
+     */
+    NIMBypassStreamingStatusLayoutError      = 501,
+    
+    /**
+     *  开始连接
+     */
+    NIMBypassStreamingStatusConnecting       = 502,
+    
+    /**
+     *  连接成功
+     */
+    NIMBypassStreamingStatusConnected        = 503,
+    
+    /**
+     *  连连接失败
+     */
+    NIMBypassStreamingStatusConnectFailed    = 504,
+    
+    /**
+     *  推流中
+     */
+    NIMBypassStreamingStatusPushing          = 505,
+    
+    /**
+     *  推流中
+     */
+    NIMBypassStreamingStatusPushFailed       = 506,
+    
+    /**
+     *  互动直播服务器内部错误
+     */
+    NIMBypassStreamingStatusInternalError    = 507,
+    
+    /**
+     *  人数超出限制
+     */
+    NIMBypassStreamingStatusUserCountLimit  = 508,
+    
+};
+
+/**
+ *  美颜滤镜类型
+ */
+typedef NS_ENUM(NSUInteger, NIMNetCallFilterType) {
+    /**
+     *  无滤镜
+     */
+    NIMNetCallFilterTypeNormal = 0,
+    /**
+     *  黑白
+     */
+    NIMNetCallFilterTypeSepia,
+    /**
+     *  自然
+     */
+    NIMNetCallFilterTypeZiran,
+    /**
+     *  粉嫩
+     */
+    NIMNetCallFilterTypeMeiyan1,
+    /**
+     *  怀旧
+     */
+    NIMNetCallFilterTypeMeiyan2,
+};
+
+/**
+ *  水印位置
+ */
+typedef NS_ENUM(NSUInteger, NIMNetCallWaterMarkLocation) {
+    /**
+     *  由rect的origin定位置
+     */
+    NIMNetCallWaterMarkLocationRect = 0,
+    /**
+     *  左上
+     */
+    NIMNetCallWaterMarkLocationLeftUp,
+    /**
+     *  左下
+     */
+    NIMNetCallWaterMarkLocationLeftDown,
+    /**
+     *  右上
+     */
+    NIMNetCallWaterMarkLocationRightUp,
+    /**
+     *  右下
+     */
+    NIMNetCallWaterMarkLocationRightDown,
+    /**
+     *  中间
+     */
+    NIMNetCallWaterMarkLocationCenter
+};
+
+/**
+ *  对焦模式
+ */
+typedef NS_ENUM(NSUInteger, NIMNetCallFocusMode) {
+    /**
+     *  手动对焦
+     */
+    NIMNetCallFocusModeManual = 1,
+    /**
+     *  自动对焦
+     */
+    NIMNetCallFocusModeAuto,
+};
 
 
 /**

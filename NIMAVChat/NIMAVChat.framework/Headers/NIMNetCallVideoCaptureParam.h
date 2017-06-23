@@ -31,6 +31,11 @@ typedef void(^NIMNetCallVideoSampleBufferHandler)(CMSampleBufferRef sampleBuffer
 @property (nonatomic,assign)    NIMNetCallVideoQuality   preferredVideoQuality;
 
 /**
+ *  视频裁剪, 默认 16:9
+ */
+@property (nonatomic,assign)    NIMNetCallVideoCrop          videoCrop;
+
+/**
  *  视频采集画面格式, 默认是 420f
  */
 @property (nonatomic, assign) NIMNetCallVideoCaptureFormat format;
@@ -63,7 +68,12 @@ typedef void(^NIMNetCallVideoSampleBufferHandler)(CMSampleBufferRef sampleBuffer
  */
 @property (nullable, nonatomic, copy) NIMNetCallVideoSampleBufferHandler  videoHandler;
 
-
+/**
+ 设置默认的手动对焦框
+ 
+ @discussion 只在支持手动对焦时才起作用，如果设置YES则使用默认的手动对焦框，设置NO表示不使用默认的手动对焦框，可以自己自定义对焦框。
+ */
+@property (nonatomic, assign) BOOL isSupportedManualFocusFrame;
 
 @end
 

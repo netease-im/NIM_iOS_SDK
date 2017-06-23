@@ -226,17 +226,31 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
 /**
  *  本地摄像头预览就绪
  *
- *  @param layer 本地摄像头预览层
+ *  @param displayView 本地摄像头预览层
  */
-- (void)onLocalPreviewReady:(CALayer *)layer;
-
+- (void)onLocalDisplayviewReady:(UIView *)displayView;
 
 /**
- *  前后摄像头切换完成回调
+ *  本地视频采集方向切换完成回调
  *
- *  @param camera 切换到了该摄像头
+ *  @param orientation  采集方向
  */
-- (void)onCameraSwitchedTo:(NIMNetCallCamera)camera;
+-(void)onCameraOrientationSwitchCompleted:(NIMVideoOrientation)orientation;
+
+/**
+ *  摄像头方向切换完成回调
+ *
+ *  @param cameraType  摄像头方向
+ */
+-(void)onCameraTypeSwitchCompleted:(NIMNetCallCamera)cameraType;
+
+/**
+ *  视频清晰度切换完成回调
+ *
+ *  @param videoQuality  清晰度
+ */
+-(void)onCameraQualitySwitchCompleted:(NIMNetCallVideoQuality)videoQuality;
+
 
 /**
  *  远程视频YUV数据就绪
@@ -347,6 +361,20 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  当前语音文件混音任务完成回调
  */
 - (void)onAudioMixTaskCompleted;
+
+/**
+ 互动直播状态回调
+ 
+ @param code 互动直播状态码
+ */
+- (void)onBypassStreamingStatus:(NIMBypassStreamingStatus)code;
+
+/**
+ * 摄像头开关状态回调
+ *
+ *  @param running 开启状态
+ */
+- (void)onCameraRunning:(BOOL)running;
 
 @end
 
@@ -669,7 +697,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *
  *  @return 预览层
  */
-- (nullable CALayer *)localPreviewLayer;
+- (nullable UIView *)localPreview;
 
 /**
  *  本地截图. 截取自己下一帧待发送的画面
@@ -771,6 +799,120 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *  @param delegate 网络通话委托
  */
 - (void)removeDelegate:(id<NIMNetCallManagerDelegate>)delegate;
+
+/**
+ 选择滤镜类型
+ 
+ @param type  滤镜类型
+ */
+- (void)selectBeautifyType:(NIMNetCallFilterType)type;
+
+/**
+ 改变焦距 实际放大倍数
+ 
+ @param scale 放大倍数
+ */
+- (void)changeLensPosition:(float)scale;
+
+/**
+ 设置闪光灯开关
+ 
+ @param isFlashOn  是否开启闪光灯
+ */
+- (void)setCameraFlash:(BOOL)isFlashOn;
+
+/**
+ 设置预览镜像
+ 
+ @param isMirrorOn  是否开启预览镜像
+ */
+- (void)setPreViewMirror:(BOOL)isMirrorOn;
+
+/**
+ 设置编码镜像
+ 
+ @param isMirrorOn  是否开启编码镜像
+ */
+- (void)setCodeMirror:(BOOL)isMirrorOn;
+
+/**
+ 设置对焦模式
+ 
+ @param mode  对焦模式
+ */
+- (void)setFocusMode:(NIMNetCallFocusMode)mode;
+
+/**
+ 获取摄像头支持的最大放大倍数
+ 
+ *  @return 放大倍数
+ */
+- (CGFloat)getMaxZoomScale;
+
+/**
+ 添加静态水印
+ 
+ @param image  水印图片
+ 
+ @param rect   水印具体位置和大小（x，y根据location位置，计算具体的位置信息）
+ 
+ @param location  水印位置
+ */
+- (void)addWaterMark:(UIImage*)image
+                rect:(CGRect)rect
+            location:(NIMNetCallWaterMarkLocation)location;
+
+/**
+ 添加动态水印
+ 
+ @param imageArray 动态图像数组
+ 
+ @param count 播放速度的快慢:count代表count帧显示同一张图
+ 
+ @param looped 是否循环，不循环就显示一次
+ 
+ @param rect 具体位置和大小（x，y根据location位置，计算具体的位置信息）
+ 
+ @param location 位置
+ */
+- (void)addDynamicWaterMarks:(NSArray*)imageArray
+                    fpsCount:(unsigned int)count
+                        loop:(BOOL)looped
+                        rect:(CGRect)rect
+                    location:(NIMNetCallWaterMarkLocation)location;
+/**
+ *  清除水印
+ */
+- (void)cleanWaterMark;
+
+/**
+ 手动对焦
+ 
+ @param devicePoint 点
+ */
+- (void)changeNMCVideoPreViewManualFocusPoint:(CGPoint)devicePoint;
+
+
+/**
+ 主动获取预览画面
+ 
+ @return 预览画面
+ */
+- (UIView *)getDisplayView;
+
+/**
+ 设置对比度滤镜强度,支持自然 粉嫩 怀旧 黑白模式
+ 
+ @param value 值 [0-4] 默认为 1
+ */
+- (void)setContrastFilterIntensity:(float)value;
+
+/**
+ 设置磨皮滤镜强度,支持自然 粉嫩 怀旧 黑白模式
+ 
+ @param value 值 [0-1] 默认为 0
+ */
+- (void)setSmoothFilterIntensity:(float)value;
 
 @end
 

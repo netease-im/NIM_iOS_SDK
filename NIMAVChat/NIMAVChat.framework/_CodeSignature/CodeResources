@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/NIMAVChatDefs.h</key>
 		<data>
-		QpjIx34aWd4rO+xYzBcazK6SA9A=
+		QVUwfr/VJY+P8d0j6DZ4gwVBXp4=
 		</data>
 		<key>Headers/NIMAVChatHeader.h</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/NIMNetCallManagerProtocol.h</key>
 		<data>
-		1baeZ0jckaVgQaLdzqrNaPlggG4=
+		Nal9thrzTy47y7iot3Gt1zU7aQQ=
 		</data>
 		<key>Headers/NIMNetCallMeeting.h</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Headers/NIMNetCallOption.h</key>
 		<data>
-		ned44aZVvbQLm/tfWjog1eJqFjc=
+		2XbQG02dVk7ia/uItjO1O5quCX4=
 		</data>
 		<key>Headers/NIMNetCallRecordingInfo.h</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Headers/NIMNetCallVideoCaptureParam.h</key>
 		<data>
-		Fw9jtIxtBtCBrS4GCv9X9I+UHiw=
+		hM4Y/WDkzBre5vg5M3ooXoUOXMY=
 		</data>
 		<key>Headers/NIMRTSConference.h</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Headers/NIMRTSOption.h</key>
 		<data>
-		54gEXKWVmCntPMKkjxNlZbm7KpQ=
+		yO4uaPpQjTrS0laoftVSUW5aVSY=
 		</data>
 		<key>Headers/NIMRTSRecordingInfo.h</key>
 		<data>
@@ -78,7 +78,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		7bd6KvsLiy9+PnRQAuMMVyok/XM=
+		oWzLcNNXZY+WiPGm9xV9ULvDwO0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -102,11 +102,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QpjIx34aWd4rO+xYzBcazK6SA9A=
+			QVUwfr/VJY+P8d0j6DZ4gwVBXp4=
 			</data>
 			<key>hash2</key>
 			<data>
-			D2gKbWSXbUAaakuzQhOCvRzMXZp1ynxEv67B/+AuTUs=
+			NODcs9txv9LaDJAensQgCly5jDTZ9R2Dok8AXZ4+huo=
 			</data>
 		</dict>
 		<key>Headers/NIMAVChatHeader.h</key>
@@ -157,11 +157,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1baeZ0jckaVgQaLdzqrNaPlggG4=
+			Nal9thrzTy47y7iot3Gt1zU7aQQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			PxOGBBCTY7ibmFler+cKommn6HkKcQCOnskJOfkRX84=
+			/YFWv3JLTnut3fkBtzkeVDlTc9iGBQfxM6Sd3tPE7d4=
 			</data>
 		</dict>
 		<key>Headers/NIMNetCallMeeting.h</key>
@@ -179,11 +179,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ned44aZVvbQLm/tfWjog1eJqFjc=
+			2XbQG02dVk7ia/uItjO1O5quCX4=
 			</data>
 			<key>hash2</key>
 			<data>
-			2x7/O4LBhGcp/gW6v3YSSG2E9FMXiFL2yqqHAR01Ri0=
+			ahoH1GeNyep1oASyF/EJ9uVCBllAd3wmd3FyeJfv9Wo=
 			</data>
 		</dict>
 		<key>Headers/NIMNetCallRecordingInfo.h</key>
@@ -212,11 +212,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Fw9jtIxtBtCBrS4GCv9X9I+UHiw=
+			hM4Y/WDkzBre5vg5M3ooXoUOXMY=
 			</data>
 			<key>hash2</key>
 			<data>
-			Cv7jiCFOIBelvg/UMOmWnc0R68cK9YleftQ0lgaplo0=
+			o/ZOAS+sBnCl7ie6WbpvqDFsIt5Qby012mkmKcrqe3s=
 			</data>
 		</dict>
 		<key>Headers/NIMRTSConference.h</key>
@@ -267,11 +267,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			54gEXKWVmCntPMKkjxNlZbm7KpQ=
+			yO4uaPpQjTrS0laoftVSUW5aVSY=
 			</data>
 			<key>hash2</key>
 			<data>
-			7RjEmfb/pSidMZNMYaC9d1Tiv3CQt4u2E8vrt/cr5x4=
+			o5ADJe2Iy13596OpXXz2HGYCG7hV0wlMvDIBKV/5OOA=
 			</data>
 		</dict>
 		<key>Headers/NIMRTSRecordingInfo.h</key>

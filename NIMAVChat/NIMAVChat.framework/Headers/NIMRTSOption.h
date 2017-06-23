@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NIMAVChatDefs.h"
 
 NS_ASSUME_NONNULL_BEGIN
 /**
@@ -40,6 +41,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL preferHDAudio;
 
 /**
+ *  场景设置
+ */
+@property (nonatomic, assign) NIMAVChatScene scene;
+
+/**
  服务器录制语音
  */
 @property (nonatomic, assign) BOOL serverRecordAudio;
@@ -53,6 +59,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  始终持续呼叫, 用于设置被叫离线时是否仍然需要持续呼叫, 默认为 YES
  */
 @property (nonatomic, assign)   BOOL          alwaysKeepCalling;
+
+/**
+ *  语音通道兼容 webrtc
+ */
+@property (nonatomic, assign)   BOOL          webrtcCompatible;
 
 /**
  *  实时会话请求是否附带推送

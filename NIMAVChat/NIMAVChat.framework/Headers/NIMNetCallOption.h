@@ -43,11 +43,6 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
 @property (nonatomic, assign) BOOL stopVideoCaptureOnLeave;
 
 /**
- *  视频裁剪, 默认 16:9
- */
-@property (nonatomic,assign)    NIMNetCallVideoCrop          videoCrop;
-
-/**
  *  自动旋转远端画面, 默认为 YES
  *  @discussion 开启该选项, 以在远端设备旋转时在本端自动调整角度
  */
@@ -90,6 +85,12 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
 @property (nonatomic, assign) BOOL preferHDAudio;
 
 /**
+ *  场景设置
+ */
+@property (nonatomic, assign) NIMAVChatScene scene;
+
+
+/**
  *  本地采集的语音数据回调，供上层实现变音等功能
  */
 @property (nullable, nonatomic, copy) NIMNetCallAudioSamplesHandler  audioHandler;
@@ -110,6 +111,11 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
  *  互动直播视频画面混屏模式，在 NIMNetCallVideoMixMode 里面选择合适的模式，只有主播设置有效
  */
 @property (nonatomic, assign) NSUInteger bypassStreamingVideoMixMode;
+
+/**
+ *  互动直播视频画面混屏自定义布局配置，在 bypassStreamingVideoMixMode 为 NIMNetCallVideoMixModeCustomLayout 时必须设置
+ */
+@property (nonatomic, copy) NSString *bypassStreamingVideoMixCustomLayoutConfig;
 
 /**
  互动直播服务器录制，只有主播设置生效（互动直播服务器录制功能需要开通才能使用）
@@ -137,6 +143,11 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
  *  @discussion 仅在主叫发起点对点通话时设置有效，用于设置被叫离线时是否仍然需要持续呼叫, 默认为 YES
  */
 @property (nonatomic, assign)   BOOL          alwaysKeepCalling;
+
+/**
+ *  兼容 webrtc. 在发起点对点通话和预订多人会议
+ */
+@property (nonatomic, assign)   BOOL          webrtcCompatible;
 
 /**
  *  网络通话请求是否附带推送
