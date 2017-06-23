@@ -10,5 +10,7 @@ Pod::Spec.new do |s|
  s.vendored_libraries  = '**/Libs/*.a' 
  s.vendored_frameworks = '**/NIMSDK.framework','**/NIMAVChat.framework'  
  s.frameworks = 'SystemConfiguration', 'AVFoundation', 'CoreTelephony', 'AudioToolbox', 'CoreMedia' , 'VideoToolbox'  
- s.libraries = 'sqlite3.0', 'z', 'c++'   
+ s.libraries = 'sqlite3.0', 'z', 'c++'
+ s.resources  = '**/Resources/*.bundle'
+
 end   
