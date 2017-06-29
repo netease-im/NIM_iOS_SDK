@@ -145,7 +145,7 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
 @property (nonatomic, assign)   BOOL          alwaysKeepCalling;
 
 /**
- *  兼容 webrtc. 在发起点对点通话和预订多人会议
+ *  兼容 webrtc. 在发起点对点通话和预订多人会议时指定改参数，如果没有 webrtc 参与，不要打开该开关
  */
 @property (nonatomic, assign)   BOOL          webrtcCompatible;
 

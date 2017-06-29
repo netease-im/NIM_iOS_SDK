@@ -38,7 +38,7 @@
 		</data>
 		<key>Headers/NIMNetCallOption.h</key>
 		<data>
-		2XbQG02dVk7ia/uItjO1O5quCX4=
+		wmOPi9F0P51SKyctTRxv9gikBr0=
 		</data>
 		<key>Headers/NIMNetCallRecordingInfo.h</key>
 		<data>
@@ -78,7 +78,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		oWzLcNNXZY+WiPGm9xV9ULvDwO0=
+		aQJLA+PBgrpslmf7L3G3IOUfvIM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -179,11 +179,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2XbQG02dVk7ia/uItjO1O5quCX4=
+			wmOPi9F0P51SKyctTRxv9gikBr0=
 			</data>
 			<key>hash2</key>
 			<data>
-			ahoH1GeNyep1oASyF/EJ9uVCBllAd3wmd3FyeJfv9Wo=
+			7jRhFKfBPIQw+61U+0Uo+v89Tax89YlFtEJllvLOmSE=
 			</data>
 		</dict>
 		<key>Headers/NIMNetCallRecordingInfo.h</key>
