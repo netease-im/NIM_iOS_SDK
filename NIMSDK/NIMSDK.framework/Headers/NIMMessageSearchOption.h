@@ -67,13 +67,12 @@ typedef NS_ENUM(NSInteger,NIMMessageSearchOrder) {
 
 /**
  *  全部消息类型
- *  @discussion 默认为 NO，当设置为 YES 时，忽略 messageType 和 searchContent，同时返回所有的消息类型消息
+ *  @discussion 默认为 NO
  */
 @property (nonatomic,assign)    BOOL allMessageTypes;
 
 /**
  *  检索文本
- *  @discussion 只有在 messageType 为 NIMMessageTypeText 时才有效
  */
 @property (nullable,nonatomic,copy)      NSString *searchContent;
 

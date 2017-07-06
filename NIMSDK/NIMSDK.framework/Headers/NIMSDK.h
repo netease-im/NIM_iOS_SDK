@@ -6,7 +6,10 @@
 //  Copyright © 2017年 Netease. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+/**
+ *  平台相关定义
+ */
+#import "NIMPlatform.h"
 
 /**
  *  全局枚举和结构体定义
@@ -80,6 +83,11 @@
 #import "NIMSubscribeResult.h"
 
 /**
+ *  智能机器人
+ */
+#import "NIMRobot.h"
+
+/**
  *  各个对外接口协议定义
  */
 #import "NIMLoginManagerProtocol.h"
@@ -94,6 +102,7 @@
 #import "NIMChatroomManagerProtocol.h"
 #import "NIMDocTranscodingManagerProtocol.h"
 #import "NIMEventSubscribeManagerProtocol.h"
+#import "NIMRobotManagerProtocol.h"
 
 /**
  *  SDK业务类

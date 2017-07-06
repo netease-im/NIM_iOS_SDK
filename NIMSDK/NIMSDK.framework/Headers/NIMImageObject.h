@@ -7,7 +7,7 @@
 //
 
 #import "NIMMessageObjectProtocol.h"
-#import <UIKit/UIKit.h>
+#import "NIMPlatform.h"
 
 NS_ASSUME_NONNULL_BEGIN
 /**

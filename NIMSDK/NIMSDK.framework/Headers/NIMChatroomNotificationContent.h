@@ -93,6 +93,28 @@ typedef NS_ENUM(NSInteger, NIMChatroomEventType){
 };
 
 /**
+ *  聊天室队列变更类型
+ */
+typedef NS_ENUM(NSInteger, NIMChatroomQueueChangeType){
+    /**
+     *  无效或未知变更类型
+     */
+    NIMChatroomQueueChangeTypeInvalid = 0,
+    /**
+     *  新增元素
+     */
+    NIMChatroomQueueChangeTypeOffer = 1,
+    /**
+     *  取出元素
+     */
+    NIMChatroomQueueChangeTypePoll = 2,
+    /**
+     *  清空元素
+     */
+    NIMChatroomQueueChangeTypeDrop = 3,
+};
+
+/**
  *  通知事件包含的聊天室成员
  */
 @interface NIMChatroomNotificationMember : NSObject
@@ -140,6 +162,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomEventType){
  *
  *               NIMChatroomEventTypeEnter 类型: 扩展信息为 NSDictionary , KEY 值为 NIMChatroomEventInfoMutedKey ，NIMChatroomEventInfoTempMutedKey, NIMChatroomEventInfoTempMutedDurationKey
  *
+ *               NIMChatroomEventTypeQueueChange 类型: 扩展信息为 NSDictionary， KEY 值为 NIMChatroomEventInfoQueueChangeTypeKey , NIMChatroomEventInfoQueueChangeItemKey, NIMChatroomEventInfoQueueChangeItemValueKey
  */
 @property (nullable,nonatomic,copy,readonly) id ext;
 
@@ -159,6 +182,21 @@ extern NSString *const NIMChatroomEventInfoTempMutedKey;
  *  临时禁言时长
  */
 extern NSString *const NIMChatroomEventInfoTempMutedDurationKey;
+
+/**
+ *  聊天室变更类型
+ */
+extern NSString *const NIMChatroomEventInfoQueueChangeTypeKey;
+
+/**
+ *  聊天室新增元素
+ */
+extern NSString *const NIMChatroomEventInfoQueueChangeItemKey;
+
+/**
+ *  聊天室新增元素的值
+ */
+extern NSString *const NIMChatroomEventInfoQueueChangeItemValueKey;
 
 
 

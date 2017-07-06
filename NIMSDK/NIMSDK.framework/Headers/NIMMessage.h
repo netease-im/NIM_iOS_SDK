@@ -18,6 +18,7 @@
 #import "NIMFileObject.h"
 #import "NIMNotificationObject.h"
 #import "NIMTipObject.h"
+#import "NIMRobotObject.h"
 #import "NIMMessageSetting.h"
 #import "NIMMessageReceipt.h"
 #import "NIMAntiSpamOption.h"
