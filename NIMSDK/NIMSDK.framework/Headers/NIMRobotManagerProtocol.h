@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  好友操作类型
+ *  本地读取机器人信息
  *  @param userId 用户Id (机器人在云信的id)
  *  @return 机器人信息
  */
