@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|   
  s.name = 'NIMSDK'     
- s.version = 'File'
+ s.version = '4.0.0'
  s.summary = 'Netease IM SDK'
  s.homepage = 'http://netease.im'
  s.license = { :'type' => 'Copyright', :'text' => ' Copyright 2017 Netease '}   
  s.authors = 'Netease IM Team'  
- s.source = { :git => 'https://github.com/netease-im/NIM_iOS_SDK.git', :tag => 'File'}  
+ s.source = { :git => 'https://github.com/netease-im/NIM_iOS_SDK.git', :tag => '4.0.0'}  
  s.platform = :ios, '7.0'  
  s.vendored_libraries  = '**/Libs/*.a' 
  s.vendored_frameworks = '**/NIMSDK.framework','**/NIMAVChat.framework'  
