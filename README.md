@@ -14,9 +14,12 @@
 
 * 云信 SDK
   * NIMSDK （IM 模块)
+  
     	* Libs (依赖第三方库)
     	* NIMSDK.framework (静态库文件)
+	
   * NIMAVChat （音视频模块）
+  
     	* Libs (依赖第三方库)
     	* NIMAVChat.framework (静态库文件)
 
