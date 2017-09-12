@@ -49,11 +49,4 @@
 
 ## 历史版本
 
-在 `4.0.0` 之前，你可以在当前仓库的 [Release](https://github.com/netease-im/NIM_iOS_SDK/releases) 进行历史版本下载。
-
-`4.1.0` 之后，所有历史版本参考下文
-
-* 4.1.0
-	* [iOS Lite](http://yx-web.nosdn.127.net/package/NIM_iOS_SDK_IM_v4.1.0.zip) 
-	* [iOS Full](http://yx-web.nosdn.127.net/package/NIM_iOS_SDK_v4.1.0.zip)
-	* [macOS Lite](http://yx-web.nosdn.127.net/package/NIM_macOS_SDK_IM_v4.1.0.zip)
+你可以在当前仓库的 [Release](https://github.com/netease-im/NIM_iOS_SDK/releases) 进行历史版本下载。
