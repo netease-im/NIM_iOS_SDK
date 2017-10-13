@@ -47,14 +47,14 @@ typedef void(^NIMRequestChatroomAddressesHandler)(NSString *roomId,NIMRequestCha
  *  @param handler 获取聊天室地址信息的方法
  *  @discussion 在进入聊天室和刷新聊天室 IP 时，SDK 都会主动调用这个回调方法，并传入相应的两个参数 `roomId` 和 `callback`。
  *              当前回调接口要求上层使用 `roomId` 走自己的网络请求获取对应聊天室地址并通过 callback 回调给 SDK。
- *              需要注意的时候无论请求成功，都需要通过 callback 进行回调，否则进入聊天室请求将会一直等待。同时此接口只需注册一次即可，多次注册将使用后者覆盖前者。
+ *              需要注意的是无论请求成功，都需要通过 callback 进行回调，否则进入聊天室请求将会一直等待。同时此接口只需注册一次即可，多次注册将使用后者覆盖前者。
  *
  *  参考代码：
  *
          [NIMChatroomIndependentMode registerRequestChatroomAddressesHandler:^(NSString * _Nonnull roomId, NIMRequestChatroomAddressesCallback  _Nonnull callback) {
              [YourHTTPService request:roomId completion:^(NSError *error,NSArray *addresses)
              {
-                 //无论请求时候成功，都需要进行回调
+                 //无论请求是否成功，都需要进行回调
                  if(callback)
                  {
                      callback(error,addresses);
