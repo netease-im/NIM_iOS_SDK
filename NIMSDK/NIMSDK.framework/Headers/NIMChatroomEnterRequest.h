@@ -51,17 +51,17 @@ typedef void(^NIMRequestChatroomAddressesHandler)(NSString *roomId,NIMRequestCha
  *
  *  参考代码：
  *
-         [NIMChatroomIndependentMode registerRequestChatroomAddressesHandler:^(NSString * _Nonnull roomId, NIMRequestChatroomAddressesCallback  _Nonnull callback) {
-             [YourHTTPService request:roomId completion:^(NSError *error,NSArray *addresses)
-             {
-                 //无论请求是否成功，都需要进行回调
-                 if(callback)
-                 {
-                     callback(error,addresses);
-                 }
-             }];
-         }];
-
+ *   [NIMChatroomIndependentMode registerRequestChatroomAddressesHandler:^(NSString * _Nonnull roomId, NIMRequestChatroomAddressesCallback  _Nonnull callback) {
+ *           [YourHTTPService request:roomId completion:^(NSError *error,NSArray *addresses)
+ *           {
+ *                //无论请求是否成功，都需要进行回调
+ *                if(callback)
+ *                {
+ *                    callback(error,addresses);
+ *                }
+ *            }];
+ *        }];
+ *
  */
 + (void)registerRequestChatroomAddressesHandler:(NIMRequestChatroomAddressesHandler)handler;
 
