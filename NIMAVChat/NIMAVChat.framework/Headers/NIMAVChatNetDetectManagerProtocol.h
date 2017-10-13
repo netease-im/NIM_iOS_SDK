@@ -27,11 +27,14 @@ typedef void(^NIMAVChatNetDetectCompleteBlock)(NIMAVChatNetDetectResult *result)
 /**
  *  开始网络探测任务
  *
+ *  @param videoOrAudio 探测视频还是音频, 如果要探测视频, 需要设置为 YES
+ *
  *  @param completion 任务完成 block
  *
  *  @return 开始的网络探测任务的 id，可以用该 id 停止该任务，如果返回 0 表示开始失败
  */
-- (UInt64)startDetectTask:(nullable NIMAVChatNetDetectCompleteBlock)completion;
+- (UInt64)startDetectTaskForVideo:(BOOL)videoOrAudio
+                       completion:(nullable NIMAVChatNetDetectCompleteBlock)completion;
 
 /**
  *  停止网络探测任务

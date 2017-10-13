@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void(^NIMSystemNotificationHandler)(NSError * __nullable error);
 
 /**
- *  系统通知回调
+ *  系统通知委托
  */
 @protocol NIMSystemNotificationManagerDelegate <NSObject>
 @optional
@@ -49,8 +49,8 @@ typedef void(^NIMSystemNotificationHandler)(NSError * __nullable error);
 
 /**
  *  收到自定义通知回调
- *  @discussion 这个通知是由开发者服务端/客户端发出,由我们的服务器进行透传的通知,SDK不负责这个信息的存储
  *  @param notification 自定义通知
+*  @discussion 这个通知是由开发者服务端/客户端发出,由我们的服务器进行透传的通知,SDK 不负责这个信息的存储，如果需要上层需要存储，需要在这个方法返回前进行存储
  */
 - (void)onReceiveCustomSystemNotification:(NIMCustomSystemNotification *)notification;
 

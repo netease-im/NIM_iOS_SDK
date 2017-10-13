@@ -119,13 +119,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign)    NSInteger   maxAutoLoginRetryTimes;
 
 
-
-
 /**
  *  本地 log 存活期
  *  @discusssion 默认为 7 天。即超过 7 天的 log 将被清除。只能设置大于等于 2 的值。
  */
 @property (nonatomic,assign)    NSInteger   maximumLogDays;
+
+/**
+ *  是否支持动图缩略
+ *  @discusssion 默认为 NO。即默认情况下，从服务器获取原图缩略图时，如果原图为动图，我们将返回原图第一帧的缩略图。
+ *               而开启这个选项后，我们将返回缩略图后的动图。这个选项只影响从服务器获取的缩略图，不影响本地生成的缩略图。
+ */
+@property (nonatomic,assign)    BOOL   animatedImageThumbnailEnabled;
 
 /**
  *  配置项委托

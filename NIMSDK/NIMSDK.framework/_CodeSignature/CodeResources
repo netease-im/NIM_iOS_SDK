@@ -16,6 +16,14 @@
 		<data>
 		/2rK/iqsEl9C0738l4cQ29zStDs=
 		</data>
+		<key>Headers/NIMBroadcastManagerProtocol.h</key>
+		<data>
+		PqJqEba16OSRSfRXapqsA6Sq5u4=
+		</data>
+		<key>Headers/NIMBroadcastMessage.h</key>
+		<data>
+		nWZBTNCGn4uPpUwrQN3eS4vLxhc=
+		</data>
 		<key>Headers/NIMChatManagerProtocol.h</key>
 		<data>
 		xRXtMg+sH25zexBMVjweoP37YDQ=
@@ -26,7 +34,7 @@
 		</data>
 		<key>Headers/NIMChatroomEnterRequest.h</key>
 		<data>
-		uTWu7SaB1S7DALmGdvbt8mmCses=
+		JPJdeWu906b8cfsmb3IhqYa5xb8=
 		</data>
 		<key>Headers/NIMChatroomManagerProtocol.h</key>
 		<data>
@@ -34,7 +42,7 @@
 		</data>
 		<key>Headers/NIMChatroomMember.h</key>
 		<data>
-		Xuirs66OPQJr1++U1aDwvJnRCAA=
+		Il1fgaKEFedCPzIhMFKW1IU3pH0=
 		</data>
 		<key>Headers/NIMChatroomMemberRequest.h</key>
 		<data>
@@ -54,7 +62,7 @@
 		</data>
 		<key>Headers/NIMConversationManagerProtocol.h</key>
 		<data>
-		Kg4+RSNRkBxnOrRUxrX/kIhBOA8=
+		l5giISv+Zq7/hEmeObMhlA68Ghs=
 		</data>
 		<key>Headers/NIMCreateTeamOption.h</key>
 		<data>
@@ -90,11 +98,11 @@
 		</data>
 		<key>Headers/NIMGlobalDefs.h</key>
 		<data>
-		+99QpD400LubSsYpq2lpwazO/vQ=
+		G9PEAVR5245khP4lDT84Ug1/4lc=
 		</data>
 		<key>Headers/NIMImageObject.h</key>
 		<data>
-		utY0uaBQzQ8nSM/4C20HYEwvimE=
+		wt+5jUzUh3FUgdfzDZwTBgoXQOs=
 		</data>
 		<key>Headers/NIMLocationObject.h</key>
 		<data>
@@ -106,7 +114,7 @@
 		</data>
 		<key>Headers/NIMLoginManagerProtocol.h</key>
 		<data>
-		Q1te+Vs3LoiW04ClIn5R7tDfXRA=
+		Jhd1u+sGcpickLAMInBwCqn9iBo=
 		</data>
 		<key>Headers/NIMMediaManagerProtocol.h</key>
 		<data>
@@ -134,7 +142,7 @@
 		</data>
 		<key>Headers/NIMMessageSearchOption.h</key>
 		<data>
-		BHjUB5qBFx7iezpS4BM2C5HlQjw=
+		YiTWqhATOCdFUkrogq1T02xg1A4=
 		</data>
 		<key>Headers/NIMMessageSetting.h</key>
 		<data>
@@ -186,7 +194,7 @@
 		</data>
 		<key>Headers/NIMRobotManagerProtocol.h</key>
 		<data>
-		NJosYcWDjpJswPHyZKbrG87/oJ0=
+		I3FYxzgFuUGaaavS4SaXwuH1Auw=
 		</data>
 		<key>Headers/NIMRobotObject.h</key>
 		<data>
@@ -194,15 +202,15 @@
 		</data>
 		<key>Headers/NIMSDK.h</key>
 		<data>
-		akXzUcpe+OcIUCfIUNUZAVi58Mw=
+		XUCgoMA4iQfywTvitmj2tVwJw2c=
 		</data>
 		<key>Headers/NIMSDKConfig.h</key>
 		<data>
-		JBQ5m796KKYMNcPUjggTuiRrW7U=
+		JhpIf6cd1wmzwYiJO11etGzl1Kw=
 		</data>
 		<key>Headers/NIMSDKHeader.h</key>
 		<data>
-		7uGmraFjTqYsAmkB8Qpvj43ZfoU=
+		tcM9i5NFxBlzdkqRjh26IIoaCq0=
 		</data>
 		<key>Headers/NIMSDKOption.h</key>
 		<data>
@@ -214,7 +222,7 @@
 		</data>
 		<key>Headers/NIMSubscribeEvent.h</key>
 		<data>
-		SJlG5fbYOIEfC7QhbxAcc0FV6oc=
+		Zc/NyEl1vXxHUFH51ZNCqTlotPU=
 		</data>
 		<key>Headers/NIMSubscribeOnlineInfo.h</key>
 		<data>
@@ -230,23 +238,23 @@
 		</data>
 		<key>Headers/NIMSystemNotification.h</key>
 		<data>
-		uUwYxpl0bV11CO0NAWmOep389R4=
+		9o2f6AKiLnyuzSH/TM/xkpdrmZM=
 		</data>
 		<key>Headers/NIMSystemNotificationManagerProtocol.h</key>
 		<data>
-		Ne+WJt4SP/pLjQ2lFd7dOp1yOpk=
+		n/dNkvlfzVR2Oh4z0SA+k2OFwvw=
 		</data>
 		<key>Headers/NIMTeam.h</key>
 		<data>
-		bOYHsMfWbefIRBRRdg+P/yglFmg=
+		ZzpDar9cxuevcWZsVlgtPbcA9gY=
 		</data>
 		<key>Headers/NIMTeamDefs.h</key>
 		<data>
-		eDC9D8WceVFQJuD7Luf40Y6Yz/Q=
+		qFftUPRjexxsfq4hmlbaOaPUe64=
 		</data>
 		<key>Headers/NIMTeamManagerProtocol.h</key>
 		<data>
-		O085OGFU7HIr3emRBGxeL+Y0/04=
+		KMyHoqzqtnlMn3KedcTDX6vNgIs=
 		</data>
 		<key>Headers/NIMTeamMember.h</key>
 		<data>
@@ -278,7 +286,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		3GYwjsmuX3BMoKWcicx7gLopTxE=
+		uYwstiAh0wvTR6G+J+ElCyKyuVs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -320,6 +328,28 @@
 			kTMK1zVYie41R6rhrr9idjnHWwF4oyVfwXRVtMgeKgI=
 			</data>
 		</dict>
+		<key>Headers/NIMBroadcastManagerProtocol.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PqJqEba16OSRSfRXapqsA6Sq5u4=
+			</data>
+			<key>hash2</key>
+			<data>
+			wiMqDA0waP3gpT0aOi0HY9qIlMgKKGvEAlTdSBCn+8U=
+			</data>
+		</dict>
+		<key>Headers/NIMBroadcastMessage.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			nWZBTNCGn4uPpUwrQN3eS4vLxhc=
+			</data>
+			<key>hash2</key>
+			<data>
+			3H5j2zBepeKQtEOUCmnQ/oNbvfpApuwlh8lvdMcLFEg=
+			</data>
+		</dict>
 		<key>Headers/NIMChatManagerProtocol.h</key>
 		<dict>
 			<key>hash</key>
@@ -346,11 +376,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uTWu7SaB1S7DALmGdvbt8mmCses=
+			JPJdeWu906b8cfsmb3IhqYa5xb8=
 			</data>
 			<key>hash2</key>
 			<data>
-			kPIbwKVv8t515gr7UtTTclcZczyg8IghQkTmv8292Ng=
+			IRIazQ7XVKVytOXh4e5HQw3/Lc3mY+cs/yXS7W//FkY=
 			</data>
 		</dict>
 		<key>Headers/NIMChatroomManagerProtocol.h</key>
@@ -368,11 +398,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Xuirs66OPQJr1++U1aDwvJnRCAA=
+			Il1fgaKEFedCPzIhMFKW1IU3pH0=
 			</data>
 			<key>hash2</key>
 			<data>
-			Fim+klQ27L8JZp/HDe0MHZriCL0oMkDYsyRLz46dWGE=
+			5uSX7jf8S1ILUt88RKg7wk2FJUHrbfzIAubeTrh0pto=
 			</data>
 		</dict>
 		<key>Headers/NIMChatroomMemberRequest.h</key>
@@ -423,11 +453,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Kg4+RSNRkBxnOrRUxrX/kIhBOA8=
+			l5giISv+Zq7/hEmeObMhlA68Ghs=
 			</data>
 			<key>hash2</key>
 			<data>
-			n8T/ZmtXc+RiJthDQmxG4DXV1z5E4szP6TIecWx5DeE=
+			aL/eOloUmPeTZxweOwSOXO5HufYtzgirRMfuIRmx/aE=
 			</data>
 		</dict>
 		<key>Headers/NIMCreateTeamOption.h</key>
@@ -522,22 +552,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+99QpD400LubSsYpq2lpwazO/vQ=
+			G9PEAVR5245khP4lDT84Ug1/4lc=
 			</data>
 			<key>hash2</key>
 			<data>
-			JyX7ze9L593DKNzEbvn0uyIfqhjOkKi6B0p9CGN5umc=
+			a1VFkgEBssjNDNHO5vtAxfi6o5v1y3YIR1SPJHuSplw=
 			</data>
 		</dict>
 		<key>Headers/NIMImageObject.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			utY0uaBQzQ8nSM/4C20HYEwvimE=
+			wt+5jUzUh3FUgdfzDZwTBgoXQOs=
 			</data>
 			<key>hash2</key>
 			<data>
-			2j2fsPOjyFbznPBlT6HXwbCatmCS3vL3SVHkLmCKIHg=
+			vGNxct785bKo/xp9PClEJzbxex4+Jub8r5R0kTOXmDI=
 			</data>
 		</dict>
 		<key>Headers/NIMLocationObject.h</key>
@@ -566,11 +596,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Q1te+Vs3LoiW04ClIn5R7tDfXRA=
+			Jhd1u+sGcpickLAMInBwCqn9iBo=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZEzM0B/zIpDQDcMkChECwcVKmFkFXPMJeLPD7dF8vEY=
+			7n9zV0r42gmY3clnepPdPZk9GLn6NCEi1d13ZiQt6ck=
 			</data>
 		</dict>
 		<key>Headers/NIMMediaManagerProtocol.h</key>
@@ -643,11 +673,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BHjUB5qBFx7iezpS4BM2C5HlQjw=
+			YiTWqhATOCdFUkrogq1T02xg1A4=
 			</data>
 			<key>hash2</key>
 			<data>
-			f3vt6+XrM7TmUcVQO7bXg/Btu9Ij6CQ7TSEvsTNXSzA=
+			qgovqLd17TiOO+a4yLWCRO/gY6zLR8KiCidcHqLoMSc=
 			</data>
 		</dict>
 		<key>Headers/NIMMessageSetting.h</key>
@@ -786,11 +816,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			NJosYcWDjpJswPHyZKbrG87/oJ0=
+			I3FYxzgFuUGaaavS4SaXwuH1Auw=
 			</data>
 			<key>hash2</key>
 			<data>
-			dC5ONJA5xlRm/HZYf3tjlsmcMTC2BX8sTkKlJVdN1F4=
+			s2z3usMRpZGcCNL6MNBW3pRGY0+F/ZFWEUnTi4KuRDI=
 			</data>
 		</dict>
 		<key>Headers/NIMRobotObject.h</key>
@@ -808,33 +838,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			akXzUcpe+OcIUCfIUNUZAVi58Mw=
+			XUCgoMA4iQfywTvitmj2tVwJw2c=
 			</data>
 			<key>hash2</key>
 			<data>
-			t3TEVTSllwfr+Ebbq/2ZGrux6GZXx90s4MsNw9B0twQ=
+			PwT0Xo9G+h0xwLgyi0OywlfgfaQc6WkktNKLYhJLFYM=
 			</data>
 		</dict>
 		<key>Headers/NIMSDKConfig.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			JBQ5m796KKYMNcPUjggTuiRrW7U=
+			JhpIf6cd1wmzwYiJO11etGzl1Kw=
 			</data>
 			<key>hash2</key>
 			<data>
-			h/76zt9jVZ2EMd1NhiTjQiamJvdmosqciDWOITV6Y0E=
+			t6zOs/I6Fk84q4lFBohJeb8rvZZMIOZJHhUv0d9Iza0=
 			</data>
 		</dict>
 		<key>Headers/NIMSDKHeader.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			7uGmraFjTqYsAmkB8Qpvj43ZfoU=
+			tcM9i5NFxBlzdkqRjh26IIoaCq0=
 			</data>
 			<key>hash2</key>
 			<data>
-			Cjd7AxfNPt/ajY95cuy7qUEjf1vDcVUYH3Sddsf8Vu0=
+			/+DOUsJJ0xsvJPyn7Jnt/zMzKAbgv5Ot/FcrXdBs8Dg=
 			</data>
 		</dict>
 		<key>Headers/NIMSDKOption.h</key>
@@ -863,11 +893,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SJlG5fbYOIEfC7QhbxAcc0FV6oc=
+			Zc/NyEl1vXxHUFH51ZNCqTlotPU=
 			</data>
 			<key>hash2</key>
 			<data>
-			OvSSZ0pVvtdfBA/aY+HDoE4bNV1AgYzsEs0D3ppJVec=
+			IPWb1AyDc1oP10neUe6S5OjKwtYf8ODe0/xzFY4tiYA=
 			</data>
 		</dict>
 		<key>Headers/NIMSubscribeOnlineInfo.h</key>
@@ -907,55 +937,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uUwYxpl0bV11CO0NAWmOep389R4=
+			9o2f6AKiLnyuzSH/TM/xkpdrmZM=
 			</data>
 			<key>hash2</key>
 			<data>
-			AhdtJJEfriEKON/I2m8DaCiSpUjGrr2/LaV7VSo11nI=
+			WdKYGFFVq2aR3qGiyI3luh04XxlOBzBPgd2wuGg19P0=
 			</data>
 		</dict>
 		<key>Headers/NIMSystemNotificationManagerProtocol.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Ne+WJt4SP/pLjQ2lFd7dOp1yOpk=
+			n/dNkvlfzVR2Oh4z0SA+k2OFwvw=
 			</data>
 			<key>hash2</key>
 			<data>
-			niukHh45r8bVORivdEkfloKseS2lkoZ0eJq+MrwycRc=
+			jOwSCm4SubT5zdNq8G2yzausWIKWglXNvIFNzVAmj6s=
 			</data>
 		</dict>
 		<key>Headers/NIMTeam.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			bOYHsMfWbefIRBRRdg+P/yglFmg=
+			ZzpDar9cxuevcWZsVlgtPbcA9gY=
 			</data>
 			<key>hash2</key>
 			<data>
-			lA6NHEIZAnHGqd1GmFcWxgYq3mTrfaE3YtVtehA/BEM=
+			W7vIc6SV+YJ0r4zuaSWYkb7GB+Ffr0QrD+i9YDyFEjI=
 			</data>
 		</dict>
 		<key>Headers/NIMTeamDefs.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eDC9D8WceVFQJuD7Luf40Y6Yz/Q=
+			qFftUPRjexxsfq4hmlbaOaPUe64=
 			</data>
 			<key>hash2</key>
 			<data>
-			F5Hb4L8sC2rPVzutq118xBXT73g11c5reZie++AuRDU=
+			uwZbiOYWXvMEdfO/ofljVSFfu/LGkaPgWblkKld9wJE=
 			</data>
 		</dict>
 		<key>Headers/NIMTeamManagerProtocol.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			O085OGFU7HIr3emRBGxeL+Y0/04=
+			KMyHoqzqtnlMn3KedcTDX6vNgIs=
 			</data>
 			<key>hash2</key>
 			<data>
-			wWd1u+njWYArUFs9M41om1nkYv41ZkYM2Mw8T5ASAkY=
+			NBMdWpOel/MwR5PkNABfDRSq5cVvUISDKSyrlUNlni4=
 			</data>
 		</dict>
 		<key>Headers/NIMTeamMember.h</key>

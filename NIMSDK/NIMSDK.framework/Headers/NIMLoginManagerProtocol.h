@@ -66,6 +66,28 @@ typedef NS_ENUM(NSInteger, NIMLoginStep)
 };
 
 /**
+ *  SDK 认证模式
+ */
+typedef NS_ENUM(NSInteger, NIMSDKAuthMode)
+{
+    /**
+     *  未定义
+     *  @discussion SDK 未调用任何登录接时或在 IM/聊天室 模式下调用 logout 接口后变化为未定义模式
+     */
+    NIMSDKAuthModeUndefined = 0,
+    /**
+     *  通过 IM 服务器鉴权
+     *  @discussion 调用 NIMLoginManager login/autoLogin 接口进行登录即为 IM 鉴权模式
+     */
+    NIMSDKAuthModeIM,
+    /**
+     *  聊天室单独鉴权
+     *  @discussion 调用 NIMChatroomManager 进入聊天室接口时设置 NIMChatroomIndependentMode 即为聊天室单独聊天鉴权模式
+     */
+    NIMSDKAuthModeChatroom,
+};
+
+/**
  *  被踢下线的原因
  */
 typedef NS_ENUM(NSInteger, NIMKickReason)
@@ -188,6 +210,13 @@ typedef NS_ENUM(NSInteger, NIMKickReason)
  *  @return 当前登录状态
  */
 - (BOOL)isLogined;
+
+/**
+ *  当前 SDK 鉴权模式
+ *
+ *  @return 当前 SDK 鉴权模式
+ */
+- (NIMSDKAuthMode)currentAuthMode;
 
 /**
  *  返回当前登录的设备列表

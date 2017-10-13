@@ -76,7 +76,7 @@ typedef void(^NIMNetCallVideoSampleBufferHandler)(CMSampleBufferRef sampleBuffer
 @property (nonatomic, assign) BOOL isSupportedManualFocusFrame;
 
 /**
- *  视频前处理开关 默认是 YES 打开前处理
+ *  视频前处理开关 默认是 NO 关闭前处理
  */
 @property (nonatomic, assign) BOOL provideLocalVideoProcess;
 

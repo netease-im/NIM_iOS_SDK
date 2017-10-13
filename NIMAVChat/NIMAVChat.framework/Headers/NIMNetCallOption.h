@@ -98,6 +98,10 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
  */
 @property (nonatomic, assign) NIMAVChatScene scene;
 
+/**
+ *  视频调控策略 默认为 清晰优先
+ */
+@property (nonatomic, assign) NIMAVChatVideoAdaptiveStrategy videoAdaptiveStrategy;
 
 /**
  *  本地采集的语音数据回调，供上层实现变音等功能
@@ -117,14 +121,14 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
 @property (nullable,nonatomic, strong) NSString *bypassStreamingUrl;
 
 /**
- *  互动直播视频画面混屏模式，在 NIMNetCallVideoMixMode 里面选择合适的模式，只有主播设置有效
+ *  互动直播音视频混屏模式，在 NIMNetCallBypassStreamingMixMode 里面选择合适的模式，只有主播设置有效
  */
-@property (nonatomic, assign) NSUInteger bypassStreamingVideoMixMode;
+@property (nonatomic, assign) NSUInteger bypassStreamingMixMode;
 
 /**
- *  互动直播视频画面混屏自定义布局配置，在 bypassStreamingVideoMixMode 为 NIMNetCallVideoMixModeCustomLayout 时必须设置
+ *  互动直播音视频混屏自定义布局配置，在 bypassStreamingMixMode 为 NIMNetCallBypassStreamingMixModeCustomVideoLayout 或 NIMNetCallBypassStreamingMixModeCustomAudioLayout 时必须设置
  */
-@property (nonatomic, copy) NSString *bypassStreamingVideoMixCustomLayoutConfig;
+@property (nonatomic, copy) NSString *bypassStreamingMixCustomLayoutConfig;
 
 /**
  互动直播服务器录制，只有主播设置生效（互动直播服务器录制功能需要开通才能使用）

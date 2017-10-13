@@ -907,14 +907,6 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  */
 - (void)changeNMCVideoPreViewManualFocusPoint:(CGPoint)devicePoint;
 
-
-/**
- 主动获取预览画面
- 
- @return 预览画面
- */
-- (UIView *)getDisplayView;
-
 /**
  设置对比度滤镜强度,支持自然 粉嫩 怀旧 黑白模式
  

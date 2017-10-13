@@ -108,9 +108,13 @@ typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictiona
 
 /**
  *  所有消息被删除的回调
- *
  */
 - (void)allMessagesDeleted;
+
+/**
+ *  所有消息已读的回调
+ */
+- (void)allMessagesRead;
 
 
 @end
@@ -153,6 +157,13 @@ typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictiona
  */
 - (void)deleteRecentSession:(NIMRecentSession *)recentSession;
 
+/**
+ *  设置所有会话消息为已读
+ *
+ *  @discussion 异步方法，消息会标记为设置的状态。不会触发单条 recentSession 更新的回调，但会触发回调 - (void)allMessagesRead
+ */
+- (void)markAllMessagesRead;
+
 
 /**
  *  设置一个会话里所有消息置为已读
@@ -161,6 +172,7 @@ typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictiona
  *  @discussion 异步方法，消息会标记为设置的状态
  */
 - (void)markAllMessagesReadInSession:(NIMSession *)session;
+
 
 
 /**

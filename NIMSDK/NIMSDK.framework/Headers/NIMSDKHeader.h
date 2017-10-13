@@ -163,6 +163,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,strong,readonly)   id<NIMRedPacketManager> redPacketManager;
 
+/**
+ *  广播消息管理类
+ */
+@property (nonatomic,strong,readonly)   id<NIMBroadcastManager> broadcastManager;
+
 @end
 
 NS_ASSUME_NONNULL_END

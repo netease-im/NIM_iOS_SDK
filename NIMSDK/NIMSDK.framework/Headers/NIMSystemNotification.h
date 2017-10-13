@@ -47,6 +47,12 @@ typedef NS_ENUM(NSInteger, NIMSystemNotificationType){
  *  系统通知
  */
 @interface NIMSystemNotification : NSObject
+
+/**
+ *  通知 ID
+ */
+@property (nonatomic,assign,readonly)      int64_t notificationId;
+
 /**
  *  通知类型
  */
@@ -74,13 +80,13 @@ typedef NS_ENUM(NSInteger, NIMSystemNotificationType){
 
 /**
  *  是否已读
- *  @discussion 修改这个属性并不会修改db中的数据
+ *  @discussion 修改这个属性并不会修改 db 中的数据
  */
 @property (nonatomic,assign)                BOOL read;
 
 /**
  *  消息处理状态
- *  @discussion 修改这个属性,后台会自动更新db中对应的数据,SDK调用者可以使用这个值来持久化他们对消息的处理结果,默认为0
+ *  @discussion 修改这个属性,后台会自动更新 db 中对应的数据,SDK 调用者可以使用这个值来持久化他们对消息的处理结果,默认为 0
  */
 @property (nonatomic,assign)                NSInteger handleStatus;
 
@@ -92,7 +98,7 @@ typedef NS_ENUM(NSInteger, NIMSystemNotificationType){
 
 /**
  *  附件
- *  @discussion 额外信息,只有 好友添加
+ *  @discussion 额外信息,只有 好友添加 这个通知有附件
  *              好友添加的 attachment 为 NIMUserAddAttachment
  */
 @property (nullable,nonatomic,strong,readonly)       id attachment;
@@ -126,9 +132,15 @@ typedef NS_ENUM(NSInteger, NIMSystemNotificationType){
 
 #pragma mark - 自定义系统通知
 /**
- *  自定义系统消息
+ *  自定义系统通知
  */
 @interface NIMCustomSystemNotification : NSObject
+
+/**
+ *  通知 ID
+ *  @discussion 只有收到的自定义系统通知才有通知 ID
+ */
+@property (nonatomic,assign,readonly)       int64_t notificationId;
 
 /**
  *  时间戳

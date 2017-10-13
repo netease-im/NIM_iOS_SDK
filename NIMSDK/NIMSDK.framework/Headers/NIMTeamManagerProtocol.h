@@ -56,6 +56,8 @@ typedef void(^NIMTeamFetchInfoHandler)(NSError * __nullable error, NIMTeam * __n
 typedef void(^NIMTeamApplyHandler)(NSError * __nullable error, NIMTeamApplyStatus applyStatus);
 
 
+
+
 /**
  *  群组委托
  */
@@ -437,22 +439,22 @@ typedef void(^NIMTeamApplyHandler)(NSError * __nullable error, NIMTeamApplyStatu
 /**
  *  修改群通知状态
  *
- *  @param notify       是否通知
+ *  @param state        群通知状态
  *  @param teamId       群组ID
  *  @param completion   完成后的回调
  */
-- (void)updateNotifyState:(BOOL)notify
+- (void)updateNotifyState:(NIMTeamNotifyState)state
                    inTeam:(NSString *)teamId
                completion:(nullable NIMTeamHandler)completion;
 
 /**
- *  是否需要消息通知
+ *  群通知状态
  *
  *  @param teamId 群Id
  *
- *  @return 是否需要消息通知
+ *  @return 群通知状态
  */
-- (BOOL)notifyForNewMsg:(NSString *)teamId;
+- (NIMTeamNotifyState)notifyStateForNewMsg:(NSString *)teamId;
 
 
 /**

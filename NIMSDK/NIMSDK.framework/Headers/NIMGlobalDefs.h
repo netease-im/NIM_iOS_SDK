@@ -155,6 +155,11 @@ typedef NS_ENUM(NSInteger, NIMLocalErrorCode) {
      *  相同的操作正在执行，请不要多次调用
      */
     NIMLocalErrorCodeSameOperationInProgress      = 16,
+    
+    /**
+     *  独立模式下获取聊天室服务器地址失败
+     */
+    NIMLocalErrorCodeRequestChatroomAddressesFailed= 17,
 
 };
 

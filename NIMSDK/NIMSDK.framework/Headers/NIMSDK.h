@@ -59,6 +59,7 @@
 #import "NIMSystemNotification.h"
 #import "NIMRevokeMessageNotification.h"
 #import "NIMDeleteMessagesOption.h"
+#import "NIMBroadcastMessage.h"
 
 /**
  *  推送定义
@@ -106,6 +107,7 @@
 #import "NIMEventSubscribeManagerProtocol.h"
 #import "NIMRobotManagerProtocol.h"
 #import "NIMRedPacketManagerProtocol.h"
+#import "NIMBroadcastManagerProtocol.h"
 
 /**
  *  SDK业务类
