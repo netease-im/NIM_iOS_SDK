@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/NIMAntiSpamOption.h</key>
 		<data>
-		QHmOA0MmrYyg3dHIfW+cU+JAbz4=
+		FRIU8wJIvX2IIEa8KsAAZCs53BQ=
 		</data>
 		<key>Headers/NIMApnsManagerProtocol.h</key>
 		<data>
@@ -290,7 +290,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		k9Qoun0tgDZ8uonnaEc+t1lzrvQ=
+		FV00RtWzeiTKZTneZi3Bhl5wJH8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -303,11 +303,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QHmOA0MmrYyg3dHIfW+cU+JAbz4=
+			FRIU8wJIvX2IIEa8KsAAZCs53BQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			L780rUTZ6c0bcCo7+Lke7GpyxWHVsEvXQpR6eVFrmsw=
+			gqwFmR/5T+JuC4OmhbOphlq3LuMCjDc0lrWor4fGkC4=
 			</data>
 		</dict>
 		<key>Headers/NIMApnsManagerProtocol.h</key>

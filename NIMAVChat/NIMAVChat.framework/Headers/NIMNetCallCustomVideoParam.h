@@ -10,6 +10,8 @@
 #import <CoreMedia/CMSampleBuffer.h>
 #import "NIMAVChatDefs.h"
 
+@class NIMNetCallVideoProcessorParam;
+
 /**
  *  自定义视频输入参数
  */
@@ -21,8 +23,10 @@
 @property (nonatomic, assign) NSUInteger videoFrameRate;
 
 /**
- *  提供对自定义输入视频的前处理功能
+ * 视频前处理参数，如需开启前处理请指定该参数，不指定将不开启前处理。
+ 
+ @discussion 如果需要在通话开始时就已添加美颜，水印等前处理，请指定该参数中对应的参数。
  */
-@property (nonatomic, assign) BOOL provideVideoProcess;
+@property (nonatomic, strong) NIMNetCallVideoProcessorParam *videoProcessorParam;
 
 @end

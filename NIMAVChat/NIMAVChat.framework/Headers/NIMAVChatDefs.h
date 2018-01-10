@@ -321,6 +321,10 @@ typedef NS_ENUM(NSInteger, NIMNetCallErrorCode) {
      */
     NIMNetCallErrorCodeBeKicked           = 20412,
 
+    /**
+     *  房间被关闭
+     */
+    NIMNetCallErrorCodeChannelClosed      = 20413,
 
 };
 

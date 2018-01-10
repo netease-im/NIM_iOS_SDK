@@ -10,6 +10,8 @@
 #import <CoreMedia/CMSampleBuffer.h>
 #import "NIMAVChatDefs.h"
 
+@class NIMNetCallVideoProcessorParam;
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -76,9 +78,21 @@ typedef void(^NIMNetCallVideoSampleBufferHandler)(CMSampleBufferRef sampleBuffer
 @property (nonatomic, assign) BOOL isSupportedManualFocusFrame;
 
 /**
- *  视频前处理开关 默认是 NO 关闭前处理
+ * 是否打开预览镜像 默认打开
  */
-@property (nonatomic, assign) BOOL provideLocalVideoProcess;
+@property (nonatomic, assign) BOOL isPreviewMirror;
+
+/**
+ * 是否打开编码镜像 默认关闭
+ */
+@property (nonatomic, assign) BOOL isCodeMirror;
+
+/**
+ * 视频前处理参数，如需开启前处理请指定该参数，不指定将不开启前处理。
+ 
+ @discussion 如果需要在通话开始时就已添加美颜，水印等前处理，请指定该参数中对应的参数。
+ */
+@property (nonatomic, strong) NIMNetCallVideoProcessorParam *videoProcessorParam;
 
 
 @end
