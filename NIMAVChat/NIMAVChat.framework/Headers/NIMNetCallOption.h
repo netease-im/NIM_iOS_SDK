@@ -70,6 +70,11 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
 @property (nonatomic, assign) NSUInteger videoMaxEncodeBitrate;
 
 /**
+ *  纯视频模式, 将不启动所有音频相关的模块, 默认为 NO
+ */
+@property (nonatomic, assign) BOOL pureVideo;
+
+/**
  *  结束网络通话时自动停止AudioSession, 默认为 YES
  */
 @property (nonatomic, assign) BOOL autoDeactivateAudioSession;
@@ -156,11 +161,6 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
  *  @discussion 仅在主叫发起点对点通话时设置有效，用于设置被叫离线时是否仍然需要持续呼叫, 默认为 YES
  */
 @property (nonatomic, assign)   BOOL          alwaysKeepCalling;
-
-/**
- *  兼容 webrtc. 在发起点对点通话和预订多人会议时指定改参数，如果没有 webrtc 参与，不要打开该开关
- */
-@property (nonatomic, assign)   BOOL          webrtcCompatible;
 
 /**
  *  网络通话请求是否附带推送

@@ -60,6 +60,7 @@
 #import "NIMRevokeMessageNotification.h"
 #import "NIMDeleteMessagesOption.h"
 #import "NIMBroadcastMessage.h"
+#import "NIMImportedRecentSession.h"
 
 /**
  *  推送定义

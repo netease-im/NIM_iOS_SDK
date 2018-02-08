@@ -216,6 +216,10 @@ typedef NS_ENUM(NSUInteger, NIMAVChatVideoAdaptiveStrategy) {
      *  清晰优先
      */
     NIMAVChatVideoAdaptiveStrategyQuality = 2,
+    /**
+     *  录屏模式
+     */
+    NIMAVChatVideoAdaptiveStrategyScreenRecord = 3,
 };
 
 /**

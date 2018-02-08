@@ -63,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * NT 服务器地址
  */
-@property (nonatomic,copy)              NSString    *ntServerAddress;
+@property (nonatomic,copy,nullable)     NSString    *ntServerAddress;
 /**
  * module
  */

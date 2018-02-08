@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class NIMHistoryMessageSearchOption;
 @class NIMMessageSearchOption;
 @class NIMDeleteMessagesOption;
-
+@class NIMImportedRecentSession;
 
 
 /**
@@ -28,11 +28,19 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void(^NIMFetchMessageHistoryBlock)(NSError * __nullable error,NSArray<NIMMessage *> * __nullable messages);
 
 /**
- *  更新本地消息Block
+ *  更新本地消息 Block
  *
  *  @param error  错误,如果成功则error为nil
  */
 typedef void(^NIMUpdateMessageBlock)(NSError * __nullable error);
+
+/**
+ *  导入本地最近会话 Block
+ *
+ *  @param error  错误,如果成功则error为nil
+ *  @param failedImportedRecentSessions  导入失败的最近会话
+ */
+typedef void(^NIMImportRecentSessionsBlock)(NSError * __nullable error, NSArray<NIMImportedRecentSession *> * __nullable failedImportedRecentSessions);
 
 
 /**
@@ -194,13 +202,23 @@ typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictiona
  *  @param message 需要更新的消息
  *  @param session 需要更新的会话
  *  @param completion 完成后的回调
- *  @discussion 当保存消息成功之后，会收到 NIMChatManagerDelegate 中的 onRecvMessages: 回调。目前支持消息类型:NIMMessageTypeText,NIMMessageTypeTip,NIMMessageTypeCustom
+ *  @discussion 当保存消息成功之后，会收到 NIMChatManagerDelegate 中的 onRecvMessages: 回调。不允许插入已存在的消息
  */
 - (void)saveMessage:(NIMMessage *)message
          forSession:(NIMSession *)session
          completion:(nullable NIMUpdateMessageBlock)completion;
 
 
+
+/**
+ *  导入最近会话
+ *
+ *  @param importedRecentSession 待导入的会话集合
+ *  @param completion 完成后的回调
+ *  @discussion 当导入最近会话成功之后，不会收到 NIMChatManagerDelegate 中的 recentSession 变化的回调，请直接在 completion 中做处理。不允许插入已经存在的最近会话。
+ */
+- (void)importRecentSessions:(NSArray<NIMImportedRecentSession *> *)importedRecentSession
+                  completion:(nullable NIMImportRecentSessionsBlock)completion;
 
 
 /**

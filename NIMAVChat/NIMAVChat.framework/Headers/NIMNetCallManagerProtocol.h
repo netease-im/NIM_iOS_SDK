@@ -646,6 +646,14 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  */
 - (BOOL)switchVideoDecoder:(NIMNetCallVideoCodec)codec;
 
+/**
+ *  选择视频调控策略
+ *
+ *  @param videoAdaptiveStrategy 视频调控策略
+ *
+ *  @return 是否设置成功.
+ */
+- (BOOL)selectVideoAdaptiveStrategy:(NIMAVChatVideoAdaptiveStrategy)videoAdaptiveStrategy;
 
 /**
  *  发送视频 SampleBuffer
@@ -731,12 +739,12 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
 /**
  打开耳返
  */
-- (void)startEarBack;
+- (void)startEarBack API_UNAVAILABLE(macos);
 
 /**
  关闭耳返
  */
-- (void)stopEarBack;
+- (void)stopEarBack API_UNAVAILABLE(macos);
 
 /**
  调节耳返音量
@@ -745,7 +753,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  
  @return 是否调节成功
  */
-- (BOOL)changeEarBackVolume:(NSUInteger)volume;
+- (BOOL)changeEarBackVolume:(NSUInteger)volume API_UNAVAILABLE(macos);
 
 /**
  *  获得当前视频通话的本地预览层

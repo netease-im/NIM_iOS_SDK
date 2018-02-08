@@ -66,11 +66,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)   BOOL          alwaysKeepCalling;
 
 /**
- *  语音通道兼容 webrtc
- */
-@property (nonatomic, assign)   BOOL          webrtcCompatible;
-
-/**
  *  实时会话请求是否附带推送
  *  @discussion 默认为YES。将这个字段设为NO，实时会话请求将不再有苹果推送通知。
  */

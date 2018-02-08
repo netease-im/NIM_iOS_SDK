@@ -195,6 +195,14 @@ typedef void(^NIMAudioToTextBlock)(NSError * __nullable error,NSString * __nulla
  */
 - (void)stopPlay;
 
+
+/**
+ *  设置播放音频的起始时间
+ *  @param timestamp 起始时间
+ *  @discussion 起始时间不能大于整个音频的时间，否则播放无效。调用此方法后，不需要再调用 play: 方法，自动播放
+ */
+- (BOOL)seek:(NSTimeInterval)timestamp;
+
 #pragma mark - record audio
 
 /**
