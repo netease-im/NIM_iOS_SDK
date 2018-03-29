@@ -8,7 +8,28 @@
 
 #import <Foundation/Foundation.h>
 
+@class NIMResourceQueryOption;
+@class NIMCacheQueryResult;
+
 NS_ASSUME_NONNULL_BEGIN
+
+/**
+ *  缓存搜索 block
+ *
+ *  @param error   错误,如果成功则 error 为 nil
+ *  @param results 成功时的结果列表,内部为 NIMCacheQueryResult
+ */
+typedef void(^NIMResourceSearchHandler)(NSError * __nullable error, NSArray<NIMCacheQueryResult *> * __nullable results);
+
+/**
+ *  缓存删除 block
+ *
+ *  @param error         错误,如果成功则 error 为 nil
+ *  @param freeBytes     释放的磁盘空间大小
+ */
+typedef void(^NIMResourceDeleteHandler)(NSError * __nullable error, long long freeBytes);
+
+
 /**
  *  上传Block
  *
@@ -16,6 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param error     错误信息,成功时为nil
  */
 typedef void(^NIMUploadCompleteBlock)(NSString * __nullable urlString,NSError * __nullable error);
+
 
 /**
  *  上传/下载进度Block
@@ -96,6 +118,27 @@ typedef void(^NIMDownloadCompleteBlock)(NSError * __nullable error);
  *  @discussion SDK 会自动处理除自定义消息外所有消息内的 url 进行 CDN 加速，但是自定义消息中的 url 地址 SDK 并不知道具体属性在哪，所以在做这些文件下载时，需要上层传入对应的 URL 替换为走 CDN 格式的地址，以获得 CDN 加速的效果
  */
 - (NSString *)convertURLToAcceleratedURL:(NSString *)urlString;
+
+
+
+
+/**
+ *  搜索缓存的资源文件
+ *
+ *  @param option       搜索选项
+ *  @param completion   完成回调
+ */
+- (void)searchResourceFiles:(NIMResourceQueryOption *)option
+              completion:(NIMResourceSearchHandler)completion;
+
+/**
+ *  删除缓存的资源文件
+ *
+ *  @param option       搜索选项
+ *  @param completion   完成回调
+ */
+- (void)removeResourceFiles:(NIMResourceQueryOption *)option
+              completion:(NIMResourceDeleteHandler)completion;
 
 @end
 

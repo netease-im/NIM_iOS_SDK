@@ -124,7 +124,7 @@ typedef NS_ENUM(NSInteger, NIMSystemNotificationType){
  */
 @interface NIMSystemNotificationFilter : NSObject
 /**
- *  类型列表
+ *  类型列表,取值范围为: NIMSystemNotificationType 枚举类型
  */
 @property (nonatomic,copy)    NSArray<NSNumber *>     *notificationTypes;
 @end

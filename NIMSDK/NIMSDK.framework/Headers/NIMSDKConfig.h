@@ -130,6 +130,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign)    BOOL    reconnectInBackgroundStateDisabled;
 
 /**
+ *  是否开启群回执功能
+ *  @discusssion 默认为 NO。
+ */
+@property (nonatomic,assign)    BOOL    teamReceiptEnabled;
+
+/**
  *  配置项委托
  */
 @property (nullable,nonatomic,weak)    id<NIMSDKConfigDelegate>    delegate;

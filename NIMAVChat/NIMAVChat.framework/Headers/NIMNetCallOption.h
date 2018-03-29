@@ -35,12 +35,12 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
 /**
  *  视频采集参数, 指定该参数以在加入网络通话时自动设置视频采集, 如果不指定该参数, 需要开发者调用 startVideoCapture: 手动开启视频采集。如果在加入网络通话前已经开启了视频采集, 该参数无效，该参数与 customVideoParam 不能同时设置
  */
-@property (nonatomic, strong)   NIMNetCallVideoCaptureParam *videoCaptureParam;
+@property (nullable, nonatomic, strong)   NIMNetCallVideoCaptureParam *videoCaptureParam;
 
 /**
  *  自定义输入视频参数，该参数与 videoCaptureParam 不能同时设置
  */
-@property (nonatomic, strong)   NIMNetCallCustomVideoParam *customVideoParam;
+@property (nullable, nonatomic, strong)   NIMNetCallCustomVideoParam *customVideoParam;
 
 /**
  *  结束网络通话时自动停止视频采集, 默认为 YES。如果需要在离开会话以后摄像头保持开启，将该选项设置为 NO
@@ -89,6 +89,12 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
  */
 @property (nonatomic, assign) BOOL voiceDetect;
 
+
+/**
+ *  回声抑制
+ */
+@property (nonatomic, assign) NIMAVChatAcousticEchoCanceler acousticEchoCanceler;
+
 /**
  *  啸叫抑制, 默认为 NO
  */
@@ -97,6 +103,11 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
  期望发送高清语音, 只有在通话的所有的参与者都设置为高清语音时才完全生效。3.3.0 之前的版本无法加入已经开启高清语音的多人会议。开启该选项后蓝牙耳机将不能使用
  */
 @property (nonatomic, assign) BOOL preferHDAudio;
+
+/**
+ *  自动重置音频设备, 默认为NO 当检查音频采集数据不正常时，自动重置音频设备
+ */
+@property (nonatomic, assign) BOOL autoResetAudio;
 
 /**
  *  场景设置

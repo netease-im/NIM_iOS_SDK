@@ -193,12 +193,12 @@ typedef NS_ENUM(NSUInteger, NIMAVChatScene) {
     NIMAVChatSceneDefault,
     
     /**
-     *  高清音乐场景. 只在 preferHDAudio 开启时生效. 生效后 audioDenoise 和 voiceDetect 的设置无效 (自动关闭)
+     *  高清音乐场景. 只在 preferHDAudio 开启时生效
      */
     NIMAVChatSceneHighQualityMusic,
     
     /**
-     *  自适应高清音乐场景. 只在 preferHDAudio 开启时生效. 生效后 audioDenoise 和 voiceDetect 的设置无效 (自动关闭). 该场景在多人会议中无其他端或者其他端都是观众时适时自动适配高清音乐，当其他端有发言者时自动适配 VoIP 通话
+     *  自适应高清音乐场景. 只在 preferHDAudio 开启时生效. 该场景在多人会议中无其他端或者其他端都是观众时适时自动适配高清音乐，当其他端有发言者时自动适配 VoIP 通话
      */
     NIMAVChatSceneHighQualityMusicAdaptive,
 };
@@ -222,6 +222,25 @@ typedef NS_ENUM(NSUInteger, NIMAVChatVideoAdaptiveStrategy) {
     NIMAVChatVideoAdaptiveStrategyScreenRecord = 3,
 };
 
+
+/**
+ *  回声抑制
+ */
+typedef NS_ENUM(NSUInteger, NIMAVChatAcousticEchoCanceler) {
+    /**
+     *  默认回声抑制
+     */
+    NIMAVChatAcousticEchoCancelerDefault = 0,
+    /**
+     *  SDK 内建回声抑制
+     */
+    NIMAVChatAcousticEchoCancelerSDKBuiltin,
+    
+    /**
+     *  关闭回声抑制
+     */
+    NIMAVChatAcousticEchoCancelerClose,
+};
 /**
  *  音视频混屏模式, 用于互动直播连麦时的音视频混屏参数设置
  */
@@ -427,6 +446,52 @@ typedef NS_ENUM(NSInteger, NIMAVLocalErrorCode) {
 };
 
 /**
+ *  互动直播设置主画面错误码 （AV） Doamin:NIMAVRoomServerErrorDomain
+ */
+typedef NS_ENUM(NSInteger, NIMAVRoomServerErrorCode) {
+    /**
+     *  服务器错误
+     */
+    NIMAVRoomServerErrorServerError = 101,
+    /**
+     *  请求失败
+     */
+    NIMAVRoomServerErrorConnctionFailed = 102,
+    /**
+     *  发起者不是主播
+     */
+    NIMAVRoomServerErrorNotAnchor = 103,
+    /**
+     *  模式错误
+     */
+    NIMAVRoomServerErrorModeFault = 104,
+    /**
+     *  请求参数错误
+     */
+    NIMAVRoomServerErrorUserInvalidParam = 400,
+    /**
+     *  请求认证错误
+     */
+    NIMAVRoomServerErrorKeyInvalid = 401,
+    /**
+     *  房间不存在
+     */
+    NIMAVRoomServerErrorRoomNotExsit = 404,
+    /**
+     *  房间内不存在该用户
+     */
+    NIMAVRoomServerErrorUserNotJoined = 405,
+    /**
+     *  请求数据错误
+     */
+    NIMAVRoomServerErrorInvalidRequst = 417, 
+    /**
+     *  服务器内部错误
+     */
+    NIMAVRoomServerErrorServerUnknown = 500,
+};
+
+/**
  *  服务器错误码 （AV） Doamin: NIMRemoteErrorDomain
  *  @discussion 更多错误详见 [服务器端状态码](http://dev.netease.im/docs?doc=nim_status_code#服务器端状态码)
  */
@@ -442,6 +507,11 @@ typedef NS_ENUM(NSInteger, NIMAVRemoteErrorCode) {
  *  网络通话的网络状态
  */
 typedef NS_ENUM(NSInteger, NIMNetCallNetStatus){
+    
+    /**
+     *  网络极差,视频发送被关闭
+     */
+    NIMNetCallNetStatusVideoClosed = -1,
     /**
      *  网络非常好
      */

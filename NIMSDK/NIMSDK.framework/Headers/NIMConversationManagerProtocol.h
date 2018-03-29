@@ -17,7 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @class NIMMessageSearchOption;
 @class NIMDeleteMessagesOption;
 @class NIMImportedRecentSession;
-
+@class NIMMessageReceipt;
+@class NIMTeamMessageReceiptDetail;
 
 /**
  *  读取服务器消息记录block
@@ -68,6 +69,7 @@ typedef void(^NIMSearchMessageBlock)(NSError * __nullable error,NSArray<NIMMessa
  */
 typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictionary<NIMSession *,NSArray<NIMMessage *> *> * __nullable messages);
 
+
 /**
  *  会话管理器回调
  */
@@ -106,6 +108,7 @@ typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictiona
  */
 - (void)didRemoveRecentSession:(NIMRecentSession *)recentSession
               totalUnreadCount:(NSInteger)totalUnreadCount;
+
 
 /**
  *  单个会话里所有消息被删除的回调
@@ -254,11 +257,19 @@ typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictiona
  */
 - (NSInteger)allUnreadCount;
 
+
+/**
+ *  获取所有需要通知/不需要通知的最近会话未读数
+ *  @param notify 是否需要通知
+ *  @return 未读数
+ *  @discussion 群只有 notify state == NIMTeamNotifyStateAll 才算是允许需要通知
+ */
+- (NSInteger)allUnreadCount:(BOOL)notify;
+
 /**
  *  获取所有最近会话
- *  @discussion 只能在主线程调用
  *  @return 最近会话列表
- *  @discussion SDK 以 map 的形式保存 sessions，调用这个方法是将进行排序，数据量较大 (上万) 时会比较耗时。
+ *  @discussion SDK 以 map 的形式保存 sessions，调用这个方法时将进行排序，数据量较大 (上万) 时会比较耗时。
  */
 - (nullable NSArray<NIMRecentSession *> *)allRecentSessions;
 
@@ -331,6 +342,7 @@ typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictiona
  */
 - (void)updateRecentLocalExt:(nullable NSDictionary *)ext
                recentSession:(NIMRecentSession *)recentSession;
+
 
 /**
  *  添加通知对象

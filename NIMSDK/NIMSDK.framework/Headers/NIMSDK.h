@@ -90,6 +90,11 @@
  */
 #import "NIMRobot.h"
 
+/**
+ *  缓存管理
+ */
+#import "NIMCacheQuery.h"
+
 
 /**
  *  各个对外接口协议定义
@@ -109,6 +114,7 @@
 #import "NIMRobotManagerProtocol.h"
 #import "NIMRedPacketManagerProtocol.h"
 #import "NIMBroadcastManagerProtocol.h"
+#import "NIMAntispamManagerProtocol.h"
 
 /**
  *  SDK业务类

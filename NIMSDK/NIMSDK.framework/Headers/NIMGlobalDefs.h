@@ -160,6 +160,13 @@ typedef NS_ENUM(NSInteger, NIMLocalErrorCode) {
      *  独立模式下获取聊天室服务器地址失败
      */
     NIMLocalErrorCodeRequestChatroomAddressesFailed= 17,
+    
+    /**
+     *  群已读回执功能未开启，请使用 NIMSDKConfig 进行开启
+     */
+    NIMLocalErrorCodeTeamReceiptDisabled            = 18,
+    
+    
 
 };
 

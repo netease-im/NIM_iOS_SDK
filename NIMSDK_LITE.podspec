@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|   
  s.name = 'NIMSDK_LITE'
- s.version = '4.9.0'   
+ s.version = '5.0.0'   
  s.summary = 'Netease IM Lite SDK'
  s.homepage = 'http://netease.im'   
  s.license = { :'type' => 'Copyright', :'text' => ' Copyright 2017 Netease '}  
  s.authors = 'Netease IM Team'  
- s.source = { :http => 'http://yx-web.nosdn.127.net/package%2FNIM_iOS_SDK_IM_v4.9.0.zip'}  
+ s.source = { :http => 'http://yx-web.nosdn.127.net/package%2FNIM_iOS_SDK_IM_v5.0.0.zip'}  
  s.platform = :ios, '7.0'
  s.vendored_libraries  = 'NIMSDK/Libs/*.a'
  s.vendored_frameworks = '**/NIMSDK.framework'  

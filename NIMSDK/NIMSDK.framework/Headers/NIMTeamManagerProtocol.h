@@ -107,11 +107,12 @@ typedef void(^NIMTeamApplyHandler)(NSError * __nullable error, NIMTeamApplyStatu
 - (nullable NSArray<NIMTeam *> *)allMyTeams;
 
 /**
- *  根据群组ID获取具体的群组信息
+ *  根据群组 ID 获取具体的群组信息
  *
- *  @param teamId 群组ID
+ *  @param teamId 群组 ID
  *
  *  @return 群组信息
+ *  @discussion 如果自己不在群里，则该接口返回 nil
  */
 - (nullable NIMTeam *)teamById:(NSString *)teamId;
 
@@ -471,6 +472,17 @@ typedef void(^NIMTeamApplyHandler)(NSError * __nullable error, NIMTeamApplyStatu
                  inTeam:(NSString *)teamId
              completion:(nullable NIMTeamHandler)completion;
 
+/**
+ *  禁言群全体成员
+ *
+ *  @param mute        是否禁言
+ *  @param teamId      群组ID
+ *  @param completion  经验操作完成后的回调
+ *  @discussion   操作成功后，云信服务器会下发禁言的群通知消息
+ */
+- (void)updateMuteState:(BOOL)mute
+                inTeam:(NSString *)teamId
+            completion:(nullable NIMTeamHandler)completion;
 
 /**
  *  获取群组成员
@@ -500,8 +512,7 @@ typedef void(^NIMTeamApplyHandler)(NSError * __nullable error, NIMTeamApplyStatu
 
 
 /**
- *  通过网络请求获取群组成员
- *
+ *  通过网络请求获取群组成员  *
  *  @param teamId      群组ID
  *  @param completion  完成后的回调
  *  @discussion   通过网络请求获取群成员列表,不同于fetchTeamMembers:completion这个接口是个必然带网络请求的异步操作(增量请求)

@@ -21,8 +21,10 @@
 #import "NIMRobotObject.h"
 #import "NIMMessageSetting.h"
 #import "NIMMessageReceipt.h"
+#import "NIMTeamMessageReceiptDetail.h"
 #import "NIMAntiSpamOption.h"
 #import "NIMMessageApnsMemberOption.h"
+#import "NIMTeamMessageReceipt.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -114,7 +116,7 @@ typedef NS_ENUM(NSInteger, NIMMessageAttachmentDownloadState){
 @property (nullable,nonatomic,strong)                NIMMessageSetting *setting;
 
 /**
- *  消息反垃圾配置
+ *  易盾消息反垃圾配置
  *  @discussion 目前仅支持易盾，只有接入了易盾才可以设置这个配置
  */
 @property (nullable,nonatomic,strong)                NIMAntiSpamOption *antiSpamOption;
@@ -205,6 +207,20 @@ typedef NS_ENUM(NSInteger, NIMMessageAttachmentDownloadState){
  *  @discussion 只有当当前消息为 P2P 消息且 isOutgoingMsg 为 YES 时这个字段才有效，需要对端调用过发送已读回执的接口
  */
 @property (nonatomic,assign,readonly)       BOOL isRemoteRead;
+
+/**
+ *  是否已发送群回执
+ *  @discussion 只针对群消息有效
+ */
+@property (nonatomic,assign,readonly)       BOOL isTeamReceiptSended;
+
+/**
+ *  群已读回执信息
+ *  @discussion 只有当当前消息为 Team 消息且 teamReceiptEnabled 为 YES 时才有效，需要对端调用过发送已读回执的接口
+ */
+@property (nullable,nonatomic,strong,readonly)   NIMTeamMessageReceipt *teamReceiptInfo;
+
+
 
 /**
  *  消息发送者名字

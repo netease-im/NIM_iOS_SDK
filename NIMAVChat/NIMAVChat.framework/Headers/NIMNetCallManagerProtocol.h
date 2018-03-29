@@ -609,7 +609,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *
  *  @discussion 切换通话类型会丢失这些设置: 静音模式, 扬声器模式, 摄像头关闭, 切换摄像头
  */
-- (void)switchType:(NIMNetCallMediaType)type API_UNAVAILABLE(macos);
+- (void)switchType:(NIMNetCallMediaType)type;
 
 
 /**
@@ -667,6 +667,17 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
 - (nullable NSError *)sendVideoSampleBuffer:(CMSampleBufferRef)buffer;
 
 /**
+ *  互动直播设置主画面
+ *
+ *  @param uid 被设置的用户id
+ *
+ *  @param completion 完成回调 如果设置成功 error 为 nil
+ *
+ *  @discussion 在互动直播下，动态切换布局，设置用户为主画面，只有互动直播主播可以设置
+ */
+- (void)setAsMainArea:(NSString *)uid completion:(void(^)(NSError * __nullable error))completion;
+
+/**
  *  切换互动直播推流地址
  *
  *  @param url 推流地址
@@ -684,8 +695,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  
  @discussion 开始新的任务会结束正在进行中的任务
  */
-- (nullable NSError *)startAudioMix:(NIMNetCallAudioFileMixTask *)task API_UNAVAILABLE(macos);
-
+- (nullable NSError *)startAudioMix:(NIMNetCallAudioFileMixTask *)task;
 /**
  更新混音任务
  
@@ -695,28 +705,28 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  
  @discussion 可以更新循环播放次数和音量等
  */
-- (nullable NSError *)updateAudioMix:(NIMNetCallAudioFileMixTask *)task API_UNAVAILABLE(macos);
+- (nullable NSError *)updateAudioMix:(NIMNetCallAudioFileMixTask *)task;
 
 /**
  暂停混音
  
  @return 是否成功
  */
-- (BOOL)pauseAudioMix API_UNAVAILABLE(macos);
+- (BOOL)pauseAudioMix;
 
 /**
  恢复混音
  
  @return 是否成功
  */
-- (BOOL)resumeAudioMix API_UNAVAILABLE(macos);
+- (BOOL)resumeAudioMix;
 
 /**
  结束混音
  
  @return 是否成功
  */
-- (BOOL)stopAudioMix API_UNAVAILABLE(macos);
+- (BOOL)stopAudioMix;
 
 
 /**
@@ -724,7 +734,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
 
  @return 混音任务. 如果没有当前任务则返回 nil
  */
-- (nullable NIMNetCallAudioFileMixTask *)currentAudioMixTask API_UNAVAILABLE(macos);
+- (nullable NIMNetCallAudioFileMixTask *)currentAudioMixTask;
 
 
 /**
@@ -734,17 +744,17 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  
  @return 结果, 如果成功开始了, 返回 nil
  */
-- (nullable NSError *)playSoundEffect:(NIMNetCallAudioFileMixTask *)task API_UNAVAILABLE(macos);
+- (nullable NSError *)playSoundEffect:(NIMNetCallAudioFileMixTask *)task;
 
 /**
  打开耳返
  */
-- (void)startEarBack API_UNAVAILABLE(macos);
+- (void)startEarBack;
 
 /**
  关闭耳返
  */
-- (void)stopEarBack API_UNAVAILABLE(macos);
+- (void)stopEarBack;
 
 /**
  调节耳返音量
@@ -753,7 +763,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  
  @return 是否调节成功
  */
-- (BOOL)changeEarBackVolume:(NSUInteger)volume API_UNAVAILABLE(macos);
+- (BOOL)changeEarBackVolume:(NSUInteger)volume;
 
 /**
  *  获得当前视频通话的本地预览层
@@ -804,7 +814,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  */
 - (BOOL)startRecording:(nullable NSURL *)filePath
           videoBitrate:(UInt32)videoBitrate
-                   uid:(NSString *)userId API_UNAVAILABLE(macos);
+                   uid:(NSString *)userId;
 /**
  *  停止MP4文件录制
  *
@@ -812,7 +822,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *
  *  @return 是否接受停止录制请求
  */
-- (BOOL)stopRecordingWithUid:(NSString *)userId API_UNAVAILABLE(macos);
+- (BOOL)stopRecordingWithUid:(NSString *)userId;
 
 /**
  开始通话录音. 录制通话中所有参与者的声音, 包含混音任务播放的声音, 录制成 aac 或者 wav 文件
@@ -826,20 +836,20 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  @return 开始通话录音的结果.
  */
 - (BOOL)startAudioRecording:(nullable NSURL *)filePath
-                      error:(NSError * __nullable *)error API_UNAVAILABLE(macos);
+                      error:(NSError * __nullable *)error;
 
 
 /**
  结束通话录音
  */
-- (void)stopAudioRecording API_UNAVAILABLE(macos);
+- (void)stopAudioRecording;
 
 /**
  获取当前通话录音文件路径
  
  @return 当前通话录音文件路径. 如果没有进行中的通话录音则返回 nil
  */
-- (nullable NSURL *)currentAudioRecordingFilePath API_UNAVAILABLE(macos);
+- (nullable NSURL *)currentAudioRecordingFilePath;
 
 
 /**
