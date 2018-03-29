@@ -9,7 +9,7 @@
 #ifndef NIMLib_NIMGlobalDefs_h
 #define NIMLib_NIMGlobalDefs_h
 
-
+#import <Foundation/Foundation.h>
 
 /**
  *  消息内容类型枚举
@@ -48,6 +48,10 @@ typedef NS_ENUM(NSInteger, NIMMessageType){
      */
     NIMMessageTypeTip           = 10,
     /**
+     *  机器人类型消息
+     */
+    NIMMessageTypeRobot         = 11,
+    /**
      *  自定义类型消息
      */
     NIMMessageTypeCustom        = 100
@@ -80,7 +84,7 @@ extern NSString *const NIMRemoteErrorDomain;
 
 
 /**
- *  本地错误码 (IM 和通用)
+ *  本地错误码 (IM 和通用) Domain NIMLocalErrorDomain
  */
 typedef NS_ENUM(NSInteger, NIMLocalErrorCode) {
     /**
@@ -128,39 +132,50 @@ typedef NS_ENUM(NSInteger, NIMLocalErrorCode) {
      */
     NIMLocalErrorCodeAudioPlayErrorInitFailed     = 11,
     /**
-     *  有正在进行的网络通话
-     */
-    NIMLocalErrorCodeNetCallBusy                  = 12,
-    /**
-     *  这一通网络通话已经被其他端处理过了
-     */
-    NIMLocalErrorCodeNetCallOtherHandled          = 13,
-    /**
      *  SQL语句执行失败
      */
-    NIMLocalErrorCodeSQLFailed                    = 14,
-    /**
-     *  音频设备初始化失败
-     */
-    NIMLocalErrorCodeAudioDeviceInitFailed        = 15,
-    
+    NIMLocalErrorCodeSQLFailed                    = 12,
     /**
      *  用户信息缺失 (未登录 或 未提供用户资料)
      */
-    NIMLocalErrorCodeUserInfoNeeded               = 16,
+    NIMLocalErrorCodeUserInfoNeeded               = 13,
     
     /**
      *  AppKey 缺失，未注册 AppKey 就进行登录行为之类的接口
      */
-    NIMLocalErrorCodeAppKeyNeed                  = 28,
+    NIMLocalErrorCodeAppKeyNeed                   = 14,
+    
+    /**
+     *  自动登录超过次数限制，一般情况下都是当前网络有问题引起，如当前网络可以连接，但无法自由收发包等
+     */
+    
+    NIMLocalErrorCodeAutoLoginRetryLimit          = 15,
+    
+    /**
+     *  相同的操作正在执行，请不要多次调用
+     */
+    NIMLocalErrorCodeSameOperationInProgress      = 16,
+    
+    /**
+     *  独立模式下获取聊天室服务器地址失败
+     */
+    NIMLocalErrorCodeRequestChatroomAddressesFailed= 17,
+    
+    /**
+     *  群已读回执功能未开启，请使用 NIMSDKConfig 进行开启
+     */
+    NIMLocalErrorCodeTeamReceiptDisabled            = 18,
+    
+    
+
 };
 
 
 
 
 /**
- *  服务器错误码 (IM 和通用)
- *  @discussion 更多错误详见 http://dev.netease.im/docs?doc=nim_status_code#服务器端状态码
+ *  服务器错误码 (IM 和通用) Doamin NIMRemoteErrorDomain
+ *  @discussion 更多错误详见 [服务器端状态码](http://dev.netease.im/docs?doc=nim_status_code#服务器端状态码)
  */
 typedef NS_ENUM(NSInteger, NIMRemoteErrorCode) {
     /**

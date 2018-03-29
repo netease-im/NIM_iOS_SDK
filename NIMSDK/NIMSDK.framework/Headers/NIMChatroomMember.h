@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 typedef NS_ENUM(NSInteger, NIMChatroomMemberType) {
     /**
-     *  游客
+     *  普通游客
      */
     NIMChatroomMemberTypeGuest   = -2,
     /**
@@ -34,6 +34,10 @@ typedef NS_ENUM(NSInteger, NIMChatroomMemberType) {
      *  管理员
      */
     NIMChatroomMemberTypeManager = 2,
+    /**
+     *  匿名游客
+     */
+    NIMChatroomMemberTypeAnonymousGuest = 4,
 };
 
 /**

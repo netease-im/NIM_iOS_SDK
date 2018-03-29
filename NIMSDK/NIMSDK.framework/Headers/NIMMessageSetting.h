@@ -44,11 +44,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  @discussion 默认为YES。将这个字段设为NO，推送消息将不带有前缀(xx:)。
  */
 @property (nonatomic,assign)    BOOL        apnsWithPrefix;
+
 /**
  *  是否需要抄送
  *  @discussion 默认为YES，即默认会抄送消息给开发者的服务器(如果有配置的话)
  */
 @property (nonatomic,assign)    BOOL        routeEnabled;
+
+/**
+ *  其他群成员收到此消息是否需要发送已读回执
+ *  @discussion 默认为NO，设置成 YES 之后所有群回执相关操作才会生效
+ */
+@property (nonatomic,assign)    BOOL        teamReceiptEnabled;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

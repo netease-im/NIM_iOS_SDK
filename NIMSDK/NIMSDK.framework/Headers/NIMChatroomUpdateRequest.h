@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  聊天室信息修改字段
+ *  @discussion 等级枚举见 `NIMChatroomQueueModificationLevel`
  */
 typedef NS_ENUM(NSInteger, NIMChatroomUpdateTag){
     /**
@@ -30,6 +31,10 @@ typedef NS_ENUM(NSInteger, NIMChatroomUpdateTag){
      *  聊天室扩展字段
      */
     NIMChatroomUpdateTagExt          = 12,
+    /**
+     *  聊天室队列修改等级，只有管理员和房主可以修改
+     */
+    NIMChatroomUpdateTagQueueModificationLevel = 16
     
 };
 
@@ -45,7 +50,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomUpdateTag){
 @property (nonatomic,copy)   NSString *roomId;
 
 /**
- *  修改信息字段,修改传入的数据键值对是 {@(NIMChatroomUpdateTag) : NSString},无效数据将被过滤
+ *  修改信息字段,修改传入的数据键值对是 {@(NIMChatroomUpdateTag) : NSString 或 NSNumber},无效数据将被过滤
  */
 @property (nonatomic,copy)   NSDictionary *updateInfo;
 

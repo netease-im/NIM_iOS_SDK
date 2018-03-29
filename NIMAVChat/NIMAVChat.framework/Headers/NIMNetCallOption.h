@@ -11,6 +11,7 @@
 #import "NIMAVChatDefs.h"
 
 @class NIMNetCallVideoCaptureParam;
+@class NIMNetCallCustomVideoParam;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -32,20 +33,19 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
 @interface NIMNetCallOption : NSObject
 
 /**
- *  视频采集参数, 指定该参数以在加入网络通话时自动设置视频采集, 如果不指定该参数, 需要开发者调用 startVideoCapture: 手动开启视频采集。如果在加入网络通话前已经开启了视频采集, 该参数无效
+ *  视频采集参数, 指定该参数以在加入网络通话时自动设置视频采集, 如果不指定该参数, 需要开发者调用 startVideoCapture: 手动开启视频采集。如果在加入网络通话前已经开启了视频采集, 该参数无效，该参数与 customVideoParam 不能同时设置
  */
-@property (nonatomic, strong)   NIMNetCallVideoCaptureParam *videoCaptureParam;
-
+@property (nullable, nonatomic, strong)   NIMNetCallVideoCaptureParam *videoCaptureParam;
 
 /**
- *  结束网络通话时自动停止视频采集, 默认为 YES
+ *  自定义输入视频参数，该参数与 videoCaptureParam 不能同时设置
+ */
+@property (nullable, nonatomic, strong)   NIMNetCallCustomVideoParam *customVideoParam;
+
+/**
+ *  结束网络通话时自动停止视频采集, 默认为 YES。如果需要在离开会话以后摄像头保持开启，将该选项设置为 NO
  */
 @property (nonatomic, assign) BOOL stopVideoCaptureOnLeave;
-
-/**
- *  视频裁剪, 默认 16:9
- */
-@property (nonatomic,assign)    NIMNetCallVideoCrop          videoCrop;
 
 /**
  *  自动旋转远端画面, 默认为 YES
@@ -65,9 +65,14 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
 @property (nonatomic,assign)    NIMNetCallVideoCodec     preferredVideoDecoder;
 
 /**
- *  视频最大编码码率. 如果不指定, SDK 会根据视频质量自动选择
+ *  视频最大编码码率 (bps). 如果不指定, SDK 会根据视频质量自动选择
  */
 @property (nonatomic, assign) NSUInteger videoMaxEncodeBitrate;
+
+/**
+ *  纯视频模式, 将不启动所有音频相关的模块, 默认为 NO
+ */
+@property (nonatomic, assign) BOOL pureVideo;
 
 /**
  *  结束网络通话时自动停止AudioSession, 默认为 YES
@@ -84,10 +89,35 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
  */
 @property (nonatomic, assign) BOOL voiceDetect;
 
+
+/**
+ *  回声抑制
+ */
+@property (nonatomic, assign) NIMAVChatAcousticEchoCanceler acousticEchoCanceler;
+
+/**
+ *  啸叫抑制, 默认为 NO
+ */
+@property (nonatomic, assign) BOOL audioHowlingSuppress;
 /**
  期望发送高清语音, 只有在通话的所有的参与者都设置为高清语音时才完全生效。3.3.0 之前的版本无法加入已经开启高清语音的多人会议。开启该选项后蓝牙耳机将不能使用
  */
 @property (nonatomic, assign) BOOL preferHDAudio;
+
+/**
+ *  自动重置音频设备, 默认为NO 当检查音频采集数据不正常时，自动重置音频设备
+ */
+@property (nonatomic, assign) BOOL autoResetAudio;
+
+/**
+ *  场景设置
+ */
+@property (nonatomic, assign) NIMAVChatScene scene;
+
+/**
+ *  视频调控策略 默认为 清晰优先
+ */
+@property (nonatomic, assign) NIMAVChatVideoAdaptiveStrategy videoAdaptiveStrategy;
 
 /**
  *  本地采集的语音数据回调，供上层实现变音等功能
@@ -107,9 +137,14 @@ typedef NSUInteger(^NIMNetCallAudioSamplesHandler)(SInt16 *audioSamples, NSUInte
 @property (nullable,nonatomic, strong) NSString *bypassStreamingUrl;
 
 /**
- *  互动直播视频画面混屏模式，在 NIMNetCallVideoMixMode 里面选择合适的模式，只有主播设置有效
+ *  互动直播音视频混屏模式，在 NIMNetCallBypassStreamingMixMode 里面选择合适的模式，只有主播设置有效
  */
-@property (nonatomic, assign) NSUInteger bypassStreamingVideoMixMode;
+@property (nonatomic, assign) NSUInteger bypassStreamingMixMode;
+
+/**
+ *  互动直播音视频混屏自定义布局配置，在 bypassStreamingMixMode 为 NIMNetCallBypassStreamingMixModeCustomVideoLayout 或 NIMNetCallBypassStreamingMixModeCustomAudioLayout 时必须设置
+ */
+@property (nonatomic, copy) NSString *bypassStreamingMixCustomLayoutConfig;
 
 /**
  互动直播服务器录制，只有主播设置生效（互动直播服务器录制功能需要开通才能使用）

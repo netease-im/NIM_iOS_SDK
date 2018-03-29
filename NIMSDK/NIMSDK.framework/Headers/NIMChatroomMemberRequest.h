@@ -157,6 +157,11 @@ typedef NS_ENUM(NSInteger, NIMChatroomMemberInfoUpdateTag) {
  */
 @property (nullable,nonatomic,copy) NSString *notifyExt;
 
+/**
+ *  更新的信息是否需要在服务器做持久化，只对固定成员生效，默认为 NO
+ */
+@property (nonatomic,assign) BOOL needSave;
+
 
 @end
 

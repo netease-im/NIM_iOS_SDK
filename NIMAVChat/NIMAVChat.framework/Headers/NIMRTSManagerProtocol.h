@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NIMAVChatDefs.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -156,6 +157,16 @@ typedef NS_ENUM(NSInteger, NIMRTSStatus){
 - (void)onRTSRecordingInfo:(NIMRTSRecordingInfo *)info
                 forSession:(NSString *)sessionID;
 
+
+/**
+ *  语音网络状态
+ *
+ *  @param status 网络状态
+ *  @param user   网络状态对应的用户；如果是自己，表示自己的发送网络状态
+ */
+- (void)onRTSAudioNetStatus:(NIMNetCallNetStatus)status
+                       user:(NSString *)user;
+
 @end
 
 /**
@@ -176,7 +187,7 @@ typedef NS_ENUM(NSInteger, NIMRTSStatus){
 - (NSString *)requestRTS:(NSArray<NSString *> *)callees
                 services:(NSUInteger)types
                   option:(nullable NIMRTSOption *)option
-              completion:(nullable NIMRTSRequestHandler)completion;
+              completion:(nullable NIMRTSRequestHandler)completion API_UNAVAILABLE(macos);
 
 /**
  *  被叫响应实时会话请求
@@ -190,7 +201,7 @@ typedef NS_ENUM(NSInteger, NIMRTSStatus){
 - (void)responseRTS:(NSString *)sessionID
              accept:(BOOL)accept
              option:(nullable NIMRTSOption *)option
-         completion:(nullable NIMRTSResponseHandler)completion;
+         completion:(nullable NIMRTSResponseHandler)completion API_UNAVAILABLE(macos);
 
 /**
  *  挂断实时会话
@@ -199,7 +210,7 @@ typedef NS_ENUM(NSInteger, NIMRTSStatus){
  *
  *  @discussion 被叫在响应请求之前不要调用挂断接口
  */
-- (void)terminateRTS:(NSString *)sessionID;
+- (void)terminateRTS:(NSString *)sessionID API_UNAVAILABLE(macos);
 
 /**
  *  从指定通道发送数据
@@ -216,7 +227,7 @@ typedef NS_ENUM(NSInteger, NIMRTSStatus){
 - (BOOL)sendRTSData:(NSData *)data
                from:(NSString *)sessionID
                  to:(NSString *)userID
-               with:(NIMRTSService)service;
+               with:(NIMRTSService)service API_UNAVAILABLE(macos);
 
 /**
  *  发送实时会话控制指令
@@ -225,7 +236,7 @@ typedef NS_ENUM(NSInteger, NIMRTSStatus){
  *  @param sessionID   实时会话ID
  */
 - (void)sendRTSControl:(NSString *)controlInfo
-            forSession:(NSString *)sessionID;
+            forSession:(NSString *)sessionID API_UNAVAILABLE(macos);
 
 /**
  *  设置当前实时会话静音模式
@@ -233,7 +244,7 @@ typedef NS_ENUM(NSInteger, NIMRTSStatus){
  *  @param mute 是否开启静音
  *
  */
-- (void)setMute:(BOOL)mute;
+- (void)setMute:(BOOL)mute API_UNAVAILABLE(macos);
 
 /**
  *  设置当前实时会话扬声器模式
@@ -241,21 +252,21 @@ typedef NS_ENUM(NSInteger, NIMRTSStatus){
  *  @param useSpeaker 是否开启扬声器
  *
  */
-- (void)setSpeaker:(BOOL)useSpeaker;
+- (void)setSpeaker:(BOOL)useSpeaker API_UNAVAILABLE(macos);
 
 /**
  *  添加实时会话委托
  *
  *  @param delegate 实时会话委托
  */
-- (void)addDelegate:(id<NIMRTSManagerDelegate>)delegate;
+- (void)addDelegate:(id<NIMRTSManagerDelegate>)delegate API_UNAVAILABLE(macos);
 
 /**
  *  移除实时会话委托
  *
  *  @param delegate 实时会话委托
  */
-- (void)removeDelegate:(id<NIMRTSManagerDelegate>)delegate;
+- (void)removeDelegate:(id<NIMRTSManagerDelegate>)delegate API_UNAVAILABLE(macos);
 @end
 
 NS_ASSUME_NONNULL_END

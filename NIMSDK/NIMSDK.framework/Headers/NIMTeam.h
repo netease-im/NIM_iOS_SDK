@@ -121,10 +121,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  群消息是否需要通知
+ *  群消息通知状态
  *  @discussion 这个设置影响群消息的 APNS 推送
  */
-@property (nonatomic,assign,readonly)   BOOL notifyForNewMsg;
+@property (nonatomic,assign,readonly)   NIMTeamNotifyState notifyStateForNewMsg;
 
 
 /**

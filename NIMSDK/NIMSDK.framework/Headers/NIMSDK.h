@@ -2,11 +2,14 @@
 //  NIMSDK.h
 //  NIMSDK
 //
-//  Created by chris on 2017/2/7.
+//  Created by Netease.
 //  Copyright © 2017年 Netease. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+/**
+ *  平台相关定义
+ */
+#import "NIMPlatform.h"
 
 /**
  *  全局枚举和结构体定义
@@ -16,6 +19,7 @@
 /**
  *  配置项
  */
+#import "NIMSDKOption.h"
 #import "NIMSDKConfig.h"
 
 /**
@@ -54,6 +58,9 @@
 #import "NIMMessage.h"
 #import "NIMSystemNotification.h"
 #import "NIMRevokeMessageNotification.h"
+#import "NIMDeleteMessagesOption.h"
+#import "NIMBroadcastMessage.h"
+#import "NIMImportedRecentSession.h"
 
 /**
  *  推送定义
@@ -79,6 +86,17 @@
 #import "NIMSubscribeResult.h"
 
 /**
+ *  智能机器人
+ */
+#import "NIMRobot.h"
+
+/**
+ *  缓存管理
+ */
+#import "NIMCacheQuery.h"
+
+
+/**
  *  各个对外接口协议定义
  */
 #import "NIMLoginManagerProtocol.h"
@@ -93,8 +111,13 @@
 #import "NIMChatroomManagerProtocol.h"
 #import "NIMDocTranscodingManagerProtocol.h"
 #import "NIMEventSubscribeManagerProtocol.h"
+#import "NIMRobotManagerProtocol.h"
+#import "NIMRedPacketManagerProtocol.h"
+#import "NIMBroadcastManagerProtocol.h"
+#import "NIMAntispamManagerProtocol.h"
 
 /**
  *  SDK业务类
  */
+#import "NIMServerSetting.h"
 #import "NIMSDKHeader.h"

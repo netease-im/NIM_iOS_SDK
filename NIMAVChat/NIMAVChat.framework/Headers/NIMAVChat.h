@@ -35,7 +35,8 @@
 #import "NIMNetCallUserInfo.h"
 #import "NIMNetCallAudioFileMixTask.h"
 #import "NIMNetCallVideoCaptureParam.h"
-
+#import "NIMNetCallCustomVideoParam.h"
+#import "NIMNetCallVideoProcessorParam.h"
 
 /**
  *  网络探测定义

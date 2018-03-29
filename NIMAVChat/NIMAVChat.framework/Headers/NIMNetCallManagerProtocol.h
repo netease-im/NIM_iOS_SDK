@@ -7,7 +7,7 @@
 //
 
 #import <CoreMedia/CMSampleBuffer.h>
-#import <UIKit/UIKit.h>
+#import <NIMSDK/NIMPlatform.h>
 #import "NIMAVChatDefs.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -42,7 +42,7 @@ typedef void(^NIMNetCallResponseHandler)(NSError * __nullable error, UInt64 call
  *  @param meeting 预订或者加入的多人会议
  *  @param error   预订或者加入多人会议请求结果, 如果成功 error 为 nil
  */
-typedef void(^NIMNetCallMeetingHandler)(NIMNetCallMeeting *meeting, NSError *error);
+typedef void(^NIMNetCallMeetingHandler)(NIMNetCallMeeting *meeting, NSError * __nullable error);
 
 /**
  *  网络通话状态
@@ -58,27 +58,6 @@ typedef NS_ENUM(NSInteger, NIMNetCallStatus){
     NIMNetCallStatusDisconnect,
 };
 
-/**
- *  网络通话的网络状态
- */
-typedef NS_ENUM(NSInteger, NIMNetCallNetStatus){
-    /**
-     *  网络非常好
-     */
-    NIMNetCallNetStatusVeryGood = 0,
-    /**
-     *  网络好
-     */
-    NIMNetCallNetStatusGood     = 1,
-    /**
-     *  网络差
-     */
-    NIMNetCallNetStatusBad      = 2,
-    /**
-     *  网络非常差
-     */
-    NIMNetCallNetStatusVeryBad  = 3,
-};
 
 /**
  *  网络通话控制类型
@@ -222,7 +201,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  @param error 断开的原因，如果是 nil 表示正常退出
  */
 - (void)onCallDisconnected:(UInt64)callID
-                 withError:(NSError *)error;
+                 withError:(nullable NSError *)error;
 
 /**
  *  收到对方网络通话控制信息，用于方便通话双方沟通信息
@@ -247,17 +226,31 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
 /**
  *  本地摄像头预览就绪
  *
- *  @param layer 本地摄像头预览层
+ *  @param displayView 本地摄像头预览层
  */
-- (void)onLocalPreviewReady:(CALayer *)layer;
-
+- (void)onLocalDisplayviewReady:(UIView *)displayView;
 
 /**
- *  前后摄像头切换完成回调
+ *  本地视频采集方向切换完成回调
  *
- *  @param camera 切换到了该摄像头
+ *  @param orientation  采集方向
  */
-- (void)onCameraSwitchedTo:(NIMNetCallCamera)camera;
+-(void)onCameraOrientationSwitchCompleted:(NIMVideoOrientation)orientation;
+
+/**
+ *  摄像头方向切换完成回调
+ *
+ *  @param cameraType  摄像头方向
+ */
+-(void)onCameraTypeSwitchCompleted:(NIMNetCallCamera)cameraType;
+
+/**
+ *  视频清晰度切换完成回调
+ *
+ *  @param videoQuality  清晰度
+ */
+-(void)onCameraQualitySwitchCompleted:(NIMNetCallVideoQuality)videoQuality;
+
 
 /**
  *  远程视频YUV数据就绪
@@ -272,7 +265,18 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
 - (void)onRemoteYUVReady:(NSData *)yuvData
                    width:(NSUInteger)width
                   height:(NSUInteger)height
-                    from:(NSString *)user;
+                    from:(NSString *)user API_UNAVAILABLE(macos);;
+
+
+/**
+ *  远程视频 SampleBuffer 数据就绪
+ *
+ *  @param sampleBuffer  远程视频 SampleBuffer 数据
+ *  @param user     远程视频画面属于的用户
+ *
+ */
+- (void)onRemoteVideo:(CMSampleBufferRef)sampleBuffer
+                 from:(NSString *)user API_UNAVAILABLE(ios);;
 
 /**
  *  远程视频画面就绪
@@ -369,6 +373,25 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  */
 - (void)onAudioMixTaskCompleted;
 
+/**
+ 当前音效播放完成回调
+ */
+- (void)onSoundEffectPlayCompleted;
+
+/**
+ 互动直播状态回调
+ 
+ @param code 互动直播状态码
+ */
+- (void)onBypassStreamingStatus:(NIMBypassStreamingStatus)code;
+
+/**
+ * 摄像头开关状态回调
+ *
+ *  @param running 开启状态
+ */
+- (void)onCameraRunning:(BOOL)running;
+
 @end
 
 /**
@@ -381,7 +404,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *
  *  @param callees    被叫帐号列表, 现在只支持传入一个被叫
  *  @param type       呼叫类型
- *  @param option     开始通话附带的选项, 可以为空
+ *  @param option     开始通话附带的选项, 可以为空。如果需要 SDK 自动开启摄像头，需要指定 option 的视频采集参数 videoCaptureParam
  *  @param completion 发起通话结果回调
  */
 - (void)start:(NSArray<NSString *> *)callees
@@ -394,7 +417,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *
  *  @param callID      call id
  *  @param accept      是否接听
- *  @param option      开始通话附带的选项, 可以为空
+ *  @param option      开始通话附带的选项, 可以为空。如果需要 SDK 自动开启摄像头，需要指定 option 的视频采集参数 videoCaptureParam
  *  @param completion  响应呼叫结果回调
  *
  *  @discussion 被叫拒绝接听时, 主叫不需要再调用hangup:接口
@@ -428,6 +451,8 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *
  *  @param meeting    需要加入的多人会议
  *  @param completion 加入会议结果
+ *
+ *  @discussion 如果需要 SDK 自动开启摄像头，需要在 meeting 中指定 option 的视频采集参数 videoCaptureParam
  */
 - (void)joinMeeting:(NIMNetCallMeeting *)meeting
          completion:(nullable NIMNetCallMeetingHandler)completion;
@@ -442,11 +467,31 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  */
 - (void)leaveMeeting:(NIMNetCallMeeting *)meeting;
 
-
+/**
+ *  开始视频采集。用于需要在开始音视频通话之前开启视频采集的场景
+ *
+ *  @param param  视频采集参数
+ *
+ *  @return 开始是否成功
+ *
+ *  @discussion 视频采集开始以后无法再调用该接口进行更新设置。需要先停止采集以后才能再次开始
+ */
 - (BOOL)startVideoCapture:(NIMNetCallVideoCaptureParam *)param;
 
+/**
+ *  设置视频采集方向
+ *
+ *  @param orientation  需要设置的方向
+ *
+ *  @return 设置是否成功
+ *
+ *  @discussion 用于互动直播场景。只能在开始视频采集以后调用
+ */
 - (BOOL)setVideoCaptureOrientation:(NIMVideoOrientation)orientation;
 
+/**
+ *  停止视频采集。用于在网络通话的自动停止视频采集选项 stopVideoCaptureOnLeave 未开启时主动管理采集的关闭操作
+ */
 - (void)stopVideoCapture;
 
 /**
@@ -456,7 +501,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *
  *  @discussion 切换网络通话类型将丢失该设置
  */
-- (void)switchCamera:(NIMNetCallCamera)camera;
+- (void)switchCamera:(NIMNetCallCamera)camera API_UNAVAILABLE(macos);
 
 /**
  *  设置摄像头关闭
@@ -508,7 +553,6 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
 - (BOOL)setVideoMute:(BOOL)mute forUser:(NSString *)uid;
 
 
-
 /**
  设置禁止发送视频
 
@@ -527,15 +571,25 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
            type:(NIMNetCallControlType)type;
 
 /**
- *  设置网络通话静音模式
+ *  设置网络通话麦克风静音
  *
- *  @param mute 是否开启静音
+ *  @param mute 是否开启麦克风静音
  *
- *  @return 开启静音是否成功
+ *  @return 开启麦克风静音是否成功
  *
- *  @discussion 切换网络通话类型将丢失该设置
+ *  @discussion 该设置不影响伴音发送, 切换网络通话类型将丢失该设置
  */
 - (BOOL)setMute:(BOOL)mute;
+
+/**
+ *  设置是否关闭语音发送，包含伴音
+ *
+ *  @param mute 是否关闭语音发送
+ *
+ *  @return 设置是否成功
+ *
+ */
+- (BOOL)setAudioSendMute:(BOOL)mute;
 
 /**
  *  设置网络通话扬声器模式
@@ -546,7 +600,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *
  *  @discussion 切换网络通话类型将丢失该设置
  */
-- (BOOL)setSpeaker:(BOOL)useSpeaker;
+- (BOOL)setSpeaker:(BOOL)useSpeaker API_UNAVAILABLE(macos);
 
 /**
  *  切换网络通话类型
@@ -561,7 +615,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
 /**
  *  设置视频最大编码码率
  *
- *  @param bitrate 最大编码码率
+ *  @param bitrate 最大编码码率 (bps)
  *
  *  @return 是否设置成功
  */
@@ -592,17 +646,36 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  */
 - (BOOL)switchVideoDecoder:(NIMNetCallVideoCodec)codec;
 
+/**
+ *  选择视频调控策略
+ *
+ *  @param videoAdaptiveStrategy 视频调控策略
+ *
+ *  @return 是否设置成功.
+ */
+- (BOOL)selectVideoAdaptiveStrategy:(NIMAVChatVideoAdaptiveStrategy)videoAdaptiveStrategy;
 
 /**
  *  发送视频 SampleBuffer
  *
- *  @param buffer 只支持包含以下两种 CVPixelBuffer 数据格式的 sampleBuffer: kCVPixelFormatType_32BGRA、kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange
+ *  @param buffer 只支持包含以下三种 CVPixelBuffer 数据格式的 sampleBuffer: kCVPixelFormatType_32BGRA、kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange、kCVPixelFormatType_420YpCbCr8BiPlanarFullRange
  *
- *  @discussion 发送的视频数据需要是从 videoHandler 获取到的数据，并且需要填入回调时该画面对应的时间戳，否则对端的视频播放时序会被破坏。不允许改变回调数据的尺寸
+ *  @discussion 可以发送SDK回调上来的视频数据，也可以发送自定义视频数据 自定义数据输入不能超过720P
  *
  *  @return 发送结果
  */
 - (nullable NSError *)sendVideoSampleBuffer:(CMSampleBufferRef)buffer;
+
+/**
+ *  互动直播设置主画面
+ *
+ *  @param uid 被设置的用户id
+ *
+ *  @param completion 完成回调 如果设置成功 error 为 nil
+ *
+ *  @discussion 在互动直播下，动态切换布局，设置用户为主画面，只有互动直播主播可以设置
+ */
+- (void)setAsMainArea:(NSString *)uid completion:(void(^)(NSError * __nullable error))completion;
 
 /**
  *  切换互动直播推流地址
@@ -623,7 +696,6 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  @discussion 开始新的任务会结束正在进行中的任务
  */
 - (nullable NSError *)startAudioMix:(NIMNetCallAudioFileMixTask *)task;
-
 /**
  更新混音任务
  
@@ -664,12 +736,41 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  */
 - (nullable NIMNetCallAudioFileMixTask *)currentAudioMixTask;
 
+
+/**
+ 播放音效，用于在混音时播放短暂的音效
+ 
+ @param task 音效任务。其中的 sendVolume 参数在播放音效中无效
+ 
+ @return 结果, 如果成功开始了, 返回 nil
+ */
+- (nullable NSError *)playSoundEffect:(NIMNetCallAudioFileMixTask *)task;
+
+/**
+ 打开耳返
+ */
+- (void)startEarBack;
+
+/**
+ 关闭耳返
+ */
+- (void)stopEarBack;
+
+/**
+ 调节耳返音量
+ 
+ @param volume 耳返音量 接受输入值为 0 到 10
+ 
+ @return 是否调节成功
+ */
+- (BOOL)changeEarBackVolume:(NSUInteger)volume;
+
 /**
  *  获得当前视频通话的本地预览层
  *
  *  @return 预览层
  */
-- (nullable CALayer *)localPreviewLayer;
+- (nullable UIView *)localPreview;
 
 /**
  *  本地截图. 截取自己下一帧待发送的画面
@@ -771,6 +872,126 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  *  @param delegate 网络通话委托
  */
 - (void)removeDelegate:(id<NIMNetCallManagerDelegate>)delegate;
+
+/**
+ 选择滤镜类型
+ 
+ @param type  滤镜类型
+ 
+ @return 是否设置成功
+ */
+- (BOOL)selectBeautifyType:(NIMNetCallFilterType)type;
+
+/**
+ 改变焦距 实际放大倍数
+ 
+ @param scale 放大倍数
+ 
+ @return 是否设置成功
+ */
+- (BOOL)changeLensPosition:(float)scale API_UNAVAILABLE(macos);
+
+/**
+ 设置闪光灯开关
+ 
+ @param isFlashOn  是否开启闪光灯
+ */
+- (void)setCameraFlash:(BOOL)isFlashOn API_UNAVAILABLE(macos);
+
+/**
+ 设置预览镜像
+ 
+ @param isMirrorOn  是否开启预览镜像
+ */
+- (void)setPreViewMirror:(BOOL)isMirrorOn ;
+
+/**
+ 设置编码镜像
+ 
+ @param isMirrorOn  是否开启编码镜像
+ */
+- (void)setCodeMirror:(BOOL)isMirrorOn API_UNAVAILABLE(macos);
+
+/**
+ 设置对焦模式
+ 
+ @param mode  对焦模式
+ 
+ @return 是否设置成功
+ */
+- (BOOL)setFocusMode:(NIMNetCallFocusMode)mode API_UNAVAILABLE(macos);
+
+/**
+ 获取摄像头支持的最大放大倍数
+ 
+ *  @return 放大倍数
+ */
+- (CGFloat)getMaxZoomScale API_UNAVAILABLE(macos);
+
+/**
+ 添加静态水印
+ 
+ @param image  水印图片
+ 
+ @param rect   水印具体位置和大小（x，y根据location位置，计算具体的位置信息）
+ 
+ @param location  水印位置
+ 
+ @return 是否设置成功
+ */
+- (BOOL)addWaterMark:(UIImage*)image
+                rect:(CGRect)rect
+            location:(NIMNetCallWaterMarkLocation)location API_UNAVAILABLE(macos);
+
+/**
+ 添加动态水印
+ 
+ @param imageArray 动态图像数组
+ 
+ @param count 播放速度的快慢:count代表count帧显示同一张图
+ 
+ @param looped 是否循环，不循环就显示一次
+ 
+ @param rect 具体位置和大小（x，y根据location位置，计算具体的位置信息）
+ 
+ @param location 位置
+ 
+ @return 是否设置成功
+ */
+- (BOOL)addDynamicWaterMarks:(NSArray*)imageArray
+                    fpsCount:(unsigned int)count
+                        loop:(BOOL)looped
+                        rect:(CGRect)rect
+                    location:(NIMNetCallWaterMarkLocation)location API_UNAVAILABLE(macos);
+/**
+ *  清除水印
+ */
+- (void)cleanWaterMark API_UNAVAILABLE(macos);
+
+/**
+ 手动对焦
+ 
+ @param devicePoint 点
+ */
+- (void)changeNMCVideoPreViewManualFocusPoint:(CGPoint)devicePoint API_UNAVAILABLE(macos);
+
+/**
+ 设置对比度滤镜强度,支持自然 粉嫩 怀旧 黑白模式
+ 
+ @param value 值 [0-4] 默认为 1
+ 
+ @return 是否设置成功
+ */
+- (BOOL)setContrastFilterIntensity:(float)value API_UNAVAILABLE(macos);
+
+/**
+ 设置磨皮滤镜强度,支持自然 粉嫩 怀旧 黑白模式
+ 
+ @param value 值 [0-1] 默认为 0
+ 
+ @return 是否设置成功
+ */
+- (BOOL)setSmoothFilterIntensity:(float)value API_UNAVAILABLE(macos);
 
 @end
 

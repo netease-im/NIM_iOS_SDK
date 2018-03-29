@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+
+/**
+ * 查询订阅关系的结果
+ * @discussion 由查询订阅关系接口返回，表示和本账号订阅的关系详情
+ */
 @interface NIMSubscribeResult : NSObject
 
 /**

@@ -115,7 +115,6 @@ typedef NS_ENUM(NSInteger, NIMTeamUpdateTag){
     NIMTeamUpdateTagUpdateClientCustomMode = 24,
     /**
      *  群全体禁言
-     *  @discussion SDK 无法直接修改这个字段, 请调用服务器接口
      */
     NIMTeamUpdateTagMuteMode       = 100
     
@@ -163,6 +162,7 @@ typedef NS_ENUM(NSInteger, NIMTeamUpdateTag){
 
 /**
  *  群内修改的信息键值对
+ *  @discussion NSNumebr 取值范围为 NIMTeamUpdateTag 枚举类型
  */
 @property (nullable,nonatomic,copy,readonly)   NSDictionary<NSNumber *,NSString *>    *values;
 @end

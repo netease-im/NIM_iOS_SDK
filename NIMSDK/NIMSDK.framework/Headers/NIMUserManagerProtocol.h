@@ -231,7 +231,7 @@ typedef NS_ENUM(NSInteger, NIMUserInfoUpdateTag) {
  *              用户资料除自己之外，不保证其他用户资料实时更新
  *              其他用户资料更新的时机为: 1.调用 - (void)fetchUserInfos:completion: 方法刷新用户
  *                                    2.收到此用户发来消息
- *                                    3.程序再次启动，此时会同步好友信息
+ *                                    3.程序再次启动，此时会同步部分好友信息
  */
 - (nullable NIMUser *)userInfo:(NSString *)userId;
 
@@ -255,10 +255,10 @@ typedef NS_ENUM(NSInteger, NIMUserInfoUpdateTag) {
  *  @param values      需要更新的用户信息键值对
  *  @param completion  修改结果回调
  *
- *  @discussion   这个接口可以一次性修改多个属性,如昵称,头像等,传入的数据键值对是 {@(NIMUserInfoUpdateTag) : NSString},
+ *  @discussion   这个接口可以一次性修改多个属性,如昵称,头像等,传入的数据键值对是 {@(NIMUserInfoUpdateTag) : NSString/NSNumber},
  *                无效数据将被过滤。一些字段有修改限制，具体请参看 NIMUserInfoUpdateTag 的相关说明
  */
-- (void)updateMyUserInfo:(NSDictionary<NSNumber *,NSString *> *)values
+- (void)updateMyUserInfo:(NSDictionary<NSNumber *,id> *)values
               completion:(nullable NIMUserBlock)completion;
 
 /**

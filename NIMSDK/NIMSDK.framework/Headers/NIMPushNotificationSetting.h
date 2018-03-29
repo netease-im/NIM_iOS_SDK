@@ -69,7 +69,7 @@ typedef NS_ENUM(NSInteger, NIMPushNotificationDisplayType){
 
 /**
  *  桌面端在线时是否需要发送推送给手机端
- *  @discussion 默认为 YES，即需要推送,桌面端包括 PC，web 等...
+ *  @discussion 默认为 YES，即需要推送,桌面端包括 PC，web , macOS 等...
  */
 @property (nonatomic,assign)    BOOL    shouldPushNotificationWhenPCOnline;
 

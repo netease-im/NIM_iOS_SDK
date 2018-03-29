@@ -11,6 +11,21 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
+ *  聊天室队列修改权限
+ */
+typedef NS_ENUM(NSInteger, NIMChatroomQueueModificationLevel){
+    /**
+     *  所有人都可以修改聊天室队列
+     */
+    NIMChatroomQueueModificationLevelAnyone,
+    /**
+     *  只有管理员可以修改聊天室队列
+     */
+    NIMChatroomQueueModificationLevelManager,
+};
+
+
+/**
  *  聊天室
  */
 @interface NIMChatroom : NSObject
@@ -51,6 +66,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  直播拉流地址
  */
 @property (nullable,nonatomic,copy)   NSString *broadcastUrl;
+
+
+/**
+ *  聊天室队列修改权限等级
+ */
+@property (nonatomic,assign)   NIMChatroomQueueModificationLevel queueModificationLevel;
+
+
 
 /**
  *  聊天室是否正在全员禁言标记，禁言后只有管理员可以发言

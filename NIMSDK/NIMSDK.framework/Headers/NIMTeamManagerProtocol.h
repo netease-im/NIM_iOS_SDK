@@ -25,17 +25,19 @@ typedef void(^NIMTeamHandler)(NSError * __nullable error);
  *  创建群组block
  *
  *  @param error   错误,如果成功则error为nil
- *  @param teamId 群组ID
+ *  @param teamId  群组ID
+ *  @param failedUserIds 邀请失败的群成员ID
  */
-typedef void(^NIMTeamCreateHandler)(NSError * __nullable error,NSString * __nullable teamId);
+typedef void(^NIMTeamCreateHandler)(NSError * __nullable error, NSString * __nullable teamId, NSArray<NSString *> * __nullable failedUserIds);
+
 
 /**
- *  群成员block
+ *  群成员获取 block
  *
  *  @param error   错误,如果成功则error为nil
- *  @param members 群成员列表,内部为NIMTeamMember
+ *  @param members 成功的群成员列表,内部为NIMTeamMember
  */
-typedef void(^NIMTeamMemberHandler)(NSError * __nullable error,NSArray<NIMTeamMember *> * __nullable members);
+typedef void(^NIMTeamMemberHandler)(NSError * __nullable error, NSArray<NIMTeamMember *> * __nullable members);
 
 /**
  *  拉取群信息Block
@@ -43,7 +45,7 @@ typedef void(^NIMTeamMemberHandler)(NSError * __nullable error,NSArray<NIMTeamMe
  *  @param error 错误,如果成功则error为nil
  *  @param team  群信息
  */
-typedef void(^NIMTeamFetchInfoHandler)(NSError * __nullable error,NIMTeam * __nullable team);
+typedef void(^NIMTeamFetchInfoHandler)(NSError * __nullable error, NIMTeam * __nullable team);
 
 /**
  *  群申请block
@@ -51,7 +53,9 @@ typedef void(^NIMTeamFetchInfoHandler)(NSError * __nullable error,NIMTeam * __nu
  *  @param error       错误,如果成功则error为nil
  *  @param applyStatus 群申请状态
  */
-typedef void(^NIMTeamApplyHandler)(NSError * __nullable error,NIMTeamApplyStatus applyStatus);
+typedef void(^NIMTeamApplyHandler)(NSError * __nullable error, NIMTeamApplyStatus applyStatus);
+
+
 
 
 /**
@@ -103,11 +107,12 @@ typedef void(^NIMTeamApplyHandler)(NSError * __nullable error,NIMTeamApplyStatus
 - (nullable NSArray<NIMTeam *> *)allMyTeams;
 
 /**
- *  根据群组ID获取具体的群组信息
+ *  根据群组 ID 获取具体的群组信息
  *
- *  @param teamId 群组ID
+ *  @param teamId 群组 ID
  *
  *  @return 群组信息
+ *  @discussion 如果自己不在群里，则该接口返回 nil
  */
 - (nullable NIMTeam *)teamById:(NSString *)teamId;
 
@@ -364,7 +369,6 @@ typedef void(^NIMTeamApplyHandler)(NSError * __nullable error,NIMTeamApplyStatus
  *  @param newInfo      新的自定义属性
  *  @param teamId       群组ID
  *  @param completion   完成后的回调
- *  @discussion
  */
 - (void)updateMyCustomInfo:(NSString *)newInfo
                     inTeam:(NSString *)teamId
@@ -436,22 +440,22 @@ typedef void(^NIMTeamApplyHandler)(NSError * __nullable error,NIMTeamApplyStatus
 /**
  *  修改群通知状态
  *
- *  @param notify       是否通知
+ *  @param state        群通知状态
  *  @param teamId       群组ID
  *  @param completion   完成后的回调
  */
-- (void)updateNotifyState:(BOOL)notify
+- (void)updateNotifyState:(NIMTeamNotifyState)state
                    inTeam:(NSString *)teamId
                completion:(nullable NIMTeamHandler)completion;
 
 /**
- *  是否需要消息通知
+ *  群通知状态
  *
  *  @param teamId 群Id
  *
- *  @return 是否需要消息通知
+ *  @return 群通知状态
  */
-- (BOOL)notifyForNewMsg:(NSString *)teamId;
+- (NIMTeamNotifyState)notifyStateForNewMsg:(NSString *)teamId;
 
 
 /**
@@ -468,6 +472,17 @@ typedef void(^NIMTeamApplyHandler)(NSError * __nullable error,NIMTeamApplyStatus
                  inTeam:(NSString *)teamId
              completion:(nullable NIMTeamHandler)completion;
 
+/**
+ *  禁言群全体成员
+ *
+ *  @param mute        是否禁言
+ *  @param teamId      群组ID
+ *  @param completion  经验操作完成后的回调
+ *  @discussion   操作成功后，云信服务器会下发禁言的群通知消息
+ */
+- (void)updateMuteState:(BOOL)mute
+                inTeam:(NSString *)teamId
+            completion:(nullable NIMTeamHandler)completion;
 
 /**
  *  获取群组成员
@@ -497,8 +512,7 @@ typedef void(^NIMTeamApplyHandler)(NSError * __nullable error,NIMTeamApplyStatus
 
 
 /**
- *  通过网络请求获取群组成员
- *
+ *  通过网络请求获取群组成员  *
  *  @param teamId      群组ID
  *  @param completion  完成后的回调
  *  @discussion   通过网络请求获取群成员列表,不同于fetchTeamMembers:completion这个接口是个必然带网络请求的异步操作(增量请求)

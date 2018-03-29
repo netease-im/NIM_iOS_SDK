@@ -84,6 +84,7 @@ typedef NSUInteger(^NIMBadgeHandler)(void);
  *  注册获取 badge 数量的回调函数
  *
  *  @param handler 获取 badge 回调
+ *  @discussion 默认场景下，云信会将所有未读数量统一汇报给服务器，包括需要提醒和不需要提醒的会话未读数，上层可以通过注册该接口进行调整
  */
 - (void)registerBadgeCountHandler:(NIMBadgeHandler)handler;
 

@@ -7,7 +7,7 @@
 //
 
 #import "NIMMessageObjectProtocol.h"
-#import <UIKit/UIKit.h>
+#import "NIMPlatform.h"
 
 NS_ASSUME_NONNULL_BEGIN
 /**
@@ -59,6 +59,8 @@ typedef NS_ENUM(NSInteger, NIMImageFormat)
  *  图片实例对象初始化方法
  *
  *  @param filepath 要发送的图片路径
+ *
+ *  @discussion 使用此方法上传是不做压缩转换的原图上传。iOS 11 苹果采用了新的图片格式 HEIC ，如果采用原图会导致其他设备的兼容问题，请开发者在上层做好格式的兼容转换。
  *
  *  @return 图片实例对象
  */

@@ -2,7 +2,7 @@
 //  NIMAVChatDefs.h
 //  NIMAVChat
 //
-//  Created by fenric on 16/10/28.
+//  Created by Netease on 16/10/28.
 //  Copyright © 2016年 Netease. All rights reserved.
 //
 
@@ -58,7 +58,7 @@ typedef NS_ENUM(NSInteger, NIMNetCallVideoCaptureFormat) {
  */
 typedef NS_ENUM(NSInteger, NIMNetCallVideoQuality) {
     /**
-     *  默认视频质量
+     *  默认视频质量. 一般是 480P 等级
      */
     NIMNetCallVideoQualityDefault    = 0,
     /**
@@ -74,13 +74,17 @@ typedef NS_ENUM(NSInteger, NIMNetCallVideoQuality) {
      */
     NIMNetCallVideoQualityHigh       = 3,
     /**
-     *  480P等级视频质量
+     *  480P 等级视频质量
      */
     NIMNetCallVideoQuality480pLevel  = 4,
     /**
-     *  720P等级视频质量
+     *  540P 等级视频质量
      */
-    NIMNetCallVideoQuality720pLevel  = 5,
+    NIMNetCallVideoQuality540pLevel  = 5,
+    /**
+     *  720P 等级视频质量
+     */
+    NIMNetCallVideoQuality720pLevel  = 6,
     
 };
 
@@ -90,15 +94,15 @@ typedef NS_ENUM(NSInteger, NIMNetCallVideoQuality) {
  */
 typedef NS_ENUM(NSInteger, NIMNetCallVideoCrop) {
     /**
-     *  16:9裁剪
+     *  16:9 裁剪
      */
     NIMNetCallVideoCrop16x9             = 0,
     /**
-     *  4:3裁剪
+     *  4:3 裁剪
      */
     NIMNetCallVideoCrop4x3              = 1,
     /**
-     *  16:9裁剪
+     *  1:1 裁剪
      */
     NIMNetCallVideoCrop1x1              = 2,
     /**
@@ -156,7 +160,7 @@ typedef NS_ENUM(NSUInteger, NIMNetCallVideoFrameRate) {
      */
     NIMNetCallVideoFrameRate25FPS,
     /**
-     *  缺省帧率
+     *  缺省帧率. 15 FPS
      */
     NIMNetCallVideoFrameRateDefault,
     /**
@@ -179,27 +183,93 @@ typedef NS_ENUM(NSInteger, NIMNetCallMediaType){
     NIMNetCallMediaTypeVideo = 2,
 };
 
+/**
+ *  场景
+ */
+typedef NS_ENUM(NSUInteger, NIMAVChatScene) {
+    /**
+     *  默认场景
+     */
+    NIMAVChatSceneDefault,
+    
+    /**
+     *  高清音乐场景. 只在 preferHDAudio 开启时生效
+     */
+    NIMAVChatSceneHighQualityMusic,
+    
+    /**
+     *  自适应高清音乐场景. 只在 preferHDAudio 开启时生效. 该场景在多人会议中无其他端或者其他端都是观众时适时自动适配高清音乐，当其他端有发言者时自动适配 VoIP 通话
+     */
+    NIMAVChatSceneHighQualityMusicAdaptive,
+};
+
 
 /**
- *  视频混频模式, 用于互动直播连麦时的视频混频参数设置
+ *  视频调控策略
  */
-typedef NS_ENUM(NSUInteger, NIMNetCallVideoMixMode) {
+typedef NS_ENUM(NSUInteger, NIMAVChatVideoAdaptiveStrategy) {
+    /**
+     *  流畅优先
+     */
+    NIMAVChatVideoAdaptiveStrategySmooth = 1,
+    /**
+     *  清晰优先
+     */
+    NIMAVChatVideoAdaptiveStrategyQuality = 2,
+    /**
+     *  录屏模式
+     */
+    NIMAVChatVideoAdaptiveStrategyScreenRecord = 3,
+};
+
+
+/**
+ *  回声抑制
+ */
+typedef NS_ENUM(NSUInteger, NIMAVChatAcousticEchoCanceler) {
+    /**
+     *  默认回声抑制
+     */
+    NIMAVChatAcousticEchoCancelerDefault = 0,
+    /**
+     *  SDK 内建回声抑制
+     */
+    NIMAVChatAcousticEchoCancelerSDKBuiltin,
+    
+    /**
+     *  关闭回声抑制
+     */
+    NIMAVChatAcousticEchoCancelerClose,
+};
+/**
+ *  音视频混屏模式, 用于互动直播连麦时的音视频混屏参数设置
+ */
+typedef NS_ENUM(NSUInteger, NIMNetCallBypassStreamingMixMode) {
     /**
      *  右侧纵排浮窗(画中画)
      */
-    NIMNetCallVideoMixModeFloatingRightVertical  = 0,
+    NIMNetCallBypassStreamingMixModeFloatingRightVertical  = 0,
     /**
      *  左侧纵排浮窗(画中画)
      */
-    NIMNetCallVideoMixModeFloatingLeftVertical   = 1,
+    NIMNetCallBypassStreamingMixModeFloatingLeftVertical   = 1,
     /**
      *  分格平铺, 显示完整画面, 不裁剪
      */
-    NIMNetCallVideoMixModeLatticeAspectFit       = 2,
+    NIMNetCallBypassStreamingMixModeLatticeAspectFit       = 2,
     /**
      *  分格平铺, 填满区域, 可能裁剪
      */
-    NIMNetCallVideoMixModeLatticeAspectFill      = 3,
+    NIMNetCallBypassStreamingMixModeLatticeAspectFill      = 3,
+    /**
+     *  自定义视频布局
+     */
+    NIMNetCallBypassStreamingMixModeCustomVideoLayout      = 4,
+    /**
+     *  自定义音频布局（混屏人数）
+     */
+    NIMNetCallBypassStreamingMixModeCustomAudioLayout      = 5,
+
 };
 
 /**
@@ -274,6 +344,10 @@ typedef NS_ENUM(NSInteger, NIMNetCallErrorCode) {
      */
     NIMNetCallErrorCodeBeKicked           = 20412,
 
+    /**
+     *  房间被关闭
+     */
+    NIMNetCallErrorCodeChannelClosed      = 20413,
 
 };
 
@@ -283,79 +357,143 @@ typedef NS_ENUM(NSInteger, NIMNetCallErrorCode) {
  */
 typedef NS_ENUM(NSInteger, NIMAVLocalErrorCode) {
     /**
+     *  有正在进行的网络通话
+     */
+    NIMAVLocalErrorCodeNetCallBusy                  = 10012,
+    /**
+     *  这一通网络通话已经被其他端处理过了
+     */
+    NIMAVLocalErrorCodeNetCallOtherHandled          = 10013,
+    /**
+     *  音频设备初始化失败
+     */
+    NIMAVLocalErrorCodeAudioDeviceInitFailed        = 10015,
+
+    /**
      *  无法开始录制, 因为文件路径不合法
      */
-    NIMAVLocalErrorCodeRecordInvalidFilePath       = 17,
+    NIMAVLocalErrorCodeRecordInvalidFilePath       = 10017,
     /**
      *  开始录制失败
      */
-    NIMAVLocalErrorCodeRecordStartFailed           = 18,
+    NIMAVLocalErrorCodeRecordStartFailed           = 10018,
     
     /**
      *  创建录制文件失败
      */
-    NIMAVLocalErrorCodeRecordCreateFileFailed      = 19,
+    NIMAVLocalErrorCodeRecordCreateFileFailed      = 10019,
     
     /**
      *  初始化录制音频失败
      */
-    NIMAVLocalErrorCodeRecordInitAudioFailed       = 20,
+    NIMAVLocalErrorCodeRecordInitAudioFailed       = 10020,
     
     /**
      *  初始化录制视频失败
      */
-    NIMAVLocalErrorCodeRecordInitVideoFailed       = 21,
+    NIMAVLocalErrorCodeRecordInitVideoFailed       = 10021,
     
     /**
      *  开始写录制文件失败
      */
-    NIMAVLocalErrorCodeRecordStartWritingFailed    = 22,
+    NIMAVLocalErrorCodeRecordStartWritingFailed    = 10022,
     
     /**
      *  结束录制失败
      */
-    NIMAVLocalErrorCodeRecordStopFailed            = 23,
+    NIMAVLocalErrorCodeRecordStopFailed            = 10023,
     
     /**
      *  写录制文件失败
      */
-    NIMAVLocalErrorCodeRecordWritingFileFailed     = 24,
+    NIMAVLocalErrorCodeRecordWritingFileFailed     = 10024,
     
     /**
      *  空间不足，录制即将结束
      */
-    NIMAVLocalErrorCodeRecordWillStopForLackSpace  = 25,
+    NIMAVLocalErrorCodeRecordWillStopForLackSpace  = 10025,
     
     /**
      *  操作尚未完成
      */
-    NIMAVLocalErrorCodeOperationIncomplete         = 27,
+    NIMAVLocalErrorCodeOperationIncomplete         = 10027,
     /**
      *  连接网络通话服务器超时
      */
-    NIMAVLocalErrorCodeNetCallConnectTimeout       = 29,
+    
+    NIMAVLocalErrorCodeNetCallConnectTimeout       = 10029,
     /**
      *  非互动直播用户无法加入开启互动直播的房间，互动直播用户指主播和连麦者
      */
-    NIMAVLocalErrorCodeNetCallCannotJoinBypassChannel = 30,
+    NIMAVLocalErrorCodeNetCallCannotJoinBypassChannel = 10030,
     /**
-     *  该频道超过了互动直播房间用户数限制: 每个房间只能有一个主播和一个连麦者
+     *  该频道超过了互动直播房间用户数限制: 每个房间只能有一个主播和三个连麦者
      */
-    NIMAVLocalErrorCodeNetCallTooManyBypassStreamers = 31,
+    NIMAVLocalErrorCodeNetCallTooManyBypassStreamers = 10031,
     /**
-     *  该房间超过了互动直播主播数限制: 每个房间只能有一个主播和一个连麦者
+     *  该房间超过了互动直播主播数限制: 每个房间只能有一个主播和三个连麦者
      */
-    NIMAVLocalErrorCodeNetCallTooManyBypassStreamingHosts = 32,
+    NIMAVLocalErrorCodeNetCallTooManyBypassStreamingHosts = 10032,
     /**
      *  主播尚未加入互动直播房间，连麦者无法在主播之前加入
      */
-    NIMAVLocalErrorCodeNetCallHostNotJoined = 33,
+    NIMAVLocalErrorCodeNetCallHostNotJoined = 10033,
+    /**
+     *  主播设置定制布局参数错误
+     */
+    NIMAVLocalErrorCodeBypassStreamingCustomLayoutError  = 10034,
     
 };
 
 /**
+ *  互动直播设置主画面错误码 （AV） Doamin:NIMAVRoomServerErrorDomain
+ */
+typedef NS_ENUM(NSInteger, NIMAVRoomServerErrorCode) {
+    /**
+     *  服务器错误
+     */
+    NIMAVRoomServerErrorServerError = 101,
+    /**
+     *  请求失败
+     */
+    NIMAVRoomServerErrorConnctionFailed = 102,
+    /**
+     *  发起者不是主播
+     */
+    NIMAVRoomServerErrorNotAnchor = 103,
+    /**
+     *  模式错误
+     */
+    NIMAVRoomServerErrorModeFault = 104,
+    /**
+     *  请求参数错误
+     */
+    NIMAVRoomServerErrorUserInvalidParam = 400,
+    /**
+     *  请求认证错误
+     */
+    NIMAVRoomServerErrorKeyInvalid = 401,
+    /**
+     *  房间不存在
+     */
+    NIMAVRoomServerErrorRoomNotExsit = 404,
+    /**
+     *  房间内不存在该用户
+     */
+    NIMAVRoomServerErrorUserNotJoined = 405,
+    /**
+     *  请求数据错误
+     */
+    NIMAVRoomServerErrorInvalidRequst = 417, 
+    /**
+     *  服务器内部错误
+     */
+    NIMAVRoomServerErrorServerUnknown = 500,
+};
+
+/**
  *  服务器错误码 （AV） Doamin: NIMRemoteErrorDomain
- *  @discussion 更多错误详见 http://dev.netease.im/docs?doc=nim_status_code#服务器端状态码
+ *  @discussion 更多错误详见 [服务器端状态码](http://dev.netease.im/docs?doc=nim_status_code#服务器端状态码)
  */
 typedef NS_ENUM(NSInteger, NIMAVRemoteErrorCode) {
     /**
@@ -365,6 +503,36 @@ typedef NS_ENUM(NSInteger, NIMAVRemoteErrorCode) {
 };
 
 
+/**
+ *  网络通话的网络状态
+ */
+typedef NS_ENUM(NSInteger, NIMNetCallNetStatus){
+    
+    /**
+     *  网络极差,视频发送被关闭
+     */
+    NIMNetCallNetStatusVideoClosed = -1,
+    /**
+     *  网络非常好
+     */
+    NIMNetCallNetStatusVeryGood = 0,
+    /**
+     *  网络好
+     */
+    NIMNetCallNetStatusGood     = 1,
+    /**
+     *  网络弱
+     */
+    NIMNetCallNetStatusPoor     = 2,
+    /**
+     *  网络差
+     */
+    NIMNetCallNetStatusBad      = 3,
+    /**
+     *  网络极差, 建议停止视频发送
+     */
+    NIMNetCallNetStatusVeryBad  = 4,
+};
 
 
 /**
@@ -382,6 +550,128 @@ typedef NS_ENUM(NSUInteger, NIMRTSConferenceUserLeaveReason) {
 };
 
 
+/**
+ *  互动直播状态码
+ */
+typedef NS_ENUM(NSUInteger, NIMBypassStreamingStatus) {
+    
+    /**
+     *  初始状态
+     */
+    NIMBypassStreamingStatusInitial          = 500,
+    
+    /**
+     *  主播设置定制布局参数错误
+     */
+    NIMBypassStreamingStatusLayoutError      = 501,
+    
+    /**
+     *  开始连接
+     */
+    NIMBypassStreamingStatusConnecting       = 502,
+    
+    /**
+     *  连接成功
+     */
+    NIMBypassStreamingStatusConnected        = 503,
+    
+    /**
+     *  连连接失败
+     */
+    NIMBypassStreamingStatusConnectFailed    = 504,
+    
+    /**
+     *  推流中
+     */
+    NIMBypassStreamingStatusPushing          = 505,
+    
+    /**
+     *  推流中
+     */
+    NIMBypassStreamingStatusPushFailed       = 506,
+    
+    /**
+     *  互动直播服务器内部错误
+     */
+    NIMBypassStreamingStatusInternalError    = 507,
+    
+    /**
+     *  人数超出限制
+     */
+    NIMBypassStreamingStatusUserCountLimit  = 508,
+    
+};
+
+/**
+ *  美颜滤镜类型
+ */
+typedef NS_ENUM(NSUInteger, NIMNetCallFilterType) {
+    /**
+     *  无滤镜
+     */
+    NIMNetCallFilterTypeNormal = 0,
+    /**
+     *  黑白
+     */
+    NIMNetCallFilterTypeSepia,
+    /**
+     *  自然
+     */
+    NIMNetCallFilterTypeZiran,
+    /**
+     *  粉嫩
+     */
+    NIMNetCallFilterTypeMeiyan1,
+    /**
+     *  怀旧
+     */
+    NIMNetCallFilterTypeMeiyan2,
+};
+
+/**
+ *  水印位置
+ */
+typedef NS_ENUM(NSUInteger, NIMNetCallWaterMarkLocation) {
+    /**
+     *  由rect的origin定位置
+     */
+    NIMNetCallWaterMarkLocationRect = 0,
+    /**
+     *  左上
+     */
+    NIMNetCallWaterMarkLocationLeftUp,
+    /**
+     *  左下
+     */
+    NIMNetCallWaterMarkLocationLeftDown,
+    /**
+     *  右上
+     */
+    NIMNetCallWaterMarkLocationRightUp,
+    /**
+     *  右下
+     */
+    NIMNetCallWaterMarkLocationRightDown,
+    /**
+     *  中间
+     */
+    NIMNetCallWaterMarkLocationCenter
+};
+
+/**
+ *  对焦模式
+ */
+typedef NS_ENUM(NSUInteger, NIMNetCallFocusMode) {
+    /**
+     *  手动对焦
+     */
+    NIMNetCallFocusModeManual = 1,
+    /**
+     *  自动对焦
+     */
+    NIMNetCallFocusModeAuto,
+};
+
 
 /**
  *  NIM 多人实时会话 Error Domain
@@ -395,33 +685,14 @@ typedef NS_ENUM(NSInteger, NIMRTSConferenceErrorCode) {
     /**
      *  与服务器连接已断开
      */
-    NIMRTSConferenceErrorCodeServerDisconnected = 21001,
+    NIMRTSConferenceErrorCodeServerDisconnected  = 21001,
+    
+    /**
+     *  TCP 连接关闭
+     */
+    NIMRTSConferenceErrorCodeTcpConnectionClosed = 21002,
 
 };
-
-
-/***********                            老版本写法错误码兼容                              **************/
-
-#define NIMLocalErrorCodeRecordInvalidFilePath                  NIMAVLocalErrorCodeRecordInvalidFilePath
-#define NIMLocalErrorCodeRecordStartFailed                      NIMAVLocalErrorCodeRecordStartFailed
-#define NIMLocalErrorCodeRecordCreateFileFailed                 NIMAVLocalErrorCodeRecordCreateFileFailed
-#define NIMLocalErrorCodeRecordInitAudioFailed                  NIMAVLocalErrorCodeRecordCreateFileFailed
-#define NIMLocalErrorCodeRecordInitVideoFailed                  NIMAVLocalErrorCodeRecordInitVideoFailed
-#define NIMLocalErrorCodeRecordStartWritingFailed               NIMAVLocalErrorCodeRecordStartWritingFailed
-#define NIMLocalErrorCodeRecordStopFailed                       NIMAVLocalErrorCodeRecordStopFailed
-#define NIMLocalErrorCodeRecordWritingFileFailed                NIMAVLocalErrorCodeRecordWritingFileFailed
-#define NIMLocalErrorCodeRecordWillStopForLackSpace             NIMAVLocalErrorCodeRecordWillStopForLackSpace
-#define NIMLocalErrorCodeOperationIncomplete                    NIMAVLocalErrorCodeOperationIncomplete
-#define NIMLocalErrorCodeNetCallConnectTimeout                  NIMAVLocalErrorCodeNetCallConnectTimeout
-#define NIMLocalErrorCodeNetCallCannotJoinBypassChannel         NIMAVLocalErrorCodeNetCallCannotJoinBypassChannel
-#define NIMLocalErrorCodeNetCallTooManyBypassStreamers          NIMAVLocalErrorCodeNetCallTooManyBypassStreamers
-#define NIMLocalErrorCodeNetCallTooManyBypassStreamingHosts     NIMAVLocalErrorCodeNetCallTooManyBypassStreamingHosts
-#define NIMLocalErrorCodeNetCallHostNotJoined                   NIMAVLocalErrorCodeNetCallHostNotJoined
-#define NIMNetCallLocalErrorCodeUserInfoNeeded                  (16)
-
-
-#define NIMRemoteErrorCodeCalleeOffline                         NIMAVRemoteErrorCodeCalleeOffline
-
 
 
 #endif /* NIMAVChatDefs_h */

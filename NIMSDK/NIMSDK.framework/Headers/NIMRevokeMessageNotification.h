@@ -2,7 +2,7 @@
 //  NIMRevokeMessageNotification.h
 //  NIMLib
 //
-//  Created by amao on 2016/10/27.
+//  Created by Netease.
 //  Copyright © 2016年 Netease. All rights reserved.
 //
 
@@ -23,6 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
  * 撤回消息发起者
  */
 @property (nonatomic,copy,readonly)    NSString    *fromUserId;
+
+
+/**
+ * 消息的发送者，表示撤回的这条消息是谁发的
+ */
+@property (nonatomic,copy,readonly)    NSString    *messageFromUserId;
 
 /**
  * 撤回消息所属会话

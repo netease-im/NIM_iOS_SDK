@@ -77,7 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  需要下载的附件url
  *
  *  @return 附件url
- *  @discussion 如果当前字段是云信的 http url 地址，那么需要调用 id<NIMResourceManager> 中 convertHttpToHttps: 方法将这个地址转换为 https
+ *  @discussion 如果当前字段是云信的 http url 地址，那么需要调用 id<NIMResourceManager> 中 normalizeURLString: 方法将这个地址进行转 https 和 cdn 加速格式
  */
 - (NSString *)attachmentURLStringForDownloading;
 

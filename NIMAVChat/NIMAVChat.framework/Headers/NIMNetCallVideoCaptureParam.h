@@ -2,7 +2,7 @@
 //  NIMNetCallVideoCaptureParam.h
 //  NIMAVChat
 //
-//  Created by fenric on 17/3/24.
+//  Created by Netease on 17/3/24.
 //  Copyright © 2017年 Netease. All rights reserved.
 //
 
@@ -10,12 +10,14 @@
 #import <CoreMedia/CMSampleBuffer.h>
 #import "NIMAVChatDefs.h"
 
+@class NIMNetCallVideoProcessorParam;
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  视频数据处理Block
  *
- *  @param sampleBuffer 摄像头采集到的视频原始数据，其中的 CVPixelBuffer 是 kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange 数据格式
+ *  @param sampleBuffer 摄像头采集到的视频原始数据
  */
 typedef void(^NIMNetCallVideoSampleBufferHandler)(CMSampleBufferRef sampleBuffer);
 
@@ -26,9 +28,14 @@ typedef void(^NIMNetCallVideoSampleBufferHandler)(CMSampleBufferRef sampleBuffer
 
 /**
  *  期望的发送视频质量
- *  @discussion SDK可能会根据具体机型运算性能和协商结果调整为更合适的清晰度，导致该设置无效（该情况通常发生在通话一方有低性能机器时）
+ *  @discussion 默认是 480P 等级. SDK可能会根据具体机型运算性能和协商结果调整为更合适的清晰度, 导致该设置无效(该情况通常发生在低性能设备上)
  */
 @property (nonatomic,assign)    NIMNetCallVideoQuality   preferredVideoQuality;
+
+/**
+ *  视频裁剪, 默认 16:9
+ */
+@property (nonatomic,assign)    NIMNetCallVideoCrop          videoCrop;
 
 /**
  *  视频采集画面格式, 默认是 420f
@@ -53,7 +60,7 @@ typedef void(^NIMNetCallVideoSampleBufferHandler)(CMSampleBufferRef sampleBuffer
 @property (nonatomic, assign) NIMVideoOrientation videoCaptureOrientation;
 
 /**
- *  视频发送帧率
+ *  视频发送帧率. 默认是 15 FPS
  */
 @property (nonatomic, assign) NIMNetCallVideoFrameRate videoFrameRate;
 
@@ -63,6 +70,29 @@ typedef void(^NIMNetCallVideoSampleBufferHandler)(CMSampleBufferRef sampleBuffer
  */
 @property (nullable, nonatomic, copy) NIMNetCallVideoSampleBufferHandler  videoHandler;
 
+/**
+ 设置默认的手动对焦框
+ 
+ @discussion 只在支持手动对焦时才起作用，如果设置YES则使用默认的手动对焦框，设置NO表示不使用默认的手动对焦框，可以自己自定义对焦框。
+ */
+@property (nonatomic, assign) BOOL isSupportedManualFocusFrame;
+
+/**
+ * 是否打开预览镜像 默认打开
+ */
+@property (nonatomic, assign) BOOL isPreviewMirror;
+
+/**
+ * 是否打开编码镜像 默认关闭
+ */
+@property (nonatomic, assign) BOOL isCodeMirror;
+
+/**
+ * 视频前处理参数，如需开启前处理请指定该参数，不指定将不开启前处理。
+ 
+ @discussion 如果需要在通话开始时就已添加美颜，水印等前处理，请指定该参数中对应的参数。
+ */
+@property (nonatomic, strong) NIMNetCallVideoProcessorParam *videoProcessorParam;
 
 
 @end

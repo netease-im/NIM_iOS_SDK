@@ -147,4 +147,24 @@ typedef NS_ENUM(NSInteger, NIMTeamMemberType){
 };
 
 
+/**
+ *  群消息接受状态
+ */
+typedef NS_ENUM(NSInteger, NIMTeamNotifyState) {
+    /**
+     *  接受任何群消息通知
+     */
+    NIMTeamNotifyStateAll         = 0,
+    /**
+     *  不接受任何群消息通知
+     */
+    NIMTeamNotifyStateNone        = 1,
+    /**
+     *  只接受管理员的群消息通知
+     */
+    NIMTeamNotifyStateOnlyManager = 2,
+    
+};
+
+
 #endif

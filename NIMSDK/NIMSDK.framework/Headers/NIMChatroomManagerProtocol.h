@@ -317,7 +317,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
 
 
 /**
- *  更新聊天室通用队列
+ *  加入或者更新聊天室通用队列元素，权限由 NIMChatroom 的 queueModificationLevel 决定
  *
  *  @param request    聊天室队列请求
  *  @param completion 请求回调
@@ -327,7 +327,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
 
 
 /**
- *  移除聊天室队列元素
+ *  移除聊天室队列元素，权限由 NIMChatroom 的 queueModificationLevel 决定
  *
  *  @param request    拉取请求
  *  @param completion 请求回调
@@ -337,7 +337,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
 
 
 /**
- *  获取聊天室通用队列
+ *  获取聊天室队列
  *
  *  @param roomId     聊天室ID
  *  @param completion 请求回调
@@ -347,7 +347,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
 
 
 /**
- *  删除聊天室通用队列
+ *  删除聊天室队列，权限由 NIMChatroom 的 queueModificationLevel 决定
  *
  *  @param roomId     聊天室ID
  *  @param completion 请求回调

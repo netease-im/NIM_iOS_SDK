@@ -90,6 +90,46 @@ typedef NS_ENUM(NSInteger, NIMChatroomEventType){
      *  聊天室不在禁言状态
      */
     NIMChatroomEventTypeRoomUnMuted = 319,
+    /**
+     *  聊天室通用队列批量变更的通知
+     */
+    NIMChatroomEventTypeQueueBatchChange = 320,
+};
+
+/**
+ *  聊天室队列变更类型
+ */
+typedef NS_ENUM(NSInteger, NIMChatroomQueueChangeType){
+    /**
+     *  无效或未知变更类型
+     */
+    NIMChatroomQueueChangeTypeInvalid = 0,
+    /**
+     *  新增元素
+     */
+    NIMChatroomQueueChangeTypeOffer = 1,
+    /**
+     *  取出元素
+     */
+    NIMChatroomQueueChangeTypePoll = 2,
+    /**
+     *  清空元素
+     */
+    NIMChatroomQueueChangeTypeDrop = 3,
+};
+
+/**
+ *  聊天室队列批量变更类型
+ */
+typedef NS_ENUM(NSInteger, NIMChatroomQueueBatchChangeType){
+    /**
+     *  无效或未知变更类型
+     */
+    NIMChatroomQueueBatchChangeTypeInvalid = 0,
+    /**
+     *  部分批量清理操作(发生在提交元素的用户掉线时，清理这个用户对应的key)
+     */
+    NIMChatroomQueueBatchChangeTypePartClear = 4,
 };
 
 /**
@@ -140,6 +180,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomEventType){
  *
  *               NIMChatroomEventTypeEnter 类型: 扩展信息为 NSDictionary , KEY 值为 NIMChatroomEventInfoMutedKey ，NIMChatroomEventInfoTempMutedKey, NIMChatroomEventInfoTempMutedDurationKey
  *
+ *               NIMChatroomEventTypeQueueChange 类型: 扩展信息为 NSDictionary， KEY 值为 NIMChatroomEventInfoQueueChangeTypeKey , NIMChatroomEventInfoQueueChangeItemKey, NIMChatroomEventInfoQueueChangeItemValueKey
  */
 @property (nullable,nonatomic,copy,readonly) id ext;
 
@@ -159,6 +200,27 @@ extern NSString *const NIMChatroomEventInfoTempMutedKey;
  *  临时禁言时长
  */
 extern NSString *const NIMChatroomEventInfoTempMutedDurationKey;
+
+/**
+ *  聊天室变更类型
+ */
+extern NSString *const NIMChatroomEventInfoQueueChangeTypeKey;
+
+/**
+ *  聊天室变更元素
+ */
+extern NSString *const NIMChatroomEventInfoQueueChangeItemKey;
+
+/**
+ *  聊天室批量变更元素，为包含多个键值对的字典
+ */
+extern NSString *const NIMChatroomEventInfoQueueChangeItemsKey;
+
+
+/**
+ *  聊天室变更元素的值
+ */
+extern NSString *const NIMChatroomEventInfoQueueChangeItemValueKey;
 
 
 

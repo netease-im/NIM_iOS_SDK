@@ -44,6 +44,10 @@ typedef NS_ENUM(NSInteger, NIMLoginClientType) {
      *  REST API
      */
     NIMLoginClientTypeRestful     = 32,
+    /**
+     *  macOS
+     */
+    NIMLoginClientTypemacOS       = 64,
 };
 
 

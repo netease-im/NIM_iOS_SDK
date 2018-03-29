@@ -71,7 +71,7 @@ typedef NS_ENUM(NSInteger,NIMSubscribeEventOnlineValue){
 
 
 /**
- *  事件的状态值
+ *  事件的状态值,预定义事件值可以是内置 NIMSubscribeEventOnlineValue 枚举, 也可以是用户自定义
  */
 @property (nonatomic, assign) NSInteger value;
 
@@ -114,6 +114,8 @@ typedef NS_ENUM(NSInteger,NIMSubscribeEventOnlineValue){
 
 /**
  *  事件扩展字段，读取方法
+ *
+ *  @param type 客户端类型
  *
  *  @return 扩展字段
  */

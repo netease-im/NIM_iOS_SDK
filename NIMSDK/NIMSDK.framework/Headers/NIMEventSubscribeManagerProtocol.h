@@ -39,10 +39,9 @@ typedef void(^NIMEventSubscribeResponseBlock)(NSError * __nullable error, NSArra
 typedef void(^NIMEventSubscribeQueryBlock)(NSError * __nullable error, NSArray * __nullable results);
 
 
-
-
-
-
+/**
+ *  订阅回调
+ */
 @protocol NIMEventSubscribeManagerDelegate <NSObject>
 
 @optional
@@ -98,7 +97,7 @@ typedef void(^NIMEventSubscribeQueryBlock)(NSError * __nullable error, NSArray *
  *
  *  @param request 查询请求
  *  @param completion 完成回调
- *  @discussion 请求中必须填写 type 字段 ， 如果不填写 publishers 字段，则查询指定事件的全部订阅关系
+ *  @discussion 请求中必须填写 type 字段 和 publishers 字段
  */
 - (void)querySubscribeEvent:(NIMSubscribeRequest *)request
                  completion:(nullable NIMEventSubscribeQueryBlock)completion;

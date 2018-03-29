@@ -15,8 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 @class NIMRecentSession;
 @class NIMHistoryMessageSearchOption;
 @class NIMMessageSearchOption;
-
-
+@class NIMDeleteMessagesOption;
+@class NIMImportedRecentSession;
+@class NIMMessageReceipt;
+@class NIMTeamMessageReceiptDetail;
 
 /**
  *  读取服务器消息记录block
@@ -27,11 +29,19 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void(^NIMFetchMessageHistoryBlock)(NSError * __nullable error,NSArray<NIMMessage *> * __nullable messages);
 
 /**
- *  更新本地消息Block
+ *  更新本地消息 Block
  *
  *  @param error  错误,如果成功则error为nil
  */
 typedef void(^NIMUpdateMessageBlock)(NSError * __nullable error);
+
+/**
+ *  导入本地最近会话 Block
+ *
+ *  @param error  错误,如果成功则error为nil
+ *  @param failedImportedRecentSessions  导入失败的最近会话
+ */
+typedef void(^NIMImportRecentSessionsBlock)(NSError * __nullable error, NSArray<NIMImportedRecentSession *> * __nullable failedImportedRecentSessions);
 
 
 /**
@@ -58,6 +68,7 @@ typedef void(^NIMSearchMessageBlock)(NSError * __nullable error,NSArray<NIMMessa
  *  @param messages   读取的消息列表
  */
 typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictionary<NIMSession *,NSArray<NIMMessage *> *> * __nullable messages);
+
 
 /**
  *  会话管理器回调
@@ -98,6 +109,7 @@ typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictiona
 - (void)didRemoveRecentSession:(NIMRecentSession *)recentSession
               totalUnreadCount:(NSInteger)totalUnreadCount;
 
+
 /**
  *  单个会话里所有消息被删除的回调
  *
@@ -107,9 +119,13 @@ typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictiona
 
 /**
  *  所有消息被删除的回调
- *
  */
 - (void)allMessagesDeleted;
+
+/**
+ *  所有消息已读的回调
+ */
+- (void)allMessagesRead;
 
 
 @end
@@ -130,18 +146,18 @@ typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictiona
  *  删除某个会话的所有消息
  *
  *  @param session 待删除会话
- *  @param removeRecentSession 是否移除对应的会话项  YES则移除,NO则不移除。
+ *  @param option 删除消息选项
  */
 - (void)deleteAllmessagesInSession:(NIMSession *)session
-               removeRecentSession:(BOOL)removeRecentSession;
+                            option:(nullable NIMDeleteMessagesOption *)option;
 
 /**
  *  删除所有会话消息
  *
- *  @param removeRecentSessions 是否移除会话项,YES则移除,NO则不移除，但会将所有会话项设置成已删除状态
+ *  @param option 删除消息选项
  *  @discussion 调用这个接口只会触发allMessagesDeleted这个回调，其他针对单个recentSession的回调都不会被调用
  */
-- (void)deleteAllMessages:(BOOL)removeRecentSessions;
+- (void)deleteAllMessages:(nullable NIMDeleteMessagesOption *)option;
 
 
 /**
@@ -152,6 +168,13 @@ typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictiona
  */
 - (void)deleteRecentSession:(NIMRecentSession *)recentSession;
 
+/**
+ *  设置所有会话消息为已读
+ *
+ *  @discussion 异步方法，消息会标记为设置的状态。不会触发单条 recentSession 更新的回调，但会触发回调 - (void)allMessagesRead
+ */
+- (void)markAllMessagesRead;
+
 
 /**
  *  设置一个会话里所有消息置为已读
@@ -160,6 +183,7 @@ typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictiona
  *  @discussion 异步方法，消息会标记为设置的状态
  */
 - (void)markAllMessagesReadInSession:(NIMSession *)session;
+
 
 
 /**
@@ -179,15 +203,25 @@ typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictiona
  *  写入消息
  *
  *  @param message 需要更新的消息
- *  @param session 需要更新的消息
+ *  @param session 需要更新的会话
  *  @param completion 完成后的回调
- *  @discussion 当保存消息成功之后，会收到 NIMChatManagerDelegate 中的 onRecvMessages: 回调。目前支持消息类型:NIMMessageTypeText,NIMMessageTypeTip,NIMMessageTypeCustom
+ *  @discussion 当保存消息成功之后，会收到 NIMChatManagerDelegate 中的 onRecvMessages: 回调。不允许插入已存在的消息
  */
 - (void)saveMessage:(NIMMessage *)message
          forSession:(NIMSession *)session
          completion:(nullable NIMUpdateMessageBlock)completion;
 
 
+
+/**
+ *  导入最近会话
+ *
+ *  @param importedRecentSession 待导入的会话集合
+ *  @param completion 完成后的回调
+ *  @discussion 当导入最近会话成功之后，不会收到 NIMChatManagerDelegate 中的 recentSession 变化的回调，请直接在 completion 中做处理。不允许插入已经存在的最近会话。
+ */
+- (void)importRecentSessions:(NSArray<NIMImportedRecentSession *> *)importedRecentSession
+                  completion:(nullable NIMImportRecentSessionsBlock)completion;
 
 
 /**
@@ -223,11 +257,19 @@ typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictiona
  */
 - (NSInteger)allUnreadCount;
 
+
+/**
+ *  获取所有需要通知/不需要通知的最近会话未读数
+ *  @param notify 是否需要通知
+ *  @return 未读数
+ *  @discussion 群只有 notify state == NIMTeamNotifyStateAll 才算是允许需要通知
+ */
+- (NSInteger)allUnreadCount:(BOOL)notify;
+
 /**
  *  获取所有最近会话
- *  @discussion 只能在主线程调用
  *  @return 最近会话列表
- *  @discussion SDK 以 map 的形式保存 sessions，调用这个方法是将进行排序，数据量较大 (上万) 时会比较耗时。
+ *  @discussion SDK 以 map 的形式保存 sessions，调用这个方法时将进行排序，数据量较大 (上万) 时会比较耗时。
  */
 - (nullable NSArray<NIMRecentSession *> *)allRecentSessions;
 
@@ -300,6 +342,7 @@ typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictiona
  */
 - (void)updateRecentLocalExt:(nullable NSDictionary *)ext
                recentSession:(NIMRecentSession *)recentSession;
+
 
 /**
  *  添加通知对象
