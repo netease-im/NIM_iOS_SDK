@@ -12,9 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 @class NIMLocalAntiSpamCheckOption;
 @class NIMLocalAntiSpamCheckResult;
 
-/**
- *  反垃圾协议
- */
 @protocol NIMAntispamManager <NSObject>
 
 /**

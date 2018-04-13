@@ -197,7 +197,7 @@ typedef void(^NIMQueryReceiptDetailBlock)(NSError * __nullable error,NIMTeamMess
 /**
  *  刷新群组消息已读、未读数量
  *
- *  @param messages      要查询的消息集合
+ *  @param NIMMessage    要查询的消息
  *  @discussion          消息已读变化后，会通过 NIMChatManager 的代理 onRecvMessageReceipts: 回调给上层
  *                       刷新的消息必须为群组消息
  */
@@ -207,8 +207,7 @@ typedef void(^NIMQueryReceiptDetailBlock)(NSError * __nullable error,NIMTeamMess
 /**
  *  查询群组消息回执详情
  *
- *  @param message       要查询的消息
- *  @param completion    完成后的回调
+ *  @param NIMMessage    要查询的消息
  *  @discussion          详情包括已读人数的 id 列表和未读人数的 id 列表
  *                       查询详情对象不会跟着回执人数变化而变化，如果要获取最新的详情，必须再次调用此接口
  *
