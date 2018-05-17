@@ -51,6 +51,7 @@
 #import "NIMChatroomMemberRequest.h"
 #import "NIMChatroomUpdateRequest.h"
 #import "NIMChatroomQueueRequest.h"
+#import "NIMChatroomBeKickedResult.h"
 
 /**
  *  消息定义

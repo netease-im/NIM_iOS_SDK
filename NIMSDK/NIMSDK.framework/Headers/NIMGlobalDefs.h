@@ -166,8 +166,12 @@ typedef NS_ENUM(NSInteger, NIMLocalErrorCode) {
      */
     NIMLocalErrorCodeTeamReceiptDisabled            = 18,
     
+    /**
+     *  主动取消任务
+     */
+    NIMLocalErrorCodeManualCancelTask = 19,
     
-
+    
 };
 
 

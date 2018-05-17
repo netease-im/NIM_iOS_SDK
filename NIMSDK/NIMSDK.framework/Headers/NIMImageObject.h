@@ -30,7 +30,7 @@ typedef NS_ENUM(NSInteger, NIMImageFormat)
  */
 @interface NIMImageOption : NSObject
 /**
-*  压缩参数默认为0,可传入0.0-1.0的值,如果值为0或者不合法参数时按照0.5进行压缩
+*  压缩参数默认为 0.5,可传入0.0-1.0的值,如果传入非法参数，则按照 0.5 进行压缩
 */
 @property (nonatomic,assign)    float compressQuality;
 

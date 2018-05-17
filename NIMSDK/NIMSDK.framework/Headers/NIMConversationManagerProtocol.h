@@ -262,7 +262,7 @@ typedef void(^NIMGlobalSearchMessageBlock)(NSError * __nullable error,NSDictiona
  *  获取所有需要通知/不需要通知的最近会话未读数
  *  @param notify 是否需要通知
  *  @return 未读数
- *  @discussion 群只有 notify state == NIMTeamNotifyStateAll 才算是允许需要通知
+ *  @discussion 群只有 notify state != NIMTeamNotifyStateNone 才算是不允许通知
  */
 - (NSInteger)allUnreadCount:(BOOL)notify;
 

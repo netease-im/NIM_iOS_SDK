@@ -57,6 +57,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,assign)    BOOL        teamReceiptEnabled;
 
+/**
+ *  消息是否支持离线
+ *  @discussion 默认为YES，设置成 NO 之后消息将只会发送到在线的对端，对端不在线则会被丢弃。此开关对聊天室消息不生效
+ */
+@property (nonatomic,assign)    BOOL        persistEnable;
+
 
 @end
 

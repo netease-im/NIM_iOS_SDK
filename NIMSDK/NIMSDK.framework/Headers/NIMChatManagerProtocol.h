@@ -92,7 +92,7 @@ typedef void(^NIMQueryReceiptDetailBlock)(NSError * __nullable error,NIMTeamMess
  *  收到消息回执
  *
  *  @param receipts 消息回执数组
- *  @discussion 当上层收到此消息时所有的存储和 model 层业务都已经更新，只需要更新 UI 即可。如果对端发送的已读回执时间戳比当前端存储的最后时间戳还小，这个已读回执将被忽略。
+ *  @discussion 当上层收到此消息时所有的存储和 model 层业务都已经更新，只需要更新 UI 即可。
  */
 - (void)onRecvMessageReceipts:(NSArray<NIMMessageReceipt *> *)receipts;
 
@@ -140,7 +140,7 @@ typedef void(^NIMQueryReceiptDetailBlock)(NSError * __nullable error,NIMTeamMess
  *  @param session 接受方
  *  @param error   错误 如果在准备发送消息阶段发生错误,这个error会被填充相应的信息
  *
- *  @return 是否调用成功,这里返回的result只是表示当前这个函数调用是否成功,需要后续的回调才能够判断消息是否已经发送至服务器
+ *  @return 是否调用成功,这里返回的 result 只是表示当前这个函数调用是否成功,需要后续的回调才能够判断消息是否已经发送至服务器
  */
 - (BOOL)sendMessage:(NIMMessage *)message
           toSession:(NIMSession *)session
@@ -152,7 +152,7 @@ typedef void(^NIMQueryReceiptDetailBlock)(NSError * __nullable error,NIMTeamMess
  *  @param message 重发消息
  *  @param error   错误 如果在准备发送消息阶段发生错误,这个error会被填充相应的信息
  *
- *  @return 是否调用成功,这里返回的result只是表示当前这个函数调用是否成功,需要后续的回调才能够判断消息是否已经发送至服务器
+ *  @return 是否调用成功,这里返回的 result 只是表示当前这个函数调用是否成功,需要后续的回调才能够判断消息是否已经发送至服务器
  */
 - (BOOL)resendMessage:(NIMMessage *)message
                 error:(NSError * __nullable *)error;
@@ -164,8 +164,8 @@ typedef void(^NIMQueryReceiptDetailBlock)(NSError * __nullable error,NIMTeamMess
  *  @param message 消息
  *  @param session 接收方
  *  @param error   错误 如果在准备发送消息阶段发生错误,这个error会被填充相应的信息
- *n
- *  @return 是否调用成功,这里返回的result只是表示当前这个函数调用是否成功,需要后续的回调才能够判断消息是否已经发送至服务器
+ *
+ *  @return 是否调用成功,这里返回的 result 只是表示当前这个函数调用是否成功,需要后续的回调才能够判断消息是否已经发送至服务器
  */
 - (BOOL)forwardMessage:(NIMMessage *)message
              toSession:(NIMSession *)session
@@ -234,11 +234,24 @@ typedef void(^NIMQueryReceiptDetailBlock)(NSError * __nullable error,NIMTeamMess
  *  @param error   错误
  *
  *  @return 是否调用成功
- *  @discussion 附件包括：图片消息的图片缩略图，视频消息的视频缩略图，音频消息的音频文件和自定义消息中的自定义文件，SDK 会在收到消息后自动调用该接口
+ *  @discussion 附件包括：图片消息的图片缩略图，视频消息的视频缩略图，音频消息的音频文件，文件消息的文件以及自定义消息中的自定义文件
+ *              个人和群组消息 SDK 会在收到该消息时自动调用本接口，自动下载除 "文件消息的文件" 外的所有附件内容
  *
  */
 - (BOOL)fetchMessageAttachment:(NIMMessage *)message
                          error:(NSError * __nullable *)error;
+
+
+
+/**
+ *  取消收取消息附件
+ *
+ *  @param message 需要取消收取附件的消息
+ *
+ *  @discussion 附件包括：图片消息的图片缩略图，视频消息的视频缩略图，音频消息的音频文件，文件消息的文件以及自定义消息中的自定义文件
+ *              个人和群组消息。SDK 不会触发任何下载回调
+ */
+- (void)cancelFetchingMessageAttachment:(NIMMessage *)message;
 
 /**
  *  消息是否正在传输 (发送/接受附件)

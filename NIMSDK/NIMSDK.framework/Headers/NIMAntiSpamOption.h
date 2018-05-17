@@ -69,15 +69,25 @@ NS_ASSUME_NONNULL_BEGIN
  * 本地反垃圾检查结果类型
  */
 typedef NS_ENUM (NSInteger, NIMLocalAntiSpamOperate){
-    /* 本地反垃圾列表不存在 */
+    /**
+     *  本地反垃圾列表不存在
+     */
     NIMAntiSpamOperateFileNotExists,
-    /* 本地替换 */
+    /**
+     *  本地替换
+     */
     NIMAntiSpamResultLocalReplace,
-    /* 本地屏蔽 */
+    /**
+     *  本地屏蔽
+     */
     NIMAntiSpamResultLocalForbidden,
-    /* 服务器屏蔽 */
+    /**
+     *  服务器屏蔽
+     */
     NIMAntiSpamResultServerForbidden,
-    /* 没有命中词库，检查通过 */
+    /**
+     *  没有命中词库，检查通过
+     */
     NIMAntiSpamResultNotHit,
 };
 

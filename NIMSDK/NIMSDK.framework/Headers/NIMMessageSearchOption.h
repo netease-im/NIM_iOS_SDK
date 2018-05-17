@@ -132,7 +132,7 @@ typedef NS_ENUM(NSInteger,NIMMessageSearchOrder) {
 
 /**
  *  查询的消息类型
- *  @discusssion 消息类型组合，默认为 nil ，搜索全类型。 此参数只对聊天室会话有效,取值范围为: NIMMessageType 枚举类型
+ *  @discusssion 消息类型组合，默认为 nil ，搜索全类型。一旦设置了这个字段，则 sync 字段失效，查询结果不会写入 db 。
  */
 @property (nonatomic,copy)    NSArray<NSNumber *> *messageTypes;
 

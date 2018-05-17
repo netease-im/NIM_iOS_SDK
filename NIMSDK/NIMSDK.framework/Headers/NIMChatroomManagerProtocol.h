@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @class NIMChatroomQueueUpdateRequest;
 @class NIMChatroomQueueRemoveRequest;
 @class NIMHistoryMessageSearchOption;
+@class NIMChatroomBeKickedResult;
+
 /**
  *  聊天室网络请求回调
  *
@@ -146,10 +148,9 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
 /**
  *  被踢回调
  *
- *  @param roomId   被踢的聊天室Id
- *  @param reason   被踢原因
+ *  @param result   被踢的结果详情
  */
-- (void)chatroom:(NSString *)roomId beKicked:(NIMChatroomKickReason)reason;
+- (void)chatroomBeKicked:(NIMChatroomBeKickedResult *)result;
 
 
 /**
@@ -300,7 +301,7 @@ typedef NS_ENUM(NSInteger, NIMChatroomKickReason) {
  *  更新用户聊天室临时禁言状态
  *
  *  @param request    更新请求
- *  @param duration   临时禁言时长，单位为妙
+ *  @param duration   临时禁言时长，单位为秒
  *  @param completion 请求回调
  */
 - (void)updateMemberTempMute:(NIMChatroomMemberUpdateRequest *)request
