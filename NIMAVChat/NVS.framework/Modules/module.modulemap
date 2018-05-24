@@ -1,0 +1,6 @@
+framework module NVS {
+  umbrella header "NVS.h"
+
+  export *
+  module * { export * }
+}
