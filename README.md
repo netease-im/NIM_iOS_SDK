@@ -46,7 +46,7 @@
 
 举个例子，在同时使用云信和支付宝 `SDK` 时，会发生符号文件冲突的问题，原因是它们都依赖 `openssl`。在手动集成时，我们推荐直接移除某一方所依赖的 `libssl.a` 和 `libscrypto.a` 文件。而在使用 `Cocoapods` 集成时则可以通过 [post_install](https://guides.cocoapods.org/syntax/podfile.html#post_install) 方法进行冲突静态库的去除。
 
-**在 5.1.0 后，云信 iOS 将以 framework 的形式进行发布**
+**在 5.1.0 后，云信 iOS 将以动态库的形式进行发布**
 
 
 ## 历史版本
