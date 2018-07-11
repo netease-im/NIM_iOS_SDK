@@ -555,6 +555,14 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
 - (BOOL)setAudioMute:(BOOL)mute forUser:(NSString *)uid;
 
 /**
+ 指定所有远端用户是否对其静音
+ 
+ @param mute 是否静音, 静音后将听不到所有用户的声音
+ @return 是否设置成功.
+ */
+- (BOOL)setAllUserAudioMute:(BOOL)mute;
+
+/**
  *  指定某用户设置是否接收其视频
  *
  *  @param mute 是否拒绝视频, 拒绝后将没有该用户视频数据回调
@@ -757,6 +765,27 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  @return 结果, 如果成功开始了, 返回 nil
  */
 - (nullable NSError *)playSoundEffect:(NIMNetCallAudioFileMixTask *)task;
+
+/**
+ 混音文件总时长
+ 
+ @return 总时长 单位ms
+ */
+- (SInt64)fileTotalTime;
+
+/**
+ 混音文件当前播放时间
+ 
+ @return 当前播放时间  单位ms
+ */
+- (SInt64)currentPlayTime;
+
+/**
+ 混音文件seek到传入时间
+ 
+ @param time 传入时间 单位ms
+ */
+- (void)seekToTime:(SInt64)time;
 
 /**
  打开耳返
@@ -986,6 +1015,13 @@ typedef NS_ENUM(NSInteger, NIMNetCallCamera){
  @param devicePoint 点
  */
 - (void)changeNMCVideoPreViewManualFocusPoint:(CGPoint)devicePoint API_UNAVAILABLE(macos);
+
+/**
+ 设置曝光兴趣点
+ 
+ @param devicePoint 点
+ */
+-(void)changeNMCVideoExposurePointOfInterestPoint:(CGPoint)devicePoint API_UNAVAILABLE(macos);
 
 /**
  设置对比度滤镜强度,支持自然 粉嫩 怀旧 黑白模式

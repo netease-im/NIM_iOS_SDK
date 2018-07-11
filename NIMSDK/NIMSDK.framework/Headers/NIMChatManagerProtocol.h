@@ -56,10 +56,20 @@ typedef void(^NIMQueryReceiptDetailBlock)(NSError * __nullable error,NIMTeamMess
 @optional
 /**
  *  即将发送消息回调
- *  @discussion 因为发消息之前可能会有个异步的准备过程,所以需要在收到这个回调时才将消息加入到datasource中
+ *  @discussion 因为发消息之前可能会有个准备过程,所以需要在收到这个回调时才将消息加入到 Datasource 中
  *  @param message 当前发送的消息
  */
 - (void)willSendMessage:(NIMMessage *)message;
+
+
+/**
+ *  上传资源文件成功的回调
+ *  @discussion 对于需要上传资源的消息(图片，视频，音频等)，SDK 将在上传资源成功后通过这个接口进行回调，上层可以在收到该回调后进行推送信息的重新配置 (APNS payload)
+ *  @param urlString 当前消息资源获得的 url 地址
+ *  @param message 当前发送的消息
+ */
+- (void)uploadAttachmentSuccess:(NSString *)urlString
+                     forMessage:(NIMMessage *)message;
 
 /**
  *  发送消息进度回调

@@ -74,6 +74,13 @@ typedef NS_ENUM(NSInteger, NIMUserGender) {
 @property (nullable,nonatomic,copy)   NSString  *ext;
 
 /**
+ *  服务器扩展字段
+ *  @discussion 该字段只能由服务器进行修改，客户端只能读取
+ *
+ */
+@property (nullable,nonatomic,copy,readonly)   NSString  *serverExt;
+
+/**
  *  用户资料，仅当用户选择托管信息到云信时有效
  *  用户资料除自己之外，不保证其他用户资料实时更新
  *  其他用户资料更新的时机为: 1.调用 - (void)fetchUserInfos:completion: 方法刷新用户

@@ -120,6 +120,21 @@ typedef void(^NIMDownloadCompleteBlock)(NSError * __nullable error);
 - (NSString *)convertURLToAcceleratedURL:(NSString *)urlString;
 
 
+/**
+ *  将传入的 nos 图片 url 调整为缩略图形式 url
+ *
+ *  @param urlString 图片url
+ *
+ */
+- (NSString *)imageThumbnailURL:(NSString *)urlString;
+
+/**
+ *  将传入的 nos 视频 url 调整为缩略图形式 url
+ *
+ *  @param urlString 视频url
+ *
+ */
+- (NSString *)videoThumbnailURL:(NSString *)urlString;
 
 
 /**
@@ -129,7 +144,7 @@ typedef void(^NIMDownloadCompleteBlock)(NSError * __nullable error);
  *  @param completion   完成回调
  */
 - (void)searchResourceFiles:(NIMResourceQueryOption *)option
-              completion:(NIMResourceSearchHandler)completion;
+                 completion:(NIMResourceSearchHandler)completion;
 
 /**
  *  删除缓存的资源文件
@@ -138,7 +153,7 @@ typedef void(^NIMDownloadCompleteBlock)(NSError * __nullable error);
  *  @param completion   完成回调
  */
 - (void)removeResourceFiles:(NIMResourceQueryOption *)option
-              completion:(NIMResourceDeleteHandler)completion;
+                 completion:(NIMResourceDeleteHandler)completion;
 
 @end
 

@@ -73,13 +73,6 @@ NS_ASSUME_NONNULL_BEGIN
  * NOS 加速替换地址
  */
 @property (nonatomic,copy,nullable)     NSString    *nosAccelerateAddress;
-
-
-
-/**
- * NRTC 服务器地址
- */
-@property (nonatomic,copy,nullable)     NSString    *nrtcServerAddress;
 /**
  * NT 服务器地址
  */

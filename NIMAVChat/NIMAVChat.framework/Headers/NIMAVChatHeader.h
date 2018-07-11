@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class NIMAVChatServerSetting;
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -21,6 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return NIMAVChatSDK实例
  */
 + (instancetype)sharedSDK;
+
+/**
+ *  当前音视频服务器配置
+ *  @discussion 私有化需要进行自定义设置，必须在注册 appkey 完成之前设置
+ */
+@property (nonatomic,strong)            NIMAVChatServerSetting *serverSetting;
 
 /**
  *  网络通话管理类

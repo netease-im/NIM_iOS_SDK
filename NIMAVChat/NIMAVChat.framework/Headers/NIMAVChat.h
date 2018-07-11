@@ -47,4 +47,5 @@
 /**
  *  音视频业务类
  */
+#import "NIMAVChatServerSetting.h"
 #import "NIMAVChatHeader.h"
