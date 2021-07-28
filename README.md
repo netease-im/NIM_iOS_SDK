@@ -52,3 +52,7 @@
 ## 历史版本
 
 你可以在当前仓库的 [Release](https://github.com/netease-im/NIM_iOS_SDK/releases) 进行历史版本下载。
+
+**推荐客户得京东卡，首次推荐成单得3000元京东卡，连续推荐4500元/单，上不封顶。点击参与https://yunxin.163.com/promotion/recommend**
+
+![main](https://github.com/netease-kit/NIM_iOS_UIKit/blob/master/activity-1.png)
